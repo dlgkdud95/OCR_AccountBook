@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="301dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:clickable="true"
+        app:backgroundTint="#FFFFFF"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toBottomOf="@id/fab_main"
+        app:layout_constraintEnd_toEndOf="@id/fab_main"
+        app:layout_constraintStart_toStartOf="@+id/fab_main"
+        app:layout_constraintTop_toTopOf="@+id/fab_main"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_writing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:src="@drawable/ic_baseline_pen_24"
+        app:backgroundTint="#FFFFFF"
+        app:fabSize="mini"
+        app:layout_constraintTop_toTopOf="@+id/fab_main"
+        app:layout_constraintBottom_toBottomOf="@id/fab_main"
+        app:layout_constraintStart_toStartOf="@+id/fab_main"
+        app:layout_constraintEnd_toEndOf="@id/fab_main"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:layout_marginEnd="124dp"
+        android:layout_marginBottom="80dp"
+        android:clickable="true"
+        android:src="@drawable/ic_baseline_add_24"
+        app:backgroundTint="#0065B6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="42dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout5"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txt_total"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:gravity="center_horizontal"
+            android:text="총"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:gravity="center_horizontal"
+            android:text="0원"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="2dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/calendarView"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout4"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/txt_outlay"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:gravity="center_horizontal"
+            android:text="지출"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/outlay"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:gravity="center_horizontal"
+            android:text="0원"
+            android:textAllCaps="false"
+            android:textColor="#E64033"
+            android:textColorHighlight="#E64033"
+            android:textColorLink="#E64033"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="2dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/calendarView"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txt_income"
+            android:layout_width="136dp"
+            android:layout_height="25dp"
+            android:gravity="center_horizontal"
+            android:text="수입"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/income"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:gravity="center_horizontal"
+            android:text="0원"
+            android:textColor="#3F51B5"
+            android:textColorHighlight="#3F51B5"
+            android:textColorHint="#4657B5"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

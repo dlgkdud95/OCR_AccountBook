@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="catalog">
+        <item> </item>
+        <item>식비</item>
+        <item>교통비</item>
+        <item>패션/미용</item>
+        <item>생필품</item>
+        <item>의류/미용</item>
+        <item>교육</item>
+        <item>통신비</item>
+        <item>저축</item>
+        <item>의료/건강</item>
+        <item>경조사/용돈</item>
+    </string-array>
+</resources>

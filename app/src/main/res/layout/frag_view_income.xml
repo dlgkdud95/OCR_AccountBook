@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="380dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/in_txt_date"
+                android:layout_width="100dp"
+                android:layout_height="70dp"
+                android:gravity="center"
+                android:text="날짜"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/in_txt_price"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:gravity="center"
+                android:text="금액"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/in_txt_method"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:gravity="center"
+                android:text="결제수단"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/in_txt_catalog"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:gravity="center"
+                android:text="분류"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/in_txt_details"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:gravity="center"
+                android:text="내용"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="380dp"
+            android:layout_marginRight="16dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/in_editTextDate"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:inputType="date" />
+
+            <EditText
+                android:id="@+id/in_editTextMoney"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:inputType="numberSigned" />
+
+            <Spinner
+                android:id="@+id/in_sp_method"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:entries="@array/method" />
+
+            <Spinner
+                android:id="@+id/in_sp_catalog"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:entries="@array/catalog" />
+
+            <EditText
+                android:id="@+id/in_editTextDetails"
+                android:layout_width="match_parent"
+                android:layout_height="70dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
