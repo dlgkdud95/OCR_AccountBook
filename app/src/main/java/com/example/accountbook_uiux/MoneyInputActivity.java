@@ -73,10 +73,10 @@ public class MoneyInputActivity extends AppCompatActivity {
 
         //수입,지출 창 viewPager
         FragmentManager fm = getSupportFragmentManager();
-        adapter = new FragmentAdapter(fm, getLifecycle()); //
+        adapter = new FragmentAdapter(fm, getLifecycle()); //FragmentAdapter클래스와 연결, Frag_inout, Frag_outlay클래스를 리턴하는 클래스
         pager2.setAdapter(adapter); //viewpager와 adapter연결,
 
-        //탭 셋팅
+        //탭 셋팅, 탭 추가함
         tabLayout.addTab(tabLayout.newTab().setText("수입"));
         tabLayout.addTab(tabLayout.newTab().setText("지출"));
 
@@ -84,7 +84,7 @@ public class MoneyInputActivity extends AppCompatActivity {
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) { //선택 시
-                pager2.setCurrentItem(tab.getPosition());
+                pager2.setCurrentItem(tab.getPosition());  //선택한 탭의 position값 넘겨줌
             }
 
             @Override
@@ -117,8 +117,8 @@ public class MoneyInputActivity extends AppCompatActivity {
         bt_register = findViewById(R.id.bt_register);
         bt_register.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class); //bt_register(저장하기) 버튼을 누르면 메인뷰(캘린더화면)으로 돌아감
+            public void onClick(View view) {  //bt_register(저장하기) 버튼을 누르면 메인뷰(캘린더화면)으로 돌아감
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
         });
