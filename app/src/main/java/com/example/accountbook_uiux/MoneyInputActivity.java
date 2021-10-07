@@ -94,8 +94,8 @@ public class MoneyInputActivity extends AppCompatActivity {
                 }
                 else if (tab.getPosition() == 1) {
                     //총 지출
-                    int outlay_money = Integer.parseInt(out_editTextMoney.getText().toString());   //여기서 오류 생김, 해결해야됨 'android.text.Editable android.widget.EditText.getText()' on a null object reference
-                    OUTLAYTOTAL = OUTLAYTOTAL + outlay_money;
+                    int outlay_money = Integer.parseInt(out_editTextMoney.getText().toString());   //여기서 오류 생김, 해결해야됨
+                    OUTLAYTOTAL = OUTLAYTOTAL + outlay_money;                                      //오류 내용 : 'android.text.Editable android.widget.EditText.getText()' on a null object reference
                 }
                 //수입과 지출의 합
                 SUMTOTAL = INCOMETOTAL - OUTLAYTOTAL;
