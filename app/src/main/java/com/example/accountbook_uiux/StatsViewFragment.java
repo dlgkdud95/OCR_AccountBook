@@ -16,7 +16,7 @@ public class StatsViewFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view_stats = inflater.inflate(R.layout.frame_main, container, false);
+        view_stats = inflater.inflate(R.layout.frame_stats, container, false);
 
         return view_stats;
     }

@@ -30,11 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
     //private FragmentStateAdapter fragmentStateAdapter;
 
-    //frame_main (메인화면) 변수
-    CalendarView calendarView;
-    FloatingActionButton fab_main, fab_camera, fab_writing;
-    TextView txt_outlay, outlay, txt_income, income, txt_total, total;
-
     //frame_stats 변수
 
     //activity_main 화면
@@ -57,31 +52,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //frame_main
-        calendarView = (CalendarView) findViewById(R.id.calendarView);
-        txt_income = (TextView) findViewById(R.id.txt_income);
-        txt_outlay = (TextView) findViewById(R.id.txt_outlay);
-        txt_total = (TextView) findViewById(R.id.txt_total);
-        income = (TextView) findViewById(R.id.income);
-        outlay = (TextView) findViewById(R.id.outlay);
-        total = (TextView) findViewById(R.id.total);
-
-
-
-       /* sp_breakdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                btn_breakdown.setText(adapterView.getItemIdAtPosition(i).toString());
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-       */
-
-
         //하단 네비게이션 눌렀을 때 화면 변경 됨, onNavi~() 메소드 통해 setFrag() 메소드가 해당하는 Fragment로 교체함
         bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -101,35 +71,6 @@ public class MainActivity extends AppCompatActivity {
         mainViewFragment = new MainViewFragment();
         statsViewFragment = new StatsViewFragment();
         setFrag(0);  // 메인 화면 선택
-
-        fab_main = (FloatingActionButton) findViewById(R.id.fab_main);
-        fab_camera = (FloatingActionButton) findViewById(R.id.fab_camera);
-        fab_writing = (FloatingActionButton) findViewById(R.id.fab_writing);
-
-        //(플로팅액션버튼)버튼을 누르면 화면이 넘어감(fab_main 제외)
-        fab_main.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toggleFab(); //버튼 클릭 시 밑에 2개 버튼이 위로 나타나는 애니메이션 효과
-            }
-        });
-        fab_writing.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //수입,지출 화면 전환
-                Intent intent = new Intent(getApplicationContext(), MoneyInputActivity.class);
-                startActivity(intent);
-            }
-        });
-        fab_camera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                takePicture(); //카메라 연동 메소드(찍은 사진 저장할 파일 위치 지정 및 카메라 앱 열기), CameraActivity화면으로 바로 넘어갈 지 사진을 찍고 넘어갈 지 결정x
-                Intent intent = new Intent(getApplicationContext(), CameraActivity.class);
-                startActivity(intent); //CameraActivity로 화면 전환
-            }
-        });
-
     }
 
     //하단 네비게이션 프래그먼트 교체 , onNavigationItemSelected()메소드 안에서 사용
@@ -149,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void toggleFab() {
+   /* public void toggleFab() {
         if (isFabOpen) { //닫힌상태
             //writing, camera y축으로 0만큼 움직임
             ObjectAnimator.ofFloat(fab_writing, "translationY", 0f).start();
@@ -161,9 +102,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         isFabOpen = !isFabOpen;
-    }
+    }*/
 
-    //카메라 연동 매소드
+   /* //카메라 연동 매소드
     public void takePicture() {
         try {
             file = createFile(); //사진 찍고 결과물 저장할 파일 만듦
@@ -212,5 +153,5 @@ public class MainActivity extends AppCompatActivity {
 
             camera_receipt.setImageBitmap(bitmap); ////Bitmap객체로 만들어진 파일이 이미지뷰로 보임
         }
-    }
+    } */
 }

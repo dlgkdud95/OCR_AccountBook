@@ -19,9 +19,9 @@ public class FragmentAdapter extends FragmentStateAdapter {
 
         switch (position) {
             case 0:
-                return new Frag_outlay();
-            case 1:
                 return new Frag_income();
+            case 1:
+                return new Frag_outlay();
         }
         return null;
     }

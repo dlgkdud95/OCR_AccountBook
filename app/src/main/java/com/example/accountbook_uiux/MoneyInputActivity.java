@@ -84,7 +84,21 @@ public class MoneyInputActivity extends AppCompatActivity {
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) { //선택 시
+               // int income_money, outlay_money;
                 pager2.setCurrentItem(tab.getPosition());  //선택한 탭의 position값 넘겨줌
+
+                if (tab.getPosition() == 0) {
+                    //총 수입
+                    int income_money = Integer.parseInt(in_editTextMoney.getText().toString());
+                    INCOMETOTAL = INCOMETOTAL + income_money;
+                }
+                else if (tab.getPosition() == 1) {
+                    //총 지출
+                    int outlay_money = Integer.parseInt(out_editTextMoney.getText().toString());   //여기서 오류 생김, 해결해야됨 'android.text.Editable android.widget.EditText.getText()' on a null object reference
+                    OUTLAYTOTAL = OUTLAYTOTAL + outlay_money;
+                }
+                //수입과 지출의 합
+                SUMTOTAL = INCOMETOTAL - OUTLAYTOTAL;
             }
 
             @Override
@@ -105,14 +119,14 @@ public class MoneyInputActivity extends AppCompatActivity {
             }
         });
 
-        //총 수입
+        /*//총 수입
         int income_money = Integer.parseInt(in_editTextMoney.getText().toString());
         INCOMETOTAL = INCOMETOTAL + income_money;
         //총 지출
         int outlay_money = Integer.parseInt(out_editTextMoney.getText().toString());
         OUTLAYTOTAL = OUTLAYTOTAL + outlay_money;
         //수입과 지출의 합
-        SUMTOTAL = INCOMETOTAL - OUTLAYTOTAL;
+        SUMTOTAL = INCOMETOTAL - OUTLAYTOTAL;  */
 
         bt_register = findViewById(R.id.bt_register);
         bt_register.setOnClickListener(new View.OnClickListener() {
@@ -122,6 +136,5 @@ public class MoneyInputActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 }
