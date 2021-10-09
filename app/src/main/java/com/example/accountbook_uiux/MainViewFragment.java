@@ -2,6 +2,8 @@ package com.example.accountbook_uiux;
 
 import static android.app.Activity.RESULT_OK;
 
+import static com.example.accountbook_uiux.MainActivity.dbHelper;
+
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
@@ -31,6 +33,10 @@ import java.io.File;
 
 public class MainViewFragment extends Fragment  {
 
+
+
+
+    MainActivity mainActivity = new MainActivity();
     private View view_main;
 
     //frame_main (메인화면) 변수
@@ -45,7 +51,7 @@ public class MainViewFragment extends Fragment  {
     private boolean isFabOpen = false;
 
     private Uri uri; //file, 웹 주소 관련 처리하는 객체
-
+    MoneyInputActivity moneyInputActivity = new MoneyInputActivity();
 
     @Nullable
     @Override
@@ -60,11 +66,14 @@ public class MainViewFragment extends Fragment  {
         outlay = (TextView) view_main.findViewById(R.id.outlay);
         total = (TextView) view_main.findViewById(R.id.total);
 
-        MoneyInputActivity moneyInputActivity = new MoneyInputActivity();
 
-        income.setText(String.valueOf(moneyInputActivity.INCOMETOTAL)); // INCOMETOTAL 텍스트화함
-        outlay.setText(String.valueOf(moneyInputActivity.OUTLAYTOTAL)); //OUTLAYTOTAL 텍스트화함
-        total.setText(String.valueOf(moneyInputActivity.SUMTOTAL));     //SUMTOTAL 텍스트화함
+
+
+
+
+        income.setText(Integer.toString(dbHelper.getSum("수입"))+ " 원"); // INCOMETOTAL 텍스트화함
+        outlay.setText(Integer.toString(dbHelper.getSum("지출"))+ " 원"); //OUTLAYTOTAL 텍스트화함
+        total.setText(Integer.toString(dbHelper.getSum("수입") - dbHelper.getSum("지출"))+ " 원");     //SUMTOTAL 텍스트화함
 
         floatingActionButton(view_main); //fab버튼 작동 할 수 있게 해주는 메소드
 
@@ -81,7 +90,7 @@ public class MainViewFragment extends Fragment  {
         fab_main.setOnClickListener(new View.OnClickListener() { //버튼 클릭시 수행할 동작 지정
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "누름", Toast.LENGTH_SHORT).show();
+
                 toggleFab();
             }
         });
