@@ -63,10 +63,6 @@ public class MoneyInputActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.money_input);
 
-
-
-
-
         //money_input
         tabLayout = findViewById(R.id.tablayout);
         pager2 = findViewById(R.id.viewPager);
@@ -84,9 +80,6 @@ public class MoneyInputActivity extends AppCompatActivity {
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE); // Inflate를 사용하여 다른 레이아웃 접근
 
 
-
-
-
         //탭 메뉴 누르면 해당 프래그먼트로 변경됨
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -96,14 +89,10 @@ public class MoneyInputActivity extends AppCompatActivity {
 
                 if (tab.getPosition() == 0) {
                     TYPE_SELECTED = 0;
-
-
-
                 }
                 else if (tab.getPosition() == 1) {
                     TYPE_SELECTED = 1;
                 }
-
 
             }
 
@@ -125,24 +114,12 @@ public class MoneyInputActivity extends AppCompatActivity {
             }
         });
 
-        /*//총 수입
-        int income_money = Integer.parseInt(in_editTextMoney.getText().toString());
-        INCOMETOTAL = INCOMETOTAL + income_money;
-        //총 지출
-        int outlay_money = Integer.parseInt(out_editTextMoney.getText().toString());
-        OUTLAYTOTAL = OUTLAYTOTAL + outlay_money;
-        //수입과 지출의 합
-        SUMTOTAL = INCOMETOTAL - OUTLAYTOTAL;  */
-
-
-
+        //등록 버튼
         bt_register = findViewById(R.id.bt_register);
         bt_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {  //bt_register(저장하기) 버튼을 누르면 메인뷰(캘린더화면)으로 돌아감
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-
-
 
                 if(TYPE_SELECTED == 0) //수입
                 {
@@ -158,7 +135,6 @@ public class MoneyInputActivity extends AppCompatActivity {
                     in_editTextDetails = (EditText) container.findViewById(R.id.in_editTextDetails);
                     in_sp_method = (Spinner) container.findViewById(R.id.in_sp_method);
                     in_sp_catalog = (Spinner) container.findViewById(R.id.in_sp_catalog);
-
 
 
                     int cost = Integer.parseInt(in_editTextMoney.getText().toString());
@@ -184,6 +160,7 @@ public class MoneyInputActivity extends AppCompatActivity {
                     out_editTextDetails = (EditText)container.findViewById(R.id.out_editTextDetails);
                     out_sp_method = (Spinner) container.findViewById(R.id.out_sp_method);
                     out_sp_catalog = (Spinner) container.findViewById(R.id.out_sp_catalog);
+
 
                     int cost = Integer.parseInt(out_editTextMoney.getText().toString());
                     String category = out_sp_catalog.getSelectedItem().toString();
@@ -232,11 +209,9 @@ public class MoneyInputActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
 
-
             }
         });
 
     }
-
 
 }
