@@ -26,8 +26,6 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 
 public class MoneyInputActivity extends AppCompatActivity {
-   // private FragmentStateAdapter fragmentStateAdapter;
-
 
     public static Context mContext;
     public static int LIMIT_OUTLAY = 50000; // 지출 제한
@@ -84,7 +82,7 @@ public class MoneyInputActivity extends AppCompatActivity {
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) { //선택 시
-               // int income_money, outlay_money;
+
                 pager2.setCurrentItem(tab.getPosition());  //선택한 탭의 position값 넘겨줌
 
                 if (tab.getPosition() == 0) {
