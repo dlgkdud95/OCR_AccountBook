@@ -36,22 +36,13 @@ public class MainActivity extends AppCompatActivity {
     Date mDate;
     SimpleDateFormat mFormat = new SimpleDateFormat("yyyy-MM-dd"); // 현재 날짜 구하기
 
-    //private FragmentStateAdapter fragmentStateAdapter;
-
-    //frame_stats 변수
-
     //activity_main 화면
     private BottomNavigationView bottomNavigationView;
     private FragmentManager fm;
     private FragmentTransaction ft;
     private MainViewFragment mainViewFragment;
     private StatsViewFragment statsViewFragment;
-
-    //카메라 - 파일
-    File file;
-
-
-    private Uri uri; //file, 웹 주소 관련 처리하는 객체
+    private TravelViewFragment travelViewFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,12 +64,16 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.action_stats:
                         setFrag(1);
                         break;
+                    case R.id.action_travel:
+                        setFrag(2);
+                        break;
                 }
                 return true;
             }
         });
         mainViewFragment = new MainViewFragment();
         statsViewFragment = new StatsViewFragment();
+        travelViewFragment = new TravelViewFragment();
         setFrag(0);  // 메인 화면 선택
     }
 
@@ -96,6 +91,10 @@ public class MainActivity extends AppCompatActivity {
                 ft.replace(R.id.frame, statsViewFragment); //FragStatsView 클래스로 이동
                 ft.commit();
                 break;
+            case 2:
+                ft.replace(R.id.frame, travelViewFragment);
+                ft.commit();
+                break;
         }
     }
 
@@ -105,8 +104,4 @@ public class MainActivity extends AppCompatActivity {
         mDate = new Date(mNow);
         return mFormat.format(mDate);
     }
-
-
-
-
 }
