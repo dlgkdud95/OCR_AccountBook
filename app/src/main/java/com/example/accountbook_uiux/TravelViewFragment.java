@@ -14,7 +14,6 @@ public class TravelViewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view_travel = inflater.inflate(R.layout.frame_travel, container, false);
-
         return view_travel;
     }
 }
