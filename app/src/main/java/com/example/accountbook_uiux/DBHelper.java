@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class DBHelper extends SQLiteOpenHelper
 {
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 3;
     private static final String DB_NAME = "accountbook.db";
 
     public DBHelper(@Nullable Context context)
@@ -24,7 +24,7 @@ public class DBHelper extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db)
     {
         //DB 생성시 호출
-        db.execSQL("CREATE TABLE IF NOT EXISTS AccountBook (id INTEGER PRIMARY KEY AUTOINCREMENT, type TEXT NOT NULL, cost INTEGER NOT NULL, category TEXT NOT NULL, date TEXT NOT NULL)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS AccountBook (id INTEGER PRIMARY KEY AUTOINCREMENT, type TEXT NOT NULL, cost INTEGER NOT NULL, category TEXT NOT NULL, date TEXT NOT NULL, payment TEXT NOT NULL, detail TEXT NOT NULL)");
         // type = 입력타입(수입, 지출)
         // cost = 금액
         // category = 카테고리
@@ -75,10 +75,10 @@ public class DBHelper extends SQLiteOpenHelper
 
 
     // DB에 데이터 넣기
-    public void InsertDB(String _type, int _cost, String _category, String _date)
+    public void InsertDB(String _type, int _cost, String _category, String _date, String _payment, String _detail)
     {
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("INSERT INTO AccountBook(type, cost, category, date) VALUES('"+ _type +"', "+ _cost +", '"+ _category +"', '"+ _date +"');");
+        db.execSQL("INSERT INTO AccountBook(type, cost, category, date, payment, detail) VALUES('"+ _type +"', "+ _cost +", '"+ _category +"', '"+ _date +"', '"+ _payment +"', '"+ _detail +"');");
     }
 
     // 업데이트는 써야해야할지 아직 못정함

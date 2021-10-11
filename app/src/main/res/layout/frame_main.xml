@@ -145,4 +145,23 @@
             android:textStyle="bold" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/tv_limit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="30dp"
+        android:text="지출제한 : ??원"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+
+    <Button
+        android:id="@+id/btn_delDB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="DB삭제"
+        app:layout_constraintStart_toStartOf="@+id/tv_limit"
+        app:layout_constraintTop_toBottomOf="@+id/tv_limit" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

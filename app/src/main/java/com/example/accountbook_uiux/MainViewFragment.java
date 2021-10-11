@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -42,7 +43,8 @@ public class MainViewFragment extends Fragment  {
     //frame_main (메인화면) 변수
     CalendarView calendarView;
     FloatingActionButton fab_main, fab_camera, fab_writing;
-    TextView txt_outlay, outlay, txt_income, income, txt_total, total;
+    TextView txt_outlay, outlay, txt_income, income, txt_total, total, tv_limit;
+
 
     //카메라 - 파일
     File file;
@@ -65,19 +67,38 @@ public class MainViewFragment extends Fragment  {
         income = (TextView) view_main.findViewById(R.id.income);
         outlay = (TextView) view_main.findViewById(R.id.outlay);
         total = (TextView) view_main.findViewById(R.id.total);
+        tv_limit = (TextView) view_main.findViewById(R.id.tv_limit);
 
 
 
 
 
 
-        income.setText(Integer.toString(dbHelper.getSum("수입"))+ " 원"); // INCOMETOTAL 텍스트화함
-        outlay.setText(Integer.toString(dbHelper.getSum("지출"))+ " 원"); //OUTLAYTOTAL 텍스트화함
-        total.setText(Integer.toString(dbHelper.getSum("수입") - dbHelper.getSum("지출"))+ " 원");     //SUMTOTAL 텍스트화함
+        income.setText(Integer.toString(dbHelper.getSum("수입"))+ " 원");
+        outlay.setText(Integer.toString(dbHelper.getSum("지출"))+ " 원");
+        total.setText(Integer.toString(dbHelper.getSum("수입") - dbHelper.getSum("지출"))+ " 원");
+        tv_limit.setText("지출제한 : "+Integer.toString(moneyInputActivity.LIMIT_OUTLAY)+"원");
 
         floatingActionButton(view_main); //fab버튼 작동 할 수 있게 해주는 메소드
-
+        DB_Delete_Button(view_main);
         return view_main;
+    }
+
+    private  void DB_Delete_Button (View view_main)
+    {
+        Button btn_delDB = (Button) view_main.findViewById(R.id.btn_delDB);
+
+        btn_delDB.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                dbHelper.DeleteDB();
+                income.setText(Integer.toString(dbHelper.getSum("수입"))+ " 원");
+                outlay.setText(Integer.toString(dbHelper.getSum("지출"))+ " 원");
+                total.setText(Integer.toString(dbHelper.getSum("수입") - dbHelper.getSum("지출"))+ " 원");
+            }
+        });
     }
 
     private void floatingActionButton (View view_main) {
