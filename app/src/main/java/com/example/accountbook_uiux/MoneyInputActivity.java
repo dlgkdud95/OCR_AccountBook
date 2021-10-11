@@ -3,6 +3,7 @@ package com.example.accountbook_uiux;
 import static com.example.accountbook_uiux.MainActivity.dbHelper;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,8 +15,10 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
@@ -30,6 +33,7 @@ public class MoneyInputActivity extends AppCompatActivity {
     public static int LIMIT_OUTLAY = 50000; // 지출 제한
     public static int CURRENT_OUTLAY = 0;   // 현재 지출
     public static int ALERT_COUNT = 0;      // 경고 알림이 앱 접속 시 1회만 뜨게해주는 변수
+    public static boolean ALERT_CHECK = false;
 
     MainActivity mainActivity = new MainActivity();
 
@@ -191,16 +195,42 @@ public class MoneyInputActivity extends AppCompatActivity {
                     Log.d("확인", Integer.toString(CURRENT_OUTLAY));
                     if(LIMIT_OUTLAY < CURRENT_OUTLAY && ALERT_COUNT == 0)
                     {
-                        Log.d("ALERT!", "지출초과");
-                        ALERT_COUNT = ALERT_COUNT + 1;
+                        ALERT_CHECK = true; // 알림창이 바로 사라지지 않게 해주는 boolean 변수
+                        AlertDialog.Builder alertDialog = new AlertDialog.Builder(MoneyInputActivity.this);
+                        alertDialog.setTitle("지출 경고");
+                        alertDialog.setMessage("제한을 초과했습니다");
+                        alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i)
+                            {
+                                Toast.makeText(getApplicationContext(),"확인했습니다", Toast.LENGTH_SHORT).show();
+                                startActivity(intent);
+                                ALERT_CHECK = false; // 다시 false로 바꿔주기
+                            }
+                        });
+                        alertDialog.setNegativeButton("싫어", new DialogInterface.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i)
+                            {
+                                Toast.makeText(getApplicationContext(),".", Toast.LENGTH_SHORT).show();
+                                startActivity(intent);
+                                ALERT_CHECK = false;
+                            }
+                        });
+                        alertDialog.show();
+                        ALERT_COUNT = ALERT_COUNT + 1; // 경고알림 횟수 1로 증가
                     }
 
-                    TYPE_SELECTED = 0;
+                    TYPE_SELECTED = 0; //type 다시 0으로 바꿔주기
 
                 }
 
-
-                startActivity(intent);
+                if(ALERT_CHECK == false) // false일때만 바로 넘어가기
+                {
+                    startActivity(intent);
+                }
 
 
             }
