@@ -11,4 +11,9 @@
         android:enabled="true"
         android:icon="@drawable/ic_baseline_assessment_24"
         android:title="통계"/>
+    <item
+        android:id="@+id/action_travel"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_local_airport_24"
+        android:title="여행"/>
 </menu>
