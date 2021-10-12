@@ -48,6 +48,22 @@ public class DBHelper extends SQLiteOpenHelper
         return number;
     }
 
+    public int getCategory(String _category)
+    {
+        // _type변수에 table에 있는 type(수입 or 지출)을 넣어주면 type에 맞는 합계를 구해줌
+        int number = 0;
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor cursor;
+        cursor = db.rawQuery("SELECT IFNULL(AccountBook.cost, 0) FROM AccountBook WHERE category = '"+_category+"'",null);
+
+        while(cursor.moveToNext())
+        {
+            number += cursor.getInt(0);
+        }
+        cursor.close();
+        return number;
+    }
+
     public int monthSearchTest(String thisMonth, String nextMonth, String _type)
     {
         int number = 0;
