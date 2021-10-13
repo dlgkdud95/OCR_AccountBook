@@ -16,4 +16,10 @@
         android:enabled="true"
         android:icon="@drawable/ic_baseline_local_airport_24"
         android:title="여행"/>
+    <item
+        android:id="@+id/action_history"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_history_24"
+        android:title="일간" />
+
 </menu>

@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper
 {
@@ -20,6 +21,7 @@ public class DBHelper extends SQLiteOpenHelper
         super(context, DB_NAME,null, DB_VERSION);
     }
 
+    //context = getApplicationContext?
     @Override
     public void onCreate(SQLiteDatabase db)
     {
@@ -29,6 +31,8 @@ public class DBHelper extends SQLiteOpenHelper
         // cost = 금액
         // category = 카테고리
         // date = 날짜
+        // payment = 결제방식
+        // detail = 기타
 
     }
 
@@ -80,6 +84,9 @@ public class DBHelper extends SQLiteOpenHelper
         cursor.close();
         return number;
     }
+
+
+
 
 
     @Override

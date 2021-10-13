@@ -2,35 +2,22 @@ package com.example.accountbook_uiux;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.FileProvider;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.animation.ObjectAnimator;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.CalendarView;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
     public static DBHelper dbHelper;
+
+
 
     long mNow;
     Date mDate;
@@ -43,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private MainViewFragment mainViewFragment;
     private StatsViewFragment statsViewFragment;
     private TravelViewFragment travelViewFragment;
+    private HistoryViewFragment historyViewFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         dbHelper = new DBHelper(this);
+
+
 
 
         //하단 네비게이션 눌렀을 때 화면 변경 됨, onNavi~() 메소드 통해 setFrag() 메소드가 해당하는 Fragment로 교체함
@@ -67,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.action_travel:
                         setFrag(2);
                         break;
+                    case R.id.action_history:
+                        setFrag(3);
+                        break;
                 }
                 return true;
             }
@@ -74,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         mainViewFragment = new MainViewFragment();
         statsViewFragment = new StatsViewFragment();
         travelViewFragment = new TravelViewFragment();
+        historyViewFragment = new HistoryViewFragment();
         setFrag(0);  // 메인 화면 선택
     }
 
@@ -95,8 +89,14 @@ public class MainActivity extends AppCompatActivity {
                 ft.replace(R.id.frame, travelViewFragment);
                 ft.commit();
                 break;
+            case 3:
+                ft.replace(R.id.frame, historyViewFragment);
+                ft.commit();
+                break;
         }
     }
+
+
 
     public String getDate()
     {
