@@ -4,6 +4,7 @@ package com.example.accountbook_uiux;
 import android.content.*;
 import android.database.Cursor;
 import android.database.sqlite.*;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -85,7 +86,25 @@ public class DBHelper extends SQLiteOpenHelper
         return number;
     }
 
+    public ArrayList<DBTable> getDataByDate(String _date)
+    {
+        ArrayList<DBTable> list = new ArrayList<DBTable>();
 
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor;
+        cursor = db.rawQuery("SELECT * FROM AccountBook WHERE date = '"+_date +"' ",null);
+        while(cursor.moveToNext())
+        {
+            DBTable table = new DBTable();
+            table.setType(cursor.getString(1));
+            table.setCost(cursor.getInt(2));
+            table.setCategory(cursor.getString(3));
+
+            list.add(table);
+        }
+
+        return list;
+    }
 
 
 

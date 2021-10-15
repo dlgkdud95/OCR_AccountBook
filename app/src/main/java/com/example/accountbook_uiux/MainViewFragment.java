@@ -5,8 +5,11 @@ import static android.app.Activity.RESULT_OK;
 import static com.example.accountbook_uiux.MainActivity.dbHelper;
 
 import android.animation.ObjectAnimator;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -19,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,15 +35,21 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class MainViewFragment extends Fragment  {
 
     private View view_main;
 
+
     //frame_main (메인화면) 변수
     CalendarView calendarView;
     FloatingActionButton fab_main, fab_camera, fab_writing;
     TextView txt_outlay, outlay, txt_income, income, txt_total, total, tv_limit;
+
+    ArrayList<DBTable> list = new ArrayList<DBTable>();
+
+
 
 
     //fab_main 버튼의 상태, 기본값 -> 선택하지 않은 상태태
@@ -66,10 +76,68 @@ public class MainViewFragment extends Fragment  {
         total.setText(Integer.toString(dbHelper.getSum("수입") - dbHelper.getSum("지출"))+ " 원");
         tv_limit.setText("지출제한 : "+Integer.toString(moneyInputActivity.LIMIT_OUTLAY)+"원");
 
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener()
+        {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int day)
+            {
+
+                String convMonth; // Converted Month
+                if(month < 9) convMonth = "0" + Integer.toString(month+1); // 2021-09-30 이렇게 데이터를 저장하기 위해 month가 9 미만이면 0을 붙여줌 (10이 아니라 9인 이유는 return 되는 month값이 +1을 해줘야 실제 month랑 같아짐)
+                else convMonth = Integer.toString(month+1);
+
+                String convDay; // Converted Day
+                if(day < 10) convDay = "0" + Integer.toString(day); // day도 마찬가지
+                else convDay = Integer.toString(day);
+
+                String selectedDate = Integer.toString(year)+ "-" + convMonth+ "-" + convDay; // 선택된 날짜 구하기 ex)2021-09-05
+
+                list = dbHelper.getDataByDate(selectedDate);
+
+                Dialog dialog = new Dialog(getContext(), android.R.style.Theme_Material_Light_Dialog);
+                dialog.setContentView(R.layout.dialog_cal);
+                TextView tv_date = (TextView) dialog.findViewById(R.id.tv_date);
+                TextView tv_type = (TextView) dialog.findViewById(R.id.tv_type);
+                TextView tv_cost = (TextView) dialog.findViewById(R.id.tv_cost);
+                TextView tv_category = (TextView) dialog.findViewById(R.id.tv_category);
+
+                tv_date.setText(selectedDate);
+                StringBuilder typeBuilder = new StringBuilder(); // StringBuilder값에 for문을 돌리면서 db데이터를 쌓는다
+                for(int i = 0; i < list.size(); i++)
+                {
+                    typeBuilder.append(list.get(i).getType()+"\n\n");
+                }
+                tv_type.setText(typeBuilder); // setText를 builder로 하면 쌓인 값들이 들어감
+
+                StringBuilder costBuilder = new StringBuilder();
+                for(int i = 0; i < list.size(); i++)
+                {
+                    costBuilder.append(list.get(i).getCost()+"\n\n");
+                }
+                tv_cost.setText(costBuilder);
+
+                StringBuilder categoryBuilder = new StringBuilder();
+                for(int i = 0; i < list.size(); i++)
+                {
+                    categoryBuilder.append(list.get(i).getCategory()+"\n\n");
+                }
+                tv_category.setText(categoryBuilder);
+
+
+
+
+
+
+                dialog.show();
+            }
+        });
+
         floatingActionButton(view_main); //fab버튼 작동 할 수 있게 해주는 메소드
         DB_Delete_Button(view_main);
         return view_main;
     }
+
+
 
     private  void DB_Delete_Button (View view_main)
     {

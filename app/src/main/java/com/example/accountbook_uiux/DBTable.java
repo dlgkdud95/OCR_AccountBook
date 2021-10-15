@@ -8,6 +8,7 @@ public class DBTable
     public String category;
     public String date;
     public String payment;
+    public String detail;
 
     public int getId()
     {
@@ -79,6 +80,5 @@ public class DBTable
         this.detail = detail;
     }
 
-    public String detail;
 
 }

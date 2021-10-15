@@ -342,15 +342,23 @@ public class CameraActivity extends AppCompatActivity {
     private static String convertResponseToString(BatchAnnotateImagesResponse response) {
         StringBuilder message = new StringBuilder("I found these things:\n\n");
 
-        List<EntityAnnotation> labels = response.getResponses().get(0).getTextAnnotations();
-        if (labels != null) {
+        List<EntityAnnotation> labels = response.getResponses().get(0).getTextAnnotations(); // 이 labels라는 변수에 json 형식의 데이터가 들어있음
+        if (labels != null) { // labels라는 변수가 null일때까지 반복을 돌면서 message라는 StringBuilder에 String을 쌓음
             for (EntityAnnotation label : labels) {
-                message.append(String.format(Locale.US, "%.3f: %s", label.getScore(), label.getDescription()));
-                message.append("\n");
+
+                 //Log.d("test", label.getDescription());
+                 message.append(String.format(Locale.KOREA, "%.8f: %s", label.getScore(), label.getDescription()));
+                 message.append("\n");
+
+
+
+
             }
         } else {
             message.append("nothing");
         }
+
+        Log.d("Test3",labels.get(0).getDescription().toString()); // labels List에 0번째 값은 영수증 전체 값이 들어잇고 1,2,3 ... 이렇게 한 단어씩 들어있음.
 
         return message.toString();
     }
