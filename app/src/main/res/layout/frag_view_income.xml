@@ -24,7 +24,7 @@
                 android:layout_width="100dp"
                 android:layout_height="70dp"
                 android:gravity="center"
-                android:text="날짜"
+                android:text="수입일"
                 android:textColor="#000000"
                 android:textSize="18sp" />
 
@@ -59,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:gravity="center"
-                android:text="내용"
+                android:text="수입내역"
                 android:textSize="18sp" />
 
         </LinearLayout>

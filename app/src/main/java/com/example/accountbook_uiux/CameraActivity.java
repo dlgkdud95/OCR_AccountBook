@@ -347,6 +347,7 @@ public class CameraActivity extends AppCompatActivity {
             for (EntityAnnotation label : labels) {
 
                  //Log.d("test", label.getDescription());
+
                  message.append(String.format(Locale.KOREA, "%.8f: %s", label.getScore(), label.getDescription()));
                  message.append("\n");
 

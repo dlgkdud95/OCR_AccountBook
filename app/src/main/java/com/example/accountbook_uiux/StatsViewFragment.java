@@ -48,44 +48,44 @@ public class StatsViewFragment extends Fragment {
 
         ArrayList<PieEntry> yValues = new ArrayList<PieEntry>();
 
-        if(dbHelper.getCategory("식비") > 0) // 값이 0보다 클때만 add해줌으로써 0일때 글자만 나오는 현상 방지
+        if(dbHelper.getCategory("식비", "지출") > 0) // 값이 0보다 클때만 add해줌으로써 0일때 글자만 나오는 현상 방지
         {
-            yValues.add(new PieEntry(dbHelper.getCategory("식비"),"식비"));
+            yValues.add(new PieEntry(dbHelper.getCategory("식비", "지출"),"식비"));
         }
-        if(dbHelper.getCategory("교통비") > 0)
+        if(dbHelper.getCategory("교통비", "지출") > 0)
         {
-            yValues.add(new PieEntry(dbHelper.getCategory("교통비"),"교통비"));
+            yValues.add(new PieEntry(dbHelper.getCategory("교통비", "지출"),"교통비"));
         }
-        if(dbHelper.getCategory("패션/미용") > 0)
+        if(dbHelper.getCategory("패션/미용", "지출") > 0)
         {
-            yValues.add(new PieEntry(dbHelper.getCategory("패션/미용"),"패션/미용"));
+            yValues.add(new PieEntry(dbHelper.getCategory("패션/미용", "지출"),"패션/미용"));
         }
-        if(dbHelper.getCategory("생필품") > 0)
+        if(dbHelper.getCategory("생필품", "지출") > 0)
         {
-            yValues.add(new PieEntry(dbHelper.getCategory("생필품"),"생필품"));
+            yValues.add(new PieEntry(dbHelper.getCategory("생필품", "지출"),"생필품"));
         }
-        if(dbHelper.getCategory("의류/미용") > 0)
+        if(dbHelper.getCategory("의류/미용", "지출") > 0)
         {
-            yValues.add(new PieEntry(dbHelper.getCategory("의류/미용"),"의류/미용"));
+            yValues.add(new PieEntry(dbHelper.getCategory("의류/미용", "지출"),"의류/미용"));
         }
-        if(dbHelper.getCategory("교육") > 0)
+        if(dbHelper.getCategory("교육", "지출") > 0)
         {
-            yValues.add(new PieEntry(dbHelper.getCategory("교육"),"교육"));
+            yValues.add(new PieEntry(dbHelper.getCategory("교육", "지출"),"교육"));
         }
-        if(dbHelper.getCategory("통신비") > 0)
+        if(dbHelper.getCategory("통신비", "지출") > 0)
         {
-            yValues.add(new PieEntry(dbHelper.getCategory("통신비"),"통신비"));
+            yValues.add(new PieEntry(dbHelper.getCategory("통신비", "지출"),"통신비"));
         }
-        if(dbHelper.getCategory("저축") > 0)
+        if(dbHelper.getCategory("저축", "지출") > 0)
         {
-            yValues.add(new PieEntry(dbHelper.getCategory("저축"),"저축"));
+            yValues.add(new PieEntry(dbHelper.getCategory("저축", "지출"),"저축"));
         }
-        if(dbHelper.getCategory("의료/건강") > 0)
+        if(dbHelper.getCategory("의료/건강", "지출") > 0)
         {
-            yValues.add(new PieEntry(dbHelper.getCategory("의료/건강"),"의료/건강"));
-        }if(dbHelper.getCategory("급여/용돈") > 0)
+            yValues.add(new PieEntry(dbHelper.getCategory("의료/건강", "지출"),"의료/건강"));
+        }if(dbHelper.getCategory("급여/용돈", "지출") > 0)
         {
-            yValues.add(new PieEntry(dbHelper.getCategory("급여/용돈"),"급여/용돈"));
+            yValues.add(new PieEntry(dbHelper.getCategory("급여/용돈", "지출"),"급여/용돈"));
         }
 
 

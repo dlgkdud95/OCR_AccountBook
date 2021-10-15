@@ -27,9 +27,9 @@ import com.google.android.material.tabs.TabLayout;
 
 public class MoneyInputActivity extends AppCompatActivity {
 
-    public static Context mContext;
+
     public static int LIMIT_OUTLAY = 50000; // 지출 제한
-    public static int CURRENT_OUTLAY = 0;   // 현재 지출
+    public static int CURRENT_SUM = 0;   // 현재 지출
     public static int ALERT_COUNT = 0;      // 경고 알림이 앱 접속 시 1회만 뜨게해주는 변수
     public static boolean ALERT_CHECK = false;
 
@@ -56,6 +56,12 @@ public class MoneyInputActivity extends AppCompatActivity {
 
     Button bt_register;
 
+    // 일간 history에 기간조회 + 내역으로 조회 (검색버튼 2개)
+    // 카테고리 지정안하면 자동 기타
+    // 통계 우측상단 지출, 수입, 나의 지출 변화(월별, 막대그래프로)
+    // 하단에 카테고리별 금액
+    // 수입, 지출 카테고리 바꾸고 뷰 수정 - 하영
+    //
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +84,9 @@ public class MoneyInputActivity extends AppCompatActivity {
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE); // Inflate를 사용하여 다른 레이아웃 접근
 
 
+
+
+
         //탭 메뉴 누르면 해당 프래그먼트로 변경됨
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -87,6 +96,7 @@ public class MoneyInputActivity extends AppCompatActivity {
 
                 if (tab.getPosition() == 0) {
                     TYPE_SELECTED = 0;
+
                 }
                 else if (tab.getPosition() == 1) {
                     TYPE_SELECTED = 1;
@@ -109,8 +119,14 @@ public class MoneyInputActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 tabLayout.selectTab(tabLayout.getTabAt(position));
+
+
+
+
             }
         });
+
+
 
         //등록 버튼
         bt_register = findViewById(R.id.bt_register);
@@ -122,8 +138,7 @@ public class MoneyInputActivity extends AppCompatActivity {
                 if(TYPE_SELECTED == 0) //수입
                 {
 
-
-                    in_editTextMoney = (EditText) container.findViewById(R.id.in_editTextMoney); // container에서 가져오기
+                    in_editTextMoney = (EditText) container.findViewById(R.id.in_editTextMoney);
                     in_txt_date = (TextView) container.findViewById(R.id.in_txt_date);
                     in_txt_price = (TextView) container.findViewById(R.id.in_txt_price);
                     in_txt_method = (TextView) container.findViewById(R.id.in_txt_method);
@@ -133,7 +148,6 @@ public class MoneyInputActivity extends AppCompatActivity {
                     in_editTextDetails = (EditText) container.findViewById(R.id.in_editTextDetails);
                     in_sp_method = (Spinner) container.findViewById(R.id.in_sp_method);
                     in_sp_catalog = (Spinner) container.findViewById(R.id.in_sp_catalog);
-
 
                     int cost = Integer.parseInt(in_editTextMoney.getText().toString());
                     String category = in_sp_catalog.getSelectedItem().toString();
@@ -148,6 +162,7 @@ public class MoneyInputActivity extends AppCompatActivity {
                 else if(TYPE_SELECTED == 1)
                 {
 
+
                     out_txt_date = (TextView) container.findViewById(R.id.out_txt_date);
                     out_txt_price = (TextView) container.findViewById(R.id.out_txt_price);
                     out_txt_method = (TextView) container.findViewById(R.id.out_txt_method);
@@ -160,15 +175,16 @@ public class MoneyInputActivity extends AppCompatActivity {
                     out_sp_catalog = (Spinner) container.findViewById(R.id.out_sp_catalog);
 
 
+
                     int cost = Integer.parseInt(out_editTextMoney.getText().toString());
                     String category = out_sp_catalog.getSelectedItem().toString();
                     String payment = out_sp_method.getSelectedItem().toString();
                     String detail = out_editTextDetails.getText().toString();
                     dbHelper.InsertDB("지출", cost, category,mainActivity.getDate(), payment, detail);
 
-                    CURRENT_OUTLAY = dbHelper.getSum("지출");
-                    Log.d("확인", Integer.toString(CURRENT_OUTLAY));
-                    if(LIMIT_OUTLAY < CURRENT_OUTLAY && ALERT_COUNT == 0)
+                    CURRENT_SUM = dbHelper.getSum("지출");
+                    Log.d("확인", Integer.toString(CURRENT_SUM));
+                    if(LIMIT_OUTLAY > CURRENT_SUM && ALERT_COUNT == 0)
                     {
                         ALERT_CHECK = true; // 알림창이 바로 사라지지 않게 해주는 boolean 변수
                         AlertDialog.Builder alertDialog = new AlertDialog.Builder(MoneyInputActivity.this);
@@ -195,7 +211,7 @@ public class MoneyInputActivity extends AppCompatActivity {
                             }
                         });
                         alertDialog.show();
-                        ALERT_COUNT = ALERT_COUNT + 1; // 경고알림 횟수 1로 증가
+                        ALERT_COUNT = ALERT_COUNT + 1; // ALERT_COUNT 1로 증가 -> 경고 안뜸 -> 앱 재시작 -> ALERT_COUNT = 0 -> 반복
                     }
 
                     TYPE_SELECTED = 0; //type 다시 0으로 바꿔주기
