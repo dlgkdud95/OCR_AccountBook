@@ -29,7 +29,7 @@ public class MoneyInputActivity extends AppCompatActivity {
 
 
     public static int LIMIT_OUTLAY = 50000; // 지출 제한
-    public static int CURRENT_SUM = 0;   // 현재 지출
+    public static int CURRENT_OUTLAY = 0;   // 현재 지출
     public static int ALERT_COUNT = 0;      // 경고 알림이 앱 접속 시 1회만 뜨게해주는 변수
     public static boolean ALERT_CHECK = false;
 
@@ -56,12 +56,13 @@ public class MoneyInputActivity extends AppCompatActivity {
 
     Button bt_register;
 
-    // 일간 history에 기간조회 + 내역으로 조회 (검색버튼 2개)
+    // 일간 history에 기간조회 + 내역으로 조회 (검색버튼 2개) - 기간조회 완료 -> 기간조회는 Spinner로
     // 카테고리 지정안하면 자동 기타
     // 통계 우측상단 지출, 수입, 나의 지출 변화(월별, 막대그래프로)
-    // 하단에 카테고리별 금액
+    // 하단에 카테고리별 금액 - 완료(추가만 하면 됨)
     // 수입, 지출 카테고리 바꾸고 뷰 수정 - 하영
-    //
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -135,6 +136,7 @@ public class MoneyInputActivity extends AppCompatActivity {
             public void onClick(View view) {  //bt_register(저장하기) 버튼을 누르면 메인뷰(캘린더화면)으로 돌아감
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 
+
                 if(TYPE_SELECTED == 0) //수입
                 {
 
@@ -182,9 +184,9 @@ public class MoneyInputActivity extends AppCompatActivity {
                     String detail = out_editTextDetails.getText().toString();
                     dbHelper.InsertDB("지출", cost, category,mainActivity.getDate(), payment, detail);
 
-                    CURRENT_SUM = dbHelper.getSum("지출");
-                    Log.d("확인", Integer.toString(CURRENT_SUM));
-                    if(LIMIT_OUTLAY > CURRENT_SUM && ALERT_COUNT == 0)
+                    CURRENT_OUTLAY = dbHelper.getSum("지출");
+                    Log.d("확인", Integer.toString(CURRENT_OUTLAY));
+                    if(LIMIT_OUTLAY < CURRENT_OUTLAY && ALERT_COUNT == 0)
                     {
                         ALERT_CHECK = true; // 알림창이 바로 사라지지 않게 해주는 boolean 변수
                         AlertDialog.Builder alertDialog = new AlertDialog.Builder(MoneyInputActivity.this);
@@ -197,10 +199,11 @@ public class MoneyInputActivity extends AppCompatActivity {
                             {
                                 Toast.makeText(getApplicationContext(),"확인했습니다", Toast.LENGTH_SHORT).show();
                                 startActivity(intent);
+
                                 ALERT_CHECK = false; // 다시 false로 바꿔주기
                             }
                         });
-                        alertDialog.setNegativeButton("싫어", new DialogInterface.OnClickListener()
+                        alertDialog.setNegativeButton("반성", new DialogInterface.OnClickListener()
                         {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i)
@@ -208,10 +211,12 @@ public class MoneyInputActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(),".", Toast.LENGTH_SHORT).show();
                                 startActivity(intent);
                                 ALERT_CHECK = false;
+                                // 취소시 경고가 계속 뜸
                             }
                         });
-                        alertDialog.show();
                         ALERT_COUNT = ALERT_COUNT + 1; // ALERT_COUNT 1로 증가 -> 경고 안뜸 -> 앱 재시작 -> ALERT_COUNT = 0 -> 반복
+                        alertDialog.show();
+
                     }
 
                     TYPE_SELECTED = 0; //type 다시 0으로 바꿔주기

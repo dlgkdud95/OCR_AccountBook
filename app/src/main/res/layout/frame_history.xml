@@ -1,19 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-    >
-<ListView
-    android:id="@+id/lv_list"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_alignParentTop="true"
-    android:divider="@null"
-    />
+    android:layout_height="match_parent">
+
+    <ListView
+        android:id="@+id/lv_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="80dp"
+        android:divider="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_searchdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="10dp"
+        android:text="날짜"
+        app:layout_constraintBottom_toTopOf="@+id/lv_list"
+        app:layout_constraintEnd_toEndOf="@+id/lv_list"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_searchbasic"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="10dp"
+        android:text="기본"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_searchdate"
+        app:layout_constraintEnd_toStartOf="@+id/btn_searchdate" />
 
 
-
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

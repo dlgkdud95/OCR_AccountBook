@@ -2,14 +2,17 @@ package com.example.accountbook_uiux;
 
 import static com.example.accountbook_uiux.MainActivity.dbHelper;
 
+import android.app.AppComponentFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.github.mikephil.charting.animation.Easing;
@@ -22,10 +25,12 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
-public class StatsViewFragment extends Fragment {
+public class StatsViewFragment extends Fragment
+{
 
     private View view_stats;
     MainActivity mainActivity = new MainActivity();
+    TextView tv_foodsum;
 
     PieChart pieChart;
 
@@ -33,6 +38,10 @@ public class StatsViewFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view_stats = inflater.inflate(R.layout.frame_stats, container, false);
+
+        tv_foodsum = (TextView) view_stats.findViewById(R.id.tv_foodsum);
+        tv_foodsum.setText("식비 : "+dbHelper.getCategory("식비","지출")+"원");
+
 
         pieChart = (PieChart) view_stats.findViewById(R.id.chart);
         pieChart.setUsePercentValues(true);
@@ -45,6 +54,8 @@ public class StatsViewFragment extends Fragment {
         pieChart.setDrawHoleEnabled(false);
         pieChart.setHoleColor(Color.BLACK);
         pieChart.setTransparentCircleRadius(61f);
+
+
 
         ArrayList<PieEntry> yValues = new ArrayList<PieEntry>();
 
