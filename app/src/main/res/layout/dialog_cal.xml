@@ -51,5 +51,37 @@
             app:layout_constraintBottom_toBottomOf="@+id/tv_cost"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tv_cost" />
+
+        <Button
+            android:id="@+id/btn_income"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginBottom="50dp"
+            android:background="#4FC3F7"
+            android:text="수입"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btn_outlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:background="#F06292"
+            android:text="지출"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_income"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <EditText
+            android:id="@+id/et_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:ems="10"
+            android:inputType="numberSigned"
+            app:layout_constraintBottom_toTopOf="@+id/btn_outlay"
+            app:layout_constraintEnd_toEndOf="@+id/btn_outlay"
+            app:layout_constraintStart_toStartOf="@+id/btn_income" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

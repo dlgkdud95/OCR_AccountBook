@@ -57,10 +57,10 @@ public class MoneyInputActivity extends AppCompatActivity {
     Button bt_register;
 
     // 일간 history에 기간조회 + 내역으로 조회 (검색버튼 2개) - 기간조회 완료 -> 기간조회는 Spinner로
-    // 카테고리 지정안하면 자동 기타
-    // 통계 우측상단 지출, 수입, 나의 지출 변화(월별, 막대그래프로)
+    // 카테고리 지정안하면 자동 기타 -> 완료
+    // 통계 우측상단 지출, 수입, 나의 지출 변화(월별, 막대그래프로) -> 완료
     // 하단에 카테고리별 금액 - 완료(추가만 하면 됨)
-    // 수입, 지출 카테고리 바꾸고 뷰 수정 - 하영
+    // 선택된 날짜 카테고리 Spinner
 
 
     @Override
@@ -156,7 +156,14 @@ public class MoneyInputActivity extends AppCompatActivity {
                     String payment = in_sp_method.getSelectedItem().toString();
                     String detail = in_editTextDetails.getText().toString();
 
-                    dbHelper.InsertDB("수입", cost, category, mainActivity.getDate(), payment, detail);
+                    if(category.length() == 0) // 카테고리 입력 안할 시
+                    {
+                        dbHelper.InsertDB("수입", cost, "기타", mainActivity.getDate(), payment, detail);
+                    }
+                    else
+                    {
+                        dbHelper.InsertDB("수입", cost, category, mainActivity.getDate(), payment, detail);
+                    }
 
                     TYPE_SELECTED = 0;
                 }
@@ -182,10 +189,19 @@ public class MoneyInputActivity extends AppCompatActivity {
                     String category = out_sp_catalog.getSelectedItem().toString();
                     String payment = out_sp_method.getSelectedItem().toString();
                     String detail = out_editTextDetails.getText().toString();
-                    dbHelper.InsertDB("지출", cost, category,mainActivity.getDate(), payment, detail);
+
+
+                    if(category.length() == 0)
+                    {
+                        dbHelper.InsertDB("지출", cost, "기타", mainActivity.getDate(), payment, detail);
+                    }
+
+                    else
+                    {
+                        dbHelper.InsertDB("지출", cost, category,mainActivity.getDate(), payment, detail);
+                    }
 
                     CURRENT_OUTLAY = dbHelper.getSum("지출");
-                    Log.d("확인", Integer.toString(CURRENT_OUTLAY));
                     if(LIMIT_OUTLAY < CURRENT_OUTLAY && ALERT_COUNT == 0)
                     {
                         ALERT_CHECK = true; // 알림창이 바로 사라지지 않게 해주는 boolean 변수

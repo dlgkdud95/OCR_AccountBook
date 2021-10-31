@@ -100,6 +100,9 @@ public class MainViewFragment extends Fragment  {
                 TextView tv_type = (TextView) dialog.findViewById(R.id.tv_type);
                 TextView tv_cost = (TextView) dialog.findViewById(R.id.tv_cost);
                 TextView tv_category = (TextView) dialog.findViewById(R.id.tv_category);
+                Button btn_income = (Button) dialog.findViewById(R.id.btn_income);
+                Button btn_outlay = (Button) dialog.findViewById(R.id.btn_outlay);
+                EditText et_money = (EditText) dialog.findViewById(R.id.et_money);
 
                 tv_date.setText(selectedDate);
                 StringBuilder typeBuilder = new StringBuilder(); // StringBuilder값에 for문을 돌리면서 db데이터를 쌓는다
@@ -126,6 +129,28 @@ public class MainViewFragment extends Fragment  {
 
 
 
+                btn_income.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View view)
+                    {
+                        int moneyValue = Integer.parseInt(et_money.getText().toString());
+                        dbHelper.InsertDB("수입", moneyValue, "기타", selectedDate, "기타", "");
+                        dialog.dismiss();
+                        // Spinner로 카테고리 까지
+                    }
+                });
+
+                btn_outlay.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View view)
+                    {
+                        int moneyValue = Integer.parseInt(et_money.getText().toString());
+                        dbHelper.InsertDB("지출", moneyValue, "기타", selectedDate, "기타", "");
+                        dialog.dismiss();
+                    }
+                });
 
 
                 dialog.show();

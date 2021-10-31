@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -18,7 +19,7 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
 
     public static DBHelper dbHelper;
-
+    public static Context mContext;
 
     long mNow;
     Date mDate;
