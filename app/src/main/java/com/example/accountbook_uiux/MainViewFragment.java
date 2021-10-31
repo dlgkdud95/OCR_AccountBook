@@ -136,6 +136,9 @@ public class MainViewFragment extends Fragment  {
                     {
                         int moneyValue = Integer.parseInt(et_money.getText().toString());
                         dbHelper.InsertDB("수입", moneyValue, "기타", selectedDate, "기타", "");
+                        income.setText(Integer.toString(dbHelper.getSum("수입"))+ " 원");
+                        outlay.setText(Integer.toString(dbHelper.getSum("지출"))+ " 원");
+                        total.setText(Integer.toString(dbHelper.getSum("수입") - dbHelper.getSum("지출"))+ " 원");
                         dialog.dismiss();
                         // Spinner로 카테고리 까지
                     }
@@ -148,6 +151,9 @@ public class MainViewFragment extends Fragment  {
                     {
                         int moneyValue = Integer.parseInt(et_money.getText().toString());
                         dbHelper.InsertDB("지출", moneyValue, "기타", selectedDate, "기타", "");
+                        income.setText(Integer.toString(dbHelper.getSum("수입"))+ " 원");
+                        outlay.setText(Integer.toString(dbHelper.getSum("지출"))+ " 원");
+                        total.setText(Integer.toString(dbHelper.getSum("수입") - dbHelper.getSum("지출"))+ " 원");
                         dialog.dismiss();
                     }
                 });
