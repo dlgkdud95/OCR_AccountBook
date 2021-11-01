@@ -189,10 +189,11 @@ public class CameraActivity extends AppCompatActivity {
                 Bitmap bitmap =
                         scaleBitmapDown(
                                 MediaStore.Images.Media.getBitmap(getContentResolver(), uri),
-                                MAX_DIMENSION);
+                                MAX_DIMENSION);    //비트맵 만들기
 
-                callCloudVision(bitmap);
-                receiptImage.setImageBitmap(bitmap);
+                //callCloudVision(bitmap);
+                //여기에 비트맵 받아서 이미지를 64비트로 바꿔주는 코드 적으면 될거같음
+                receiptImage.setImageBitmap(bitmap);  //이미지뷰에 bitmap 저장
 
             } catch (IOException e) {
                 Log.d(TAG, "Image picking failed because " + e.getMessage());
@@ -203,7 +204,8 @@ public class CameraActivity extends AppCompatActivity {
             Toast.makeText(this, R.string.image_picker_error, Toast.LENGTH_LONG).show();
         }
     }
-
+    /*
+    //사진 64비트로 바꿔주고 구글 api로 api키값 주는 함수
     private Vision.Images.Annotate prepareAnnotationRequest(Bitmap bitmap) throws IOException {
         HttpTransport httpTransport = AndroidHttp.newCompatibleTransport();
         JsonFactory jsonFactory = GsonFactory.getDefaultInstance();
@@ -213,7 +215,7 @@ public class CameraActivity extends AppCompatActivity {
                     /**
                      * We override this so we can inject important identifying fields into the HTTP
                      * headers. This enables use of a restricted cloud platform API key.
-                     */
+                     *
                     @Override
                     protected void initializeVisionRequest(VisionRequest<?> visionRequest)
                             throws IOException {
@@ -269,9 +271,9 @@ public class CameraActivity extends AppCompatActivity {
         Log.d(TAG, "created Cloud Vision request object, sending request");
 
         return annotateRequest;
-    }
+    }*/
 
-    private static class LableDetectionTask extends AsyncTask<Object, Void, String> {
+    /*private static class LableDetectionTask extends AsyncTask<Object, Void, String> {
         private final WeakReference<CameraActivity> mActivityWeakReference;
         private Vision.Images.Annotate mRequest;
 
@@ -296,16 +298,16 @@ public class CameraActivity extends AppCompatActivity {
             return "Cloud Vision API request failed. Check logs for details.";
         }
 
-        protected void onPostExecute(String result) {
+        protected void onPostExecute(String result) {    //인식 한 문자를 화면에 보이게 함
             CameraActivity activity = mActivityWeakReference.get();
             if (activity != null && !activity.isFinishing()) {
                 TextView imageDetail = activity.findViewById(R.id.receiptText);
                 imageDetail.setText(result);
             }
         }
-    }
+    }*/
 
-    private void callCloudVision(final Bitmap bitmap) {
+    /*private void callCloudVision(final Bitmap bitmap) {
         // Switch text to loading
         receiptText.setText(R.string.loading_message);
 
@@ -317,9 +319,9 @@ public class CameraActivity extends AppCompatActivity {
             Log.d(TAG, "failed to make API request because of other IOException " +
                     e.getMessage());
         }
-    }
+    }*/
 
-    private Bitmap scaleBitmapDown(Bitmap bitmap, int maxDimension) {
+    private Bitmap scaleBitmapDown(Bitmap bitmap, int maxDimension) {   //카메라 해상도가 높을 수도 있어서 적당한 비율로 이미지 축소
 
         int originalWidth = bitmap.getWidth();
         int originalHeight = bitmap.getHeight();
@@ -339,7 +341,7 @@ public class CameraActivity extends AppCompatActivity {
         return Bitmap.createScaledBitmap(bitmap, resizedWidth, resizedHeight, false);
     }
 
-    private static String convertResponseToString(BatchAnnotateImagesResponse response) {
+    /*private static String convertResponseToString(BatchAnnotateImagesResponse response) {
         StringBuilder message = new StringBuilder("I found these things:\n\n");
 
         List<EntityAnnotation> labels = response.getResponses().get(0).getTextAnnotations(); // 이 labels라는 변수에 json 형식의 데이터가 들어있음
@@ -362,5 +364,5 @@ public class CameraActivity extends AppCompatActivity {
         Log.d("Test3",labels.get(0).getDescription().toString()); // labels List에 0번째 값은 영수증 전체 값이 들어잇고 1,2,3 ... 이렇게 한 단어씩 들어있음.
 
         return message.toString();
-    }
+    }*/
 }
