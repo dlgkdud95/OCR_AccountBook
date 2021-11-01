@@ -279,6 +279,19 @@ public class CameraActivity extends AppCompatActivity {
                             String result = subJsonObject2.getString("result");
                             JSONObject subJsonObject3 = new JSONObject(result); //result object
 
+                            String paymentInfo = subJsonObject3.getString("paymentInfo");
+                            JSONObject subJsonObject4_3 = new JSONObject(paymentInfo);
+
+                            String date = subJsonObject4_3.getString("date");
+                            JSONObject subJsonObject5_3 = new JSONObject(date);
+
+                            String formatted_date = subJsonObject5_3.getString("formatted");
+                            JSONObject formatteddateJsonObject = new JSONObject(formatted_date);
+
+                            String formatted_year = formatteddateJsonObject.getString("year");
+                            String formatted_month = formatteddateJsonObject.getString("month");
+                            String formatted_day = formatteddateJsonObject.getString("day");
+
                             String storeInfo = subJsonObject3.getString("storeInfo");
                             JSONObject subJsonObject4 = new JSONObject(storeInfo); //storeInfo object
 
@@ -311,9 +324,11 @@ public class CameraActivity extends AppCompatActivity {
                             String text_storeAddress = addressJsonObject.getString("text");
                             Log.d("가게주소", text_storeAddress);
 
-                            tv_ocrResult.setText("가게 이름 : "+text_storeName+"\n\n가게 주소 : "+text_storeAddress+"\n\n가격 : "+text_price); // OCR_RESULT VIEW
+                            String date_value = formatted_year+"-"+formatted_month+"-"+formatted_day;
 
+                            tv_ocrResult.setText("날짜 : "+date_value+"\n\n가게 이름 : "+text_storeName+"\n\n가게 주소 : "+text_storeAddress+"\n\n가격 : "+text_price); // OCR_RESULT VIEW
 
+                            //전부 edit으로 변경가능하게 한 후 등록버튼을 지우고 수입/지출로?
 
 
                         } catch (JSONException e)
