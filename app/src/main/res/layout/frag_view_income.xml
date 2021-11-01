@@ -59,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:gravity="center"
-                android:text="수입내역"
+                android:text="수입내용"
                 android:textSize="18sp" />
 
         </LinearLayout>

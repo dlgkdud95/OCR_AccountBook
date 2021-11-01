@@ -51,7 +51,7 @@
         android:layout_marginBottom="80dp"
         android:clickable="true"
         android:src="@drawable/ic_baseline_add_24"
-        app:backgroundTint="#0065B6"
+        app:backgroundTint="#009688"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -97,8 +97,11 @@
             android:id="@+id/txt_outlay"
             android:layout_width="match_parent"
             android:layout_height="25dp"
+            android:breakStrategy="high_quality"
             android:gravity="center_horizontal"
             android:text="지출"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="#000000" />
 
         <TextView
