@@ -25,7 +25,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="10dp"
-        android:text="날짜"
+        android:text="기간조회"
         app:layout_constraintBottom_toTopOf="@+id/lv_list"
         app:layout_constraintEnd_toEndOf="@+id/lv_list"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,7 +34,7 @@
         android:id="@+id/btn_searchbasic"
         android:layout_width="80dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="8dp"
         android:text="기본"
         app:layout_constraintBottom_toBottomOf="@+id/btn_searchdate"
         app:layout_constraintEnd_toStartOf="@+id/btn_searchdate" />
@@ -42,13 +42,13 @@
     <EditText
         android:id="@+id/et_startdate"
         android:layout_width="181dp"
-        android:layout_height="36dp"
+        android:layout_height="48dp"
+        android:editable="false"
         android:ems="10"
+        android:focusable="false"
         android:inputType="textPersonName"
         android:text="Start"
         android:textSize="14sp"
-        android:editable="false"
-        android:focusable="false"
         app:layout_constraintStart_toStartOf="@+id/et_enddate"
         tools:layout_editor_absoluteY="6dp" />
 

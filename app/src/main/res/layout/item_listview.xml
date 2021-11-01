@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/shape_itembackground">
+    android:background="@android:drawable/editbox_background_normal"
+    android:backgroundTint="#EBEDD7">
 
 
     <TextView
 
         android:id="@+id/item_tv_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="53dp"
+        android:layout_height="37dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="지출"
@@ -46,15 +47,19 @@
 
     <TextView
         android:id="@+id/item_tv_cost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="85dp"
+        android:layout_height="34dp"
         android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="50dp"
         android:text="10000"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/item_tv_type"
-        app:layout_constraintStart_toEndOf="@+id/item_tv_type" />
+        app:layout_constraintEnd_toStartOf="@+id/item_tv_payment"
+        app:layout_constraintStart_toEndOf="@+id/item_tv_type"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/item_tv_category"
@@ -71,8 +76,7 @@
         android:id="@+id/item_tv_payment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginStart="12dp"
         android:text="체크카드"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="@+id/item_tv_cost"
