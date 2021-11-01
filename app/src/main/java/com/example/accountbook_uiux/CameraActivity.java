@@ -10,6 +10,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -38,13 +39,24 @@ import com.google.api.services.vision.v1.model.EntityAnnotation;
 import com.google.api.services.vision.v1.model.Feature;
 import com.google.api.services.vision.v1.model.Image;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.UUID;
 
 public class CameraActivity extends AppCompatActivity {
 
@@ -63,6 +75,7 @@ public class CameraActivity extends AppCompatActivity {
 
     private TextView receiptText;
     private ImageView receiptImage;
+    private TextView tv_ocrResult;
 
     //fab_main 버튼의 상태, 기본값 -> 선택하지 않은 상태
     private boolean isFabOpen = false;
@@ -75,6 +88,7 @@ public class CameraActivity extends AppCompatActivity {
         FloatingActionButton fab_receiptSelect = findViewById(R.id.fab_receiptSelect);
         FloatingActionButton fab_camera = findViewById(R.id.fab_camera);
         FloatingActionButton fab_album = findViewById(R.id.fab_album);
+        tv_ocrResult = (TextView) findViewById(R.id.tv_ocrResult);
 
         //(플로팅액션버튼)버튼을 누르면 화면이 넘어감(fab_main 제외)
         fab_receiptSelect.setOnClickListener(new View.OnClickListener() { //버튼 클릭시 수행할 동작 지정
@@ -191,8 +205,128 @@ public class CameraActivity extends AppCompatActivity {
                                 MediaStore.Images.Media.getBitmap(getContentResolver(), uri),
                                 MAX_DIMENSION);    //비트맵 만들기
 
+                String imagecode = BitmapToBase64(bitmap);
+
                 //callCloudVision(bitmap);
                 //여기에 비트맵 받아서 이미지를 64비트로 바꿔주는 코드 적으면 될거같음
+                new Thread()
+                {
+                    public void run()
+                    {
+                        String ocrMessage = "";
+                        try {
+
+                            String apiURL = "https://73c0c93018884e1fbd86063424423faf.apigw.ntruss.com/custom/v1/11734/5f2e21b4e8b549e5b7f1976359ebd77b007088536d663b5765c3ce876a807c70/document/receipt";
+                            String secretKey = "Wm9NRGFrSnRxeGpiYVZ1d1ZwTm9iYUlOd2lOTXZ0Umo=";
+
+                            String objectStorageURL = imagecode; // 여기에 사진
+
+                            URL url = new URL(apiURL);
+
+                            String message = getReqMessage(objectStorageURL);
+                            System.out.println("##" + message);
+
+                            long timestamp = new Date().getTime();
+
+                            HttpURLConnection con = (HttpURLConnection)url.openConnection();
+                            con.setRequestMethod("POST");
+                            con.setRequestProperty("Content-Type", "application/json;UTF-8");
+                            con.setRequestProperty("X-OCR-SECRET", secretKey);
+
+                            // post request
+                            con.setDoOutput(true);
+                            DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+                            wr.write(message.getBytes("UTF-8"));
+                            wr.flush();
+                            wr.close();
+
+                            int responseCode = con.getResponseCode();
+
+                            if(responseCode==200) { // 정상 호출
+                                System.out.println(con.getResponseMessage());
+
+                                BufferedReader in = new BufferedReader(
+                                        new InputStreamReader(
+                                                con.getInputStream()));
+                                String decodedString;
+                                while ((decodedString = in.readLine()) != null) {
+                                    ocrMessage = decodedString;
+                                }
+                                //chatbotMessage = decodedString;
+                                in.close();
+
+                            } else {  // 에러 발생
+                                ocrMessage = con.getResponseMessage();
+                            }
+                        } catch (Exception e) {
+                            System.out.println(e);
+                        }
+
+
+
+                        //JSON PARSING START
+                        try
+                        {
+                            String json = ocrMessage;
+                            JSONObject jsonObject = new JSONObject(json);
+                            String images = jsonObject.getString("images");
+                            JSONArray jsonArray = new JSONArray(images);
+                            JSONObject subJsonObject = jsonArray.getJSONObject(0);
+
+                            String receipt = subJsonObject.getString("receipt");
+                            JSONObject subJsonObject2 = new JSONObject(receipt); // receipt object
+
+                            String result = subJsonObject2.getString("result");
+                            JSONObject subJsonObject3 = new JSONObject(result); //result object
+
+                            String storeInfo = subJsonObject3.getString("storeInfo");
+                            JSONObject subJsonObject4 = new JSONObject(storeInfo); //storeInfo object
+
+                            String totalPrice = subJsonObject3.getString("totalPrice");
+                            JSONObject subJsonObject4_2 = new JSONObject(totalPrice); // totalPrice object
+
+                            String price = subJsonObject4_2.getString("price");
+                            JSONObject subJsonOBject5_2 = new JSONObject(price); // price object
+
+                            String text_price = subJsonOBject5_2.getString("text"); // 가격
+                            Log.d("가격", text_price);
+
+                            String formatted_price = subJsonOBject5_2.getString("formatted");
+                            JSONObject subJsonObject6 = new JSONObject(formatted_price);
+
+                            String formatted_price_value = subJsonObject6.getString("value");
+                            Log.d("raw가격", formatted_price_value);
+
+                            String name = subJsonObject4.getString("name");
+                            JSONObject subJsonObject5 = new JSONObject(name); // name object
+
+                            String addresses = subJsonObject4.getString("addresses");
+                            JSONArray subJsonArray = new JSONArray(addresses); // address array
+                            JSONObject addressJsonObject = subJsonArray.getJSONObject(0);
+
+
+                            String text_storeName = subJsonObject5.getString("text"); // 가게 이름
+                            Log.d("가게이름", text_storeName);
+
+                            String text_storeAddress = addressJsonObject.getString("text");
+                            Log.d("가게주소", text_storeAddress);
+
+                            tv_ocrResult.setText("가게 이름 : "+text_storeName+"\n\n가게 주소 : "+text_storeAddress+"\n\n가격 : "+text_price); // OCR_RESULT VIEW
+
+
+
+
+                        } catch (JSONException e)
+                        {
+                            e.printStackTrace();
+                        }
+
+
+                        System.out.println(">>>>>>>>>>"+ ocrMessage);
+                    }
+
+                }.start();
+
                 receiptImage.setImageBitmap(bitmap);  //이미지뷰에 bitmap 저장
 
             } catch (IOException e) {
@@ -203,6 +337,46 @@ public class CameraActivity extends AppCompatActivity {
             Log.d(TAG, "Image picker gave us a null image.");
             Toast.makeText(this, R.string.image_picker_error, Toast.LENGTH_LONG).show();
         }
+    }
+
+    public static String getReqMessage(String objectStorageURL) {
+
+        String requestBody = "";
+
+        try {
+
+            long timestamp = new Date().getTime();
+
+            JSONObject json = new JSONObject();
+            json.put("version", "V2");
+            json.put("requestId", UUID.randomUUID().toString());
+            json.put("timestamp", Long.toString(timestamp));
+            JSONObject image = new JSONObject();
+            image.put("format", "jpg");
+            image.put("data", objectStorageURL);
+
+            image.put("name", "test_ocr");
+            JSONArray images = new JSONArray();
+            images.put(image);
+            json.put("images", images);
+
+            requestBody = json.toString();
+
+        } catch (Exception e){
+            System.out.println("## Exception : " + e);
+        }
+
+        return requestBody;
+
+    }
+
+
+    public String BitmapToBase64(Bitmap bm){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bm.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        byte[] bImage = baos.toByteArray();
+        String base64 = Base64.encodeToString(bImage, Base64.DEFAULT);
+        return base64;
     }
     /*
     //사진 64비트로 바꿔주고 구글 api로 api키값 주는 함수
