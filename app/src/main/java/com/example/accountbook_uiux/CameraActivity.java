@@ -60,7 +60,6 @@ import java.util.UUID;
 
 public class CameraActivity extends AppCompatActivity {
 
-    private static final String CLOUD_VISION_API_KEY = "AIzaSyBAsxXiRCTcKng2GqeGeEP5G9SRKHLOE7U";
     public static final String FILE_NAME = "temp.jpg";
     private static final String ANDROID_CERT_HEADER = "X-Android-Cert";
     private static final String ANDROID_PACKAGE_HEADER = "X-Android-Package";
