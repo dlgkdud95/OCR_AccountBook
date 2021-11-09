@@ -153,16 +153,18 @@
         android:id="@+id/tv_limit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:text="지출제한 : ??원"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calendarView" />
 
     <Button
         android:id="@+id/btn_delDB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
         android:layout_marginTop="10dp"
         android:background="#7986CB"
         android:icon="@android:drawable/checkbox_on_background"

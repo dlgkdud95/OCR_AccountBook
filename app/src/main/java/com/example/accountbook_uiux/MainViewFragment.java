@@ -24,6 +24,7 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -103,6 +104,8 @@ public class MainViewFragment extends Fragment  {
                 Button btn_income = (Button) dialog.findViewById(R.id.btn_income);
                 Button btn_outlay = (Button) dialog.findViewById(R.id.btn_outlay);
                 EditText et_money = (EditText) dialog.findViewById(R.id.et_money);
+                Spinner spinner_income = (Spinner) dialog.findViewById(R.id.spinner_inCategory);
+                Spinner spinner_outlay = (Spinner) dialog.findViewById(R.id.spinner_outCategory);
 
                 tv_date.setText(selectedDate);
                 StringBuilder typeBuilder = new StringBuilder(); // StringBuilder값에 for문을 돌리면서 db데이터를 쌓는다
@@ -135,7 +138,12 @@ public class MainViewFragment extends Fragment  {
                     public void onClick(View view)
                     {
                         int moneyValue = Integer.parseInt(et_money.getText().toString());
-                        dbHelper.InsertDB("수입", moneyValue, "기타", selectedDate, "기타", "");
+                        String category = spinner_income.getSelectedItem().toString();
+                        if(spinner_income.getSelectedItemPosition() == 0)
+                        {
+                            dbHelper.InsertDB("수입", moneyValue, "기타", selectedDate, "기타", "");
+                        }
+                        else dbHelper.InsertDB("수입", moneyValue, category, selectedDate, "기타", "");
                         income.setText(Integer.toString(dbHelper.getSum("수입"))+ " 원");
                         outlay.setText(Integer.toString(dbHelper.getSum("지출"))+ " 원");
                         total.setText(Integer.toString(dbHelper.getSum("수입") - dbHelper.getSum("지출"))+ " 원");
@@ -150,7 +158,12 @@ public class MainViewFragment extends Fragment  {
                     public void onClick(View view)
                     {
                         int moneyValue = Integer.parseInt(et_money.getText().toString());
-                        dbHelper.InsertDB("지출", moneyValue, "기타", selectedDate, "기타", "");
+                        String category = spinner_outlay.getSelectedItem().toString();
+                        if(spinner_outlay.getSelectedItemPosition() == 0)
+                        {
+                            dbHelper.InsertDB("지출", moneyValue, "기타", selectedDate, "기타", "");
+                        }
+                        else dbHelper.InsertDB("지출", moneyValue, category, selectedDate, "기타", "");
                         income.setText(Integer.toString(dbHelper.getSum("수입"))+ " 원");
                         outlay.setText(Integer.toString(dbHelper.getSum("지출"))+ " 원");
                         total.setText(Integer.toString(dbHelper.getSum("수입") - dbHelper.getSum("지출"))+ " 원");

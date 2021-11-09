@@ -4,7 +4,6 @@ import static com.example.accountbook_uiux.MainActivity.dbHelper;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +37,7 @@ public class StatsViewFragment extends Fragment
 
     private View view_stats;
     MainActivity mainActivity = new MainActivity();
-    TextView tv_foodsum;
+    TextView tv_etcsum, tv_foodsum;
     Button btn_toBar, btn_toPie;
 
     PieChart pieChart;
@@ -61,7 +60,9 @@ public class StatsViewFragment extends Fragment
         view_stats = inflater.inflate(R.layout.frame_stats, container, false);
 
 
+        tv_etcsum = (TextView) view_stats.findViewById(R.id.tv_etcsum);
         tv_foodsum = (TextView) view_stats.findViewById(R.id.tv_foodsum);
+        tv_etcsum.setText("기타 : "+dbHelper.getCategory("기타","지출")+"원");
         tv_foodsum.setText("식비 : "+dbHelper.getCategory("식비","지출")+"원");
         cal1.setTime(new Date());
         cal2.setTime(new Date());

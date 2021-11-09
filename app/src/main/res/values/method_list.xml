@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="method">
-        <item> </item>
+        <item>결제수단</item>
         <item>현금</item>
         <item>체크카드</item>
         <item>신용카드</item>

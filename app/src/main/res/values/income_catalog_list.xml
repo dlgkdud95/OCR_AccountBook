@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="income_catalog">
-        <item> </item>
+        <item>수입 카테고리</item>
         <item>용돈</item>
         <item>월급</item>
         <item>상여</item>

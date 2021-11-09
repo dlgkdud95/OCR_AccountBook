@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="outlay_catalog">
-        <item> </item>
+        <item>지출 카테고리</item>
         <item>식비</item>
         <item>교통비</item>
         <item>패션/미용</item>

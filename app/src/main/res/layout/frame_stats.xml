@@ -30,12 +30,12 @@
     </com.github.mikephil.charting.charts.PieChart>
 
     <TextView
-        android:id="@+id/tv_foodsum"
+        android:id="@+id/tv_etcsum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
-        android:text="식비 : 0원"
+        android:text="기타 : 0원"
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,10 +51,8 @@
         android:text="월별 "
         android:textColor="#000000"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/barchart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.978"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023" />
 
@@ -62,17 +60,37 @@
         android:id="@+id/btn_toPie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="132dp"
-        android:background="#7C8BC34A"
+        android:layout_marginEnd="10dp"
+        android:background="#AED581"
+        android:text="카테고리"
         android:textColor="#000000"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.455"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_toBar"
+        app:layout_constraintEnd_toStartOf="@+id/btn_toBar"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023"
-        tools:text="카테고리 " />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_foodsum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="식비 : 0원"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_etcsum"
+        app:layout_constraintStart_toStartOf="@+id/tv_etcsum" />
+
+    <TextView
+        android:id="@+id/tv_foodsum2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="식비 : 0원"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_etcsum"
+        app:layout_constraintStart_toStartOf="@+id/tv_etcsum" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

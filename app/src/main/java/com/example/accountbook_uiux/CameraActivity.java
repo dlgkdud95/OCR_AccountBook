@@ -1,5 +1,7 @@
 package com.example.accountbook_uiux;
 
+import static com.example.accountbook_uiux.MainActivity.dbHelper;
+
 import android.Manifest;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
@@ -14,7 +16,9 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,11 +64,9 @@ import java.util.UUID;
 
 public class CameraActivity extends AppCompatActivity {
 
-    private static final String CLOUD_VISION_API_KEY = "AIzaSyBAsxXiRCTcKng2GqeGeEP5G9SRKHLOE7U";
+
     public static final String FILE_NAME = "temp.jpg";
-    private static final String ANDROID_CERT_HEADER = "X-Android-Cert";
-    private static final String ANDROID_PACKAGE_HEADER = "X-Android-Package";
-    private static final int MAX_LABEL_RESULTS = 10;
+
     private static final int MAX_DIMENSION = 1200;
 
     private static final String TAG = CameraActivity.class.getSimpleName();
@@ -73,9 +75,17 @@ public class CameraActivity extends AppCompatActivity {
     public static final int CAMERA_PERMISSIONS_REQUEST = 2;
     public static final int CAMERA_IMAGE_REQUEST = 3;
 
+
+    public static int RECEIPT_COST = 0; // 영수증에서 받아온 COST 값
+    public static String RECEIPT_DATE = ""; // 영수증에서 받아온 DATE 값값
+
     private TextView receiptText;
     private ImageView receiptImage;
     private TextView tv_ocrResult;
+    //private EditText et_date, et_storeName, et_storeAdr, et_totalPrice;
+    private Spinner spinner_category;
+    private Spinner spinner_payment;
+
 
     //fab_main 버튼의 상태, 기본값 -> 선택하지 않은 상태
     private boolean isFabOpen = false;
@@ -89,6 +99,15 @@ public class CameraActivity extends AppCompatActivity {
         FloatingActionButton fab_camera = findViewById(R.id.fab_camera);
         FloatingActionButton fab_album = findViewById(R.id.fab_album);
         tv_ocrResult = (TextView) findViewById(R.id.tv_ocrResult);
+        /*
+        et_date = (EditText) findViewById(R.id.et_date);
+        et_storeName = (EditText) findViewById(R.id.et_storeName);
+        et_storeAdr = (EditText) findViewById(R.id.et_storeAdr);
+        et_totalPrice = (EditText) findViewById(R.id.et_totalPrice);
+
+         */
+        spinner_category = (Spinner) findViewById(R.id.spinner_category);
+        spinner_payment = (Spinner) findViewById(R.id.spinner_payment);
 
         //(플로팅액션버튼)버튼을 누르면 화면이 넘어감(fab_main 제외)
         fab_receiptSelect.setOnClickListener(new View.OnClickListener() { //버튼 클릭시 수행할 동작 지정
@@ -114,10 +133,32 @@ public class CameraActivity extends AppCompatActivity {
         bt_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MoneyInputActivity.class);   //확인 버튼을 누르면 MoneyInputActivity 클래스로 넘어감
+
+                String cateogory = spinner_category.getSelectedItem().toString();
+                String payment = spinner_payment.getSelectedItem().toString();
+                if(RECEIPT_COST == 0 && RECEIPT_DATE == "") // 만약 초기값이라면 아무것도 안하기
+                {
+                    Log.d("alert", "아무것도 안하기");
+                }
+                else
+                {
+                    if(spinner_category.getSelectedItemPosition() == 0) // 아무것도 선택안할시
+                    {
+                        dbHelper.InsertDB("지출", RECEIPT_COST, "기타", RECEIPT_DATE, payment, "기타");
+                    }
+                    else dbHelper.InsertDB("지출", RECEIPT_COST, cateogory, RECEIPT_DATE, payment, "기타");
+                }
+                // 전역변수로 데이터 전달 후 다시 초기화
+                RECEIPT_COST = 0;
+                RECEIPT_DATE = "";
+
+                // 영수증에서 입력하면 지출경고 안뜸. 뜨게 수정
+
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);   //확인 버튼을 누르면 메인 클래스로 넘어감
                 startActivity(intent);
             }
         });
+
 
         receiptText = findViewById(R.id.receiptText);
         receiptImage = findViewById(R.id.receiptImage);
@@ -207,8 +248,6 @@ public class CameraActivity extends AppCompatActivity {
 
                 String imagecode = BitmapToBase64(bitmap);
 
-                //callCloudVision(bitmap);
-                //여기에 비트맵 받아서 이미지를 64비트로 바꿔주는 코드 적으면 될거같음
                 new Thread()
                 {
                     public void run()
@@ -302,13 +341,11 @@ public class CameraActivity extends AppCompatActivity {
                             JSONObject subJsonOBject5_2 = new JSONObject(price); // price object
 
                             String text_price = subJsonOBject5_2.getString("text"); // 가격
-                            Log.d("가격", text_price);
+
 
                             String formatted_price = subJsonOBject5_2.getString("formatted");
                             JSONObject subJsonObject6 = new JSONObject(formatted_price);
 
-                            String formatted_price_value = subJsonObject6.getString("value");
-                            Log.d("raw가격", formatted_price_value);
 
                             String name = subJsonObject4.getString("name");
                             JSONObject subJsonObject5 = new JSONObject(name); // name object
@@ -319,16 +356,32 @@ public class CameraActivity extends AppCompatActivity {
 
 
                             String text_storeName = subJsonObject5.getString("text"); // 가게 이름
-                            Log.d("가게이름", text_storeName);
+
 
                             String text_storeAddress = addressJsonObject.getString("text");
-                            Log.d("가게주소", text_storeAddress);
 
-                            String date_value = formatted_year+"-"+formatted_month+"-"+formatted_day;
+
+                            String date_value = formatted_year+"-"+formatted_month+"-"+formatted_day; // 날짜 값 -> DB저장용
+                            String formatted_price_value = subJsonObject6.getString("value"); // RAW PRICE VALUE -> DB저장용
+
+                            RECEIPT_COST = Integer.parseInt(formatted_price_value);
+                            RECEIPT_DATE = date_value;
+
 
                             tv_ocrResult.setText("날짜 : "+date_value+"\n\n가게 이름 : "+text_storeName+"\n\n가게 주소 : "+text_storeAddress+"\n\n가격 : "+text_price); // OCR_RESULT VIEW
+                            /*
+                            et_date.setText(date_value);
+                            et_storeName.setText(text_storeName);
+                            et_storeAdr.setText(text_storeAddress);
+                            et_totalPrice.setText(text_price);
+                             */
 
-                            //전부 edit으로 변경가능하게 한 후 등록버튼을 지우고 수입/지출로?
+
+
+
+                            // 문제점 : Base64로 인코딩할때 Base64의 문제점인 너무 긴 문자열로 인해 json 값이 거의 무조건 중간에서 짤림
+                            //         영수증에서 읽어올 데이터 적을 시엔 문제가 되지 않지만 만약 상품이 많은 경우
+                            //         totalPrice 값까지 json값을 불러오지 않아 parsing 중 오류가 발생
 
 
                         } catch (JSONException e)
@@ -393,122 +446,7 @@ public class CameraActivity extends AppCompatActivity {
         String base64 = Base64.encodeToString(bImage, Base64.DEFAULT);
         return base64;
     }
-    /*
-    //사진 64비트로 바꿔주고 구글 api로 api키값 주는 함수
-    private Vision.Images.Annotate prepareAnnotationRequest(Bitmap bitmap) throws IOException {
-        HttpTransport httpTransport = AndroidHttp.newCompatibleTransport();
-        JsonFactory jsonFactory = GsonFactory.getDefaultInstance();
 
-        VisionRequestInitializer requestInitializer =
-                new VisionRequestInitializer(CLOUD_VISION_API_KEY) {
-                    /**
-                     * We override this so we can inject important identifying fields into the HTTP
-                     * headers. This enables use of a restricted cloud platform API key.
-                     *
-                    @Override
-                    protected void initializeVisionRequest(VisionRequest<?> visionRequest)
-                            throws IOException {
-                        super.initializeVisionRequest(visionRequest);
-
-                        String packageName = getPackageName();
-                        visionRequest.getRequestHeaders().set(ANDROID_PACKAGE_HEADER, packageName);
-
-                        String sig = PackageManagerUtils.getSignature(getPackageManager(), packageName);
-
-                        visionRequest.getRequestHeaders().set(ANDROID_CERT_HEADER, sig);
-                    }
-                };
-
-        Vision.Builder builder = new Vision.Builder(httpTransport, jsonFactory, null);
-        builder.setVisionRequestInitializer(requestInitializer);
-
-        Vision vision = builder.build();
-
-        BatchAnnotateImagesRequest batchAnnotateImagesRequest =
-                new BatchAnnotateImagesRequest();
-        batchAnnotateImagesRequest.setRequests(new ArrayList<AnnotateImageRequest>() {{
-            AnnotateImageRequest annotateImageRequest = new AnnotateImageRequest();
-
-            // Add the image
-            Image base64EncodedImage = new Image();
-            // Convert the bitmap to a JPEG
-            // Just in case it's a format that Android understands but Cloud Vision
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 90, byteArrayOutputStream);
-            byte[] imageBytes = byteArrayOutputStream.toByteArray();
-
-            // Base64 encode the JPEG
-            base64EncodedImage.encodeContent(imageBytes);
-            annotateImageRequest.setImage(base64EncodedImage);
-
-            // add the features we want
-            annotateImageRequest.setFeatures(new ArrayList<Feature>() {{
-                Feature labelDetection = new Feature();
-                labelDetection.setType("TEXT_DETECTION");
-                labelDetection.setMaxResults(MAX_LABEL_RESULTS);
-                add(labelDetection);
-            }});
-
-            // Add the list of one thing to the request
-            add(annotateImageRequest);
-        }});
-
-        Vision.Images.Annotate annotateRequest =
-                vision.images().annotate(batchAnnotateImagesRequest);
-        // Due to a bug: requests to Vision API containing large images fail when GZipped.
-        annotateRequest.setDisableGZipContent(true);
-        Log.d(TAG, "created Cloud Vision request object, sending request");
-
-        return annotateRequest;
-    }*/
-
-    /*private static class LableDetectionTask extends AsyncTask<Object, Void, String> {
-        private final WeakReference<CameraActivity> mActivityWeakReference;
-        private Vision.Images.Annotate mRequest;
-
-        LableDetectionTask(CameraActivity activity, Vision.Images.Annotate annotate) {
-            mActivityWeakReference = new WeakReference<>(activity);
-            mRequest = annotate;
-        }
-
-        @Override
-        protected String doInBackground(Object... params) {
-            try {
-                Log.d(TAG, "created Cloud Vision request object, sending request");
-                BatchAnnotateImagesResponse response = mRequest.execute();
-                return convertResponseToString(response);
-
-            } catch (GoogleJsonResponseException e) {
-                Log.d(TAG, "failed to make API request because " + e.getContent());
-            } catch (IOException e) {
-                Log.d(TAG, "failed to make API request because of other IOException " +
-                        e.getMessage());
-            }
-            return "Cloud Vision API request failed. Check logs for details.";
-        }
-
-        protected void onPostExecute(String result) {    //인식 한 문자를 화면에 보이게 함
-            CameraActivity activity = mActivityWeakReference.get();
-            if (activity != null && !activity.isFinishing()) {
-                TextView imageDetail = activity.findViewById(R.id.receiptText);
-                imageDetail.setText(result);
-            }
-        }
-    }*/
-
-    /*private void callCloudVision(final Bitmap bitmap) {
-        // Switch text to loading
-        receiptText.setText(R.string.loading_message);
-
-        // Do the real work in an async task, because we need to use the network anyway
-        try {
-            AsyncTask<Object, Void, String> labelDetectionTask = new LableDetectionTask(this, prepareAnnotationRequest(bitmap));
-            labelDetectionTask.execute();
-        } catch (IOException e) {
-            Log.d(TAG, "failed to make API request because of other IOException " +
-                    e.getMessage());
-        }
-    }*/
 
     private Bitmap scaleBitmapDown(Bitmap bitmap, int maxDimension) {   //카메라 해상도가 높을 수도 있어서 적당한 비율로 이미지 축소
 
@@ -530,28 +468,5 @@ public class CameraActivity extends AppCompatActivity {
         return Bitmap.createScaledBitmap(bitmap, resizedWidth, resizedHeight, false);
     }
 
-    /*private static String convertResponseToString(BatchAnnotateImagesResponse response) {
-        StringBuilder message = new StringBuilder("I found these things:\n\n");
 
-        List<EntityAnnotation> labels = response.getResponses().get(0).getTextAnnotations(); // 이 labels라는 변수에 json 형식의 데이터가 들어있음
-        if (labels != null) { // labels라는 변수가 null일때까지 반복을 돌면서 message라는 StringBuilder에 String을 쌓음
-            for (EntityAnnotation label : labels) {
-
-                 //Log.d("test", label.getDescription());
-
-                 message.append(String.format(Locale.KOREA, "%.8f: %s", label.getScore(), label.getDescription()));
-                 message.append("\n");
-
-
-
-
-            }
-        } else {
-            message.append("nothing");
-        }
-
-        Log.d("Test3",labels.get(0).getDescription().toString()); // labels List에 0번째 값은 영수증 전체 값이 들어잇고 1,2,3 ... 이렇게 한 단어씩 들어있음.
-
-        return message.toString();
-    }*/
 }

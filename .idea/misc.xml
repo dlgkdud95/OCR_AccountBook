@@ -77,6 +77,7 @@
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable/ic_baseline_history_24.xml" value="0.21875" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable/ic_launcher_background.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable/shape_itembackground.xml" value="0.1" />
+        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable/spinner_background.xml" value="0.2864583333333333" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/dialog_cal.xml" value="0.33" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/fab_receiptview.xml" value="0.28940217391304346" />
@@ -84,11 +85,11 @@
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/frag_view_outlay.xml" value="0.25" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/frame_history.xml" value="0.33" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/frame_main.xml" value="0.33" />
-        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/frame_stats.xml" value="0.25" />
+        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/frame_stats.xml" value="0.33" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/frame_travel.xml" value="0.33" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/item_listview.xml" value="0.67" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/money_input.xml" value="0.25" />
-        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/ocr_view.xml" value="0.25" />
+        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/ocr_view.xml" value="0.33" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/receiptscan_view.xml" value="0.25" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/menu/bottom_menu.xml" value="0.25" />
       </map>

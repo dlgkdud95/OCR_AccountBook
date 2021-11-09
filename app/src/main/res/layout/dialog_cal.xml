@@ -83,5 +83,24 @@
             app:layout_constraintBottom_toTopOf="@+id/btn_outlay"
             app:layout_constraintEnd_toEndOf="@+id/btn_outlay"
             app:layout_constraintStart_toStartOf="@+id/btn_income" />
+
+        <Spinner
+            android:id="@+id/spinner_inCategory"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:entries="@array/income_catalog"
+            app:layout_constraintBottom_toTopOf="@+id/et_money"
+            app:layout_constraintStart_toStartOf="@+id/et_money" />
+
+        <Spinner
+            android:id="@+id/spinner_outCategory"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:entries="@array/outlay_catalog"
+            app:layout_constraintBottom_toTopOf="@+id/spinner_inCategory"
+            app:layout_constraintStart_toStartOf="@+id/spinner_inCategory" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

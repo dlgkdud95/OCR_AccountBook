@@ -28,7 +28,7 @@ import com.google.android.material.tabs.TabLayout;
 public class MoneyInputActivity extends AppCompatActivity {
 
 
-    public static int LIMIT_OUTLAY = 50000; // 지출 제한
+    public static int LIMIT_OUTLAY = 100000; // 지출 제한
     public static int CURRENT_OUTLAY = 0;   // 현재 지출
     public static int ALERT_COUNT = 0;      // 경고 알림이 앱 접속 시 1회만 뜨게해주는 변수
     public static boolean ALERT_CHECK = false;
@@ -56,11 +56,8 @@ public class MoneyInputActivity extends AppCompatActivity {
 
     Button bt_register;
 
-    // 일간 history에 기간조회 + 내역으로 조회 (검색버튼 2개) - 기간조회 완료 -> 기간조회는 Spinner로
-    // 카테고리 지정안하면 자동 기타 -> 완료
-    // 통계 우측상단 지출, 수입, 나의 지출 변화(월별, 막대그래프로) -> 완료
-    // 하단에 카테고리별 금액 - 완료(추가만 하면 됨)
-    // 선택된 날짜 카테고리 Spinner
+
+
 
 
     @Override
@@ -97,7 +94,6 @@ public class MoneyInputActivity extends AppCompatActivity {
 
                 if (tab.getPosition() == 0) {
                     TYPE_SELECTED = 0;
-
                 }
                 else if (tab.getPosition() == 1) {
                     TYPE_SELECTED = 1;
@@ -156,7 +152,7 @@ public class MoneyInputActivity extends AppCompatActivity {
                     String payment = in_sp_method.getSelectedItem().toString();
                     String detail = in_editTextDetails.getText().toString();
 
-                    if(category.length() == 0) // 카테고리 입력 안할 시
+                    if(in_sp_catalog.getSelectedItemPosition() == 0) // 카테고리 입력 안할 시
                     {
                         dbHelper.InsertDB("수입", cost, "기타", mainActivity.getDate(), payment, detail);
                     }
@@ -191,7 +187,7 @@ public class MoneyInputActivity extends AppCompatActivity {
                     String detail = out_editTextDetails.getText().toString();
 
 
-                    if(category.length() == 0)
+                    if(out_sp_catalog.getSelectedItemPosition() == 0)
                     {
                         dbHelper.InsertDB("지출", cost, "기타", mainActivity.getDate(), payment, detail);
                     }
@@ -202,6 +198,7 @@ public class MoneyInputActivity extends AppCompatActivity {
                     }
 
                     CURRENT_OUTLAY = dbHelper.getSum("지출");
+
                     if(LIMIT_OUTLAY < CURRENT_OUTLAY && ALERT_COUNT == 0)
                     {
                         ALERT_CHECK = true; // 알림창이 바로 사라지지 않게 해주는 boolean 변수
@@ -215,7 +212,6 @@ public class MoneyInputActivity extends AppCompatActivity {
                             {
                                 Toast.makeText(getApplicationContext(),"확인했습니다", Toast.LENGTH_SHORT).show();
                                 startActivity(intent);
-
                                 ALERT_CHECK = false; // 다시 false로 바꿔주기
                             }
                         });
