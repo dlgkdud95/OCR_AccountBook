@@ -342,7 +342,6 @@ public class CameraActivity extends AppCompatActivity {
 
                             String text_price = subJsonOBject5_2.getString("text"); // 가격
 
-
                             String formatted_price = subJsonOBject5_2.getString("formatted");
                             JSONObject subJsonObject6 = new JSONObject(formatted_price);
 
@@ -354,9 +353,7 @@ public class CameraActivity extends AppCompatActivity {
                             JSONArray subJsonArray = new JSONArray(addresses); // address array
                             JSONObject addressJsonObject = subJsonArray.getJSONObject(0);
 
-
                             String text_storeName = subJsonObject5.getString("text"); // 가게 이름
-
 
                             String text_storeAddress = addressJsonObject.getString("text");
 
