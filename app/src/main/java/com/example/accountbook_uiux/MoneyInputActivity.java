@@ -79,11 +79,6 @@ public class MoneyInputActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("지출"));
 
         container = (ViewGroup) findViewById(R.id.viewPager);
-        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE); // Inflate를 사용하여 다른 레이아웃 접근
-
-
-
-
 
         //탭 메뉴 누르면 해당 프래그먼트로 변경됨
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -116,10 +111,6 @@ public class MoneyInputActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 tabLayout.selectTab(tabLayout.getTabAt(position));
-
-
-
-
             }
         });
 

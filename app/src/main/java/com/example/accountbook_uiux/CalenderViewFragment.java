@@ -1,46 +1,30 @@
 package com.example.accountbook_uiux;
 
-import static android.app.Activity.RESULT_OK;
-
 import static com.example.accountbook_uiux.MainActivity.dbHelper;
 
 import android.animation.ObjectAnimator;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.io.File;
 import java.util.ArrayList;
 
-public class MainViewFragment extends Fragment  {
+public class CalenderViewFragment extends Fragment  {
 
-    private View view_main;
+    private View view_calender;
 
 
     //frame_main (메인화면) 변수
@@ -61,16 +45,16 @@ public class MainViewFragment extends Fragment  {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view_main = inflater.inflate(R.layout.frame_main, container, false);
+        view_calender = inflater.inflate(R.layout.frame_calender, container, false);
         //frame_main
-        calendarView = (CalendarView) view_main.findViewById(R.id.calendarView);
-        txt_income = (TextView) view_main.findViewById(R.id.txt_income);
-        txt_outlay = (TextView) view_main.findViewById(R.id.txt_outlay);
-        txt_total = (TextView) view_main.findViewById(R.id.txt_total);
-        income = (TextView) view_main.findViewById(R.id.income);
-        outlay = (TextView) view_main.findViewById(R.id.outlay);
-        total = (TextView) view_main.findViewById(R.id.total);
-        tv_limit = (TextView) view_main.findViewById(R.id.tv_limit);
+        calendarView = (CalendarView) view_calender.findViewById(R.id.calendarView);
+        txt_income = (TextView) view_calender.findViewById(R.id.txt_income);
+        txt_outlay = (TextView) view_calender.findViewById(R.id.txt_outlay);
+        txt_total = (TextView) view_calender.findViewById(R.id.txt_total);
+        income = (TextView) view_calender.findViewById(R.id.income);
+        outlay = (TextView) view_calender.findViewById(R.id.outlay);
+        total = (TextView) view_calender.findViewById(R.id.total);
+        tv_limit = (TextView) view_calender.findViewById(R.id.tv_limit);
 
         income.setText(Integer.toString(dbHelper.getSum("수입"))+ " 원");
         outlay.setText(Integer.toString(dbHelper.getSum("지출"))+ " 원");
@@ -176,9 +160,9 @@ public class MainViewFragment extends Fragment  {
             }
         });
 
-        floatingActionButton(view_main); //fab버튼 작동 할 수 있게 해주는 메소드
-        DB_Delete_Button(view_main);
-        return view_main;
+        floatingActionButton(view_calender); //fab버튼 작동 할 수 있게 해주는 메소드
+        DB_Delete_Button(view_calender);
+        return view_calender;
     }
 
 
@@ -200,11 +184,11 @@ public class MainViewFragment extends Fragment  {
         });
     }
 
-    private void floatingActionButton (View view_main) {
+    private void floatingActionButton (View view_calender) {
 
-        FloatingActionButton fab_main = (FloatingActionButton) view_main.findViewById(R.id.fab_main);
-        FloatingActionButton fab_camera = (FloatingActionButton) view_main.findViewById(R.id.fab_camera);
-        FloatingActionButton fab_writing = (FloatingActionButton) view_main.findViewById(R.id.fab_writing);
+        fab_main = (FloatingActionButton) view_calender.findViewById(R.id.fab_main);
+        fab_camera = (FloatingActionButton) view_calender.findViewById(R.id.fab_receipt);
+        fab_writing = (FloatingActionButton) view_calender.findViewById(R.id.fab_writing);
 
         //(플로팅액션버튼)버튼을 누르면 화면이 넘어감(fab_main 제외)
         fab_main.setOnClickListener(new View.OnClickListener() { //버튼 클릭시 수행할 동작 지정
@@ -221,7 +205,7 @@ public class MainViewFragment extends Fragment  {
                 startActivity(intent);
             }
         });
-        fab_camera.findViewById(R.id.fab_camera).setOnClickListener(new View.OnClickListener() {
+        fab_camera.findViewById(R.id.fab_receipt).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //영수증 인식 화면 전환
@@ -233,12 +217,12 @@ public class MainViewFragment extends Fragment  {
     public void toggleFab() {
         if (isFabOpen) { //닫힌상태
             //writing, camera y축으로 0만큼 움직임
-            ObjectAnimator.ofFloat(view_main.findViewById(R.id.fab_writing), "translationY", 0f).start();
-            ObjectAnimator.ofFloat(view_main.findViewById(R.id.fab_camera), "translationY", 0f).start();
+            ObjectAnimator.ofFloat(view_calender.findViewById(R.id.fab_writing), "translationY", 0f).start();
+            ObjectAnimator.ofFloat(view_calender.findViewById(R.id.fab_receipt), "translationY", 0f).start();
         } else {
             //writing -100, camera -200 만큼 y축으로움직임
-            ObjectAnimator.ofFloat(view_main.findViewById(R.id.fab_writing), "translationY", -150f).start();
-            ObjectAnimator.ofFloat(view_main.findViewById(R.id.fab_camera), "translationY", -290f).start();
+            ObjectAnimator.ofFloat(view_calender.findViewById(R.id.fab_writing), "translationY", -150f).start();
+            ObjectAnimator.ofFloat(view_calender.findViewById(R.id.fab_receipt), "translationY", -290f).start();
         }
 
         isFabOpen = !isFabOpen;

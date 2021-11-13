@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/bt_setting"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/ic_baseline_settings_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_nickname"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:text="ㅇㅇㅇ님의\n지출내역"
+        android:textColor="#3C3C3C"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.103"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.111" />
+
+    <TextView
+        android:id="@+id/txt_receipt"
+        android:layout_width="357dp"
+        android:layout_height="218dp"
+        android:gravity="center"
+        android:background="#FFFFFF"
+        android:text="영수증을 찍어보세요"
+        android:textColor="#878787"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.358" />
+
+    <Button
+        android:id="@+id/bt_receiptScan"
+        android:layout_width="158dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="32dp"
+        android:text="영수증 업로드"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_receipt"
+        app:layout_constraintEnd_toEndOf="@+id/txt_receipt"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/txt_receipt" />
+
+    <Button
+        android:id="@+id/bt_monthly"
+        android:layout_width="357dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="16dp"
+        android:background="#00FFFFFF"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_receipt"
+        app:layout_constraintVertical_bias="0.01" />
+
+    <TextView
+        android:id="@+id/txt_month"
+        android:layout_width="307dp"
+        android:layout_height="40dp"
+        android:gravity="center|start"
+        android:text="00월 내역"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/bt_monthly"
+        app:layout_constraintStart_toStartOf="@+id/bt_monthly"
+        app:layout_constraintTop_toTopOf="@+id/bt_monthly" />
+
+    <TextView
+        android:id="@+id/txt_homeIncome"
+        android:layout_width="207dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="25dp"
+        android:gravity="center|start"
+        android:text="수입"
+        app:layout_constraintStart_toStartOf="@+id/bt_monthly"
+        app:layout_constraintTop_toBottomOf="@+id/txt_month" />
+
+    <TextView
+        android:id="@+id/txt_homeSpend"
+        android:layout_width="207dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center|start"
+        android:text="지출"
+        app:layout_constraintStart_toStartOf="@+id/bt_monthly"
+        app:layout_constraintTop_toBottomOf="@+id/txt_month" />
+
+    <TextView
+        android:id="@+id/txt_incomeNum"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:gravity="center|end"
+        android:text="원"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/bt_monthly"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/txt_homeIncome"
+        app:layout_constraintTop_toBottomOf="@+id/txt_month" />
+
+    <TextView
+        android:id="@+id/txt_spendNum"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center|end"
+        android:text="원"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/bt_monthly"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/txt_homeIncome"
+        app:layout_constraintTop_toBottomOf="@+id/txt_month" />
+
+    <Button
+        android:id="@+id/bt_receiptStats"
+        android:layout_width="357dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="#FFFFFF"
+        android:gravity="center|start"
+        android:text="\t\t\t영수증 내역 보기"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_monthly"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_receipt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:clickable="true"
+        app:backgroundTint="#FFFFFF"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toBottomOf="@id/fab_main"
+        app:layout_constraintEnd_toEndOf="@id/fab_main"
+        app:layout_constraintStart_toStartOf="@+id/fab_main"
+        app:layout_constraintTop_toTopOf="@+id/fab_main"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_writing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:src="@drawable/ic_baseline_pen_24"
+        app:backgroundTint="#FFFFFF"
+        app:fabSize="mini"
+        app:layout_constraintTop_toTopOf="@+id/fab_main"
+        app:layout_constraintBottom_toBottomOf="@id/fab_main"
+        app:layout_constraintStart_toStartOf="@+id/fab_main"
+        app:layout_constraintEnd_toEndOf="@id/fab_main"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        android:src="@drawable/ic_baseline_add_24"
+        app:backgroundTint="#009688"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_card"
+        android:layout_width="357dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="16dp"
+        android:text="카드 당 사용금액 보는 곳"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_receiptStats" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

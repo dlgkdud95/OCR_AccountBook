@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -25,6 +26,7 @@
         </activity>
         <activity android:name=".MoneyInputActivity"/>
         <activity android:name=".CameraActivity"/>
+        <activity android:name=".SettingActivity"/>
 
         <provider
             android:authorities="com.example.accountbook_uiux.provider"

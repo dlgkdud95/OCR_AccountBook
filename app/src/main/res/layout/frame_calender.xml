@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_camera"
+        android:id="@+id/fab_receipt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -70,8 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="25dp"
             android:gravity="center_horizontal"
-            android:text="자산
-"
+            android:text="자산"
             android:textColor="#000000" />
 
         <TextView

@@ -2,21 +2,21 @@ package com.example.accountbook_uiux;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.tabs.TabLayout;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnTabItemSelectedListener {
 
     public static DBHelper dbHelper;
     public static Context mContext;
@@ -29,10 +29,9 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private FragmentManager fm;
     private FragmentTransaction ft;
-    private MainViewFragment mainViewFragment;
-    private StatsViewFragment statsViewFragment;
-    private TravelViewFragment travelViewFragment;
-    private HistoryViewFragment historyViewFragment;
+    private CalenderViewFragment calenderViewFragment;
+    private TotalStatsFragment totalStatsFragment;
+    private HomeViewFragment homeViewFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,55 +51,54 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.action_calender:
+                    case R.id.action_home:
                         setFrag(0);
                         break;
-                    case R.id.action_stats:
+                    case R.id.action_calender:
                         setFrag(1);
                         break;
-                    case R.id.action_travel:
+                    case R.id.action_stats:
                         setFrag(2);
-                        break;
-                    case R.id.action_history:
-                        setFrag(3);
                         break;
                 }
                 return true;
             }
         });
-        mainViewFragment = new MainViewFragment();
-        statsViewFragment = new StatsViewFragment();
-        travelViewFragment = new TravelViewFragment();
-        historyViewFragment = new HistoryViewFragment();
+
+        calenderViewFragment = new CalenderViewFragment();
+        totalStatsFragment = new TotalStatsFragment();
+        homeViewFragment = new HomeViewFragment();
         setFrag(0);  // 메인 화면 선택
     }
 
     //하단 네비게이션 프래그먼트 교체 , onNavigationItemSelected()메소드 안에서 사용
-    private void setFrag(int i) {
+    public void setFrag(int i) {
         fm = getSupportFragmentManager();
         ft = fm.beginTransaction();
 
         switch (i) {
             case 0:
-                ft.replace(R.id.frame, mainViewFragment); //FragMainView 클래스로 이동
+                ft.replace(R.id.frame, homeViewFragment); //FragMainView로 이동
                 ft.commit();
                 break;
             case 1:
-                ft.replace(R.id.frame, statsViewFragment); //FragStatsView 클래스로 이동
+                ft.replace(R.id.frame, calenderViewFragment);
                 ft.commit();
                 break;
             case 2:
-                ft.replace(R.id.frame, travelViewFragment);
-                ft.commit();
-                break;
-            case 3:
-                ft.replace(R.id.frame, historyViewFragment);
+                ft.replace(R.id.frame, totalStatsFragment);
                 ft.commit();
                 break;
         }
     }
 
 
+    //이 메소드가 호출되면 네비게이션 버튼 외 다른 버튼으로 다른 탭으로 이동할 때 해당 탭의 버튼이 선퇙되도록 함
+    public void onTabSelected(int position){
+        if (position == 0) bottomNavigationView.setSelectedItemId(R.id.action_home);
+        else if (position == 1) bottomNavigationView.setSelectedItemId(R.id.action_calender);
+        else if (position == 2) bottomNavigationView.setSelectedItemId(R.id.action_stats);
+    }
 
     public String getDate()
     {

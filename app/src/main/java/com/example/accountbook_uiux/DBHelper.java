@@ -101,7 +101,6 @@ public class DBHelper extends SQLiteOpenHelper
         SQLiteDatabase db = getWritableDatabase();
         Cursor cursor;
 
-
         cursor = db.rawQuery("SELECT * FROM AccountBook WHERE date >= '"+ thisMonth +"' AND date < '"+ nextMonth +"' AND type = '"+ _type +"'",null);
 
         while(cursor.moveToNext())
