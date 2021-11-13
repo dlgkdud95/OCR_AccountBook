@@ -25,8 +25,8 @@
                 android:id="@+id/receiptText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="버튼 눌러서 갤러리/카메라 선택하세요" />
+                android:layout_marginBottom="10dp"
+                android:text="우측 하단 버튼을 눌러서 카메라/갤러리를 선택하세요" />
 
             <ImageView
                 android:id="@+id/receiptImage"
@@ -45,15 +45,15 @@
                 android:id="@+id/spinner_payment"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
-                android:entries="@array/method"/>
+                android:entries="@array/method" />
 
             <TextView
                 android:id="@+id/tv_ocrResult"
                 android:layout_width="match_parent"
                 android:layout_height="277dp"
-                android:text="영수증 인식 결과(5초 지나도 안나올 시 인식실패한 것)"
+                android:text="  영수증 인식 결과를 확인해보세요!"
                 android:textColor="#000000"
-                android:textSize="16sp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
 

@@ -7,20 +7,22 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="350dp"
-        android:layout_height="600dp"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="64dp">
+        android:layout_width="344dp"
+        android:layout_height="620dp"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="55dp">
 
         <TextView
             android:id="@+id/tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="24dp"
             android:text="0000년 00월 00일"
+            android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.567"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,8 +30,9 @@
             android:id="@+id/tv_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="15dp"
+            android:textColor="#009688"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_date" />
 
@@ -37,70 +40,78 @@
             android:id="@+id/tv_cost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="없습니다"
+            android:text="          없습니다"
+            android:textColor="#050505"
             app:layout_constraintBottom_toBottomOf="@+id/tv_type"
             app:layout_constraintEnd_toStartOf="@+id/tv_category"
+            app:layout_constraintHorizontal_bias="0.429"
             app:layout_constraintStart_toEndOf="@+id/tv_type"
-            app:layout_constraintTop_toTopOf="@+id/tv_type" />
+            app:layout_constraintTop_toTopOf="@+id/tv_date"
+            app:layout_constraintVertical_bias="1" />
 
         <TextView
             android:id="@+id/tv_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="16dp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_cost"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tv_cost" />
+            app:layout_constraintTop_toTopOf="@+id/tv_cost"
+            app:layout_constraintVertical_bias="1.0" />
 
         <Button
             android:id="@+id/btn_income"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginBottom="50dp"
-            android:background="#4FC3F7"
+            android:layout_width="90dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginBottom="100dp"
+            android:background="@drawable/inout_buttonui"
             android:text="수입"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/btn_outlay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="50dp"
-            android:background="#F06292"
+            android:layout_width="90dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="56dp"
+            android:background="@drawable/inout_buttonui"
             android:text="지출"
             app:layout_constraintBottom_toBottomOf="@+id/btn_income"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btn_income" />
 
         <EditText
             android:id="@+id/et_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="25dp"
             android:ems="10"
             android:inputType="numberSigned"
+            android:textColor="#99000000"
+            android:textColorLink="#009688"
             app:layout_constraintBottom_toTopOf="@+id/btn_outlay"
             app:layout_constraintEnd_toEndOf="@+id/btn_outlay"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/btn_income" />
 
         <Spinner
             android:id="@+id/spinner_inCategory"
-            android:layout_width="225dp"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="30dp"
             android:entries="@array/income_catalog"
             app:layout_constraintBottom_toTopOf="@+id/et_money"
             app:layout_constraintStart_toStartOf="@+id/et_money" />
 
         <Spinner
             android:id="@+id/spinner_outCategory"
-            android:layout_width="225dp"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="104dp"
             android:entries="@array/outlay_catalog"
-            app:layout_constraintBottom_toTopOf="@+id/spinner_inCategory"
-            app:layout_constraintStart_toStartOf="@+id/spinner_inCategory" />
+            app:layout_constraintBottom_toBottomOf="@+id/et_money"
+            app:layout_constraintStart_toStartOf="@+id/et_money" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
