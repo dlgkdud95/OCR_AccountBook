@@ -60,14 +60,20 @@ public class ListViewAdapter extends BaseAdapter
     public void addItemToList(String type, int cost, String category, String date, String payment, String detail)
     {
         DBTable listdata = new DBTable();
-        listdata.setType(type);
-        listdata.setCost(cost);
-        listdata.setCategory(category);
-        listdata.setDate(date);
-        listdata.setPayment(payment);
-        listdata.setDetail(detail);
-
-        list.add(listdata);
+        if(type.equals("수입") || type.equals("지출")) // 품목도 리스트뷰에 뜨는걸 방지
+        {
+            listdata.setType(type);
+            listdata.setCost(cost);
+            listdata.setCategory(category);
+            listdata.setDate(date);
+            listdata.setPayment(payment);
+            listdata.setDetail(detail);
+            list.add(listdata);
+        }
+        else
+        {
+            // 아무것도 안하기!
+        }
 
     }
 }

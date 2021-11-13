@@ -41,7 +41,9 @@ public class MainActivity extends AppCompatActivity {
 
         dbHelper = new DBHelper(this);
 
+        String testString = dbHelper.getItemName("TRUE");
 
+        Log.d("아이템", testString);
 
 
         //하단 네비게이션 눌렀을 때 화면 변경 됨, onNavi~() 메소드 통해 setFrag() 메소드가 해당하는 Fragment로 교체함

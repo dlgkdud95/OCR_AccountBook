@@ -77,7 +77,7 @@ public class CameraActivity extends AppCompatActivity {
 
 
     public static int RECEIPT_COST = 0; // 영수증에서 받아온 COST 값
-    public static String RECEIPT_DATE = ""; // 영수증에서 받아온 DATE 값값
+    public static String RECEIPT_DATE = ""; // 영수증에서 받아온 DATE 값
 
     private TextView receiptText;
     private ImageView receiptImage;
@@ -85,6 +85,7 @@ public class CameraActivity extends AppCompatActivity {
     //private EditText et_date, et_storeName, et_storeAdr, et_totalPrice;
     private Spinner spinner_category;
     private Spinner spinner_payment;
+
 
 
     //fab_main 버튼의 상태, 기본값 -> 선택하지 않은 상태
@@ -144,9 +145,9 @@ public class CameraActivity extends AppCompatActivity {
                 {
                     if(spinner_category.getSelectedItemPosition() == 0) // 아무것도 선택안할시
                     {
-                        dbHelper.InsertDB("지출", RECEIPT_COST, "기타", RECEIPT_DATE, payment, "기타");
+                        dbHelper.InsertDB("지출", RECEIPT_COST, "기타", RECEIPT_DATE, payment, "기타", "null",0,0, "FALSE");
                     }
-                    else dbHelper.InsertDB("지출", RECEIPT_COST, cateogory, RECEIPT_DATE, payment, "기타");
+                    else dbHelper.InsertDB("지출", RECEIPT_COST, cateogory, RECEIPT_DATE, payment, "기타","null",0,0, "FALSE");
                 }
                 // 전역변수로 데이터 전달 후 다시 초기화
                 RECEIPT_COST = 0;
@@ -318,6 +319,11 @@ public class CameraActivity extends AppCompatActivity {
                             String result = subJsonObject2.getString("result");
                             JSONObject subJsonObject3 = new JSONObject(result); //result object
 
+
+
+
+
+
                             String paymentInfo = subJsonObject3.getString("paymentInfo");
                             JSONObject subJsonObject4_3 = new JSONObject(paymentInfo);
 
@@ -366,6 +372,45 @@ public class CameraActivity extends AppCompatActivity {
 
 
                             tv_ocrResult.setText("날짜 : "+date_value+"\n\n가게 이름 : "+text_storeName+"\n\n가게 주소 : "+text_storeAddress+"\n\n가격 : "+text_price); // OCR_RESULT VIEW
+
+                            // 품목 파싱 부분
+                            // 스캔 시 문제점 많음.
+                            String subResults = subJsonObject3.getString("subResults");
+                            JSONArray subResultAry = new JSONArray(subResults);
+                            JSONObject subResultObject = subResultAry.getJSONObject(0);
+                            String items = subResultObject.getString("items");
+                            JSONArray itemsArray = new JSONArray(items);
+
+                            for(int i = 0; i<itemsArray.length(); i++)
+                            {
+                                JSONObject itemsObject = itemsArray.getJSONObject(i);
+
+                                String itemName = itemsObject.getString("name");
+                                JSONObject itemNameObject = new JSONObject(itemName);
+
+                                String itemPrice = itemsObject.getString("price");
+                                JSONObject itemPriceObject = new JSONObject(itemPrice);
+
+                                String itemUnitPrice = itemPriceObject.getString("unitPrice");
+                                JSONObject unitPriceObject = new JSONObject(itemUnitPrice);
+
+                                String formattedUnitPrice = unitPriceObject.getString("formatted");
+                                JSONObject formatUnitPrice = new JSONObject(formattedUnitPrice);
+                                String formattedPriceText = formatUnitPrice.getString("value"); // formatted unit price
+
+                                //String itemCount = itemsObject.getString("count");
+                                //JSONObject itemCountObject = new JSONObject(itemCount);
+
+                                //String itemCountText = itemCountObject.getString("text"); // 갯수
+                                String unitPriceText = unitPriceObject.getString("text"); // 가격
+                                String nameText = itemNameObject.getString("text");       // 이름
+                                Log.d("품목 테스트",nameText+" : "+unitPriceText+"원");
+
+                                int unitPriceInt = Integer.parseInt(formattedPriceText); // formatted로 변경필요
+                                //int itemCountInt = Integer.parseInt(itemCountText);
+                                dbHelper.InsertDB("품목", 0, "", "0000-00-00", "", "", nameText,unitPriceInt, 0, "TRUE"); //아직까진 자동 입력
+
+                            }
                             /*
                             et_date.setText(date_value);
                             et_storeName.setText(text_storeName);
@@ -376,9 +421,6 @@ public class CameraActivity extends AppCompatActivity {
 
 
 
-                            // 문제점 : Base64로 인코딩할때 Base64의 문제점인 너무 긴 문자열로 인해 json 값이 거의 무조건 중간에서 짤림
-                            //         영수증에서 읽어올 데이터 적을 시엔 문제가 되지 않지만 만약 상품이 많은 경우
-                            //         totalPrice 값까지 json값을 불러오지 않아 parsing 중 오류가 발생
 
 
                         } catch (JSONException e)
