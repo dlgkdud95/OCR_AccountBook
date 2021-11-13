@@ -81,16 +81,5 @@
         app:layout_constraintBottom_toTopOf="@+id/tv_etcsum"
         app:layout_constraintStart_toStartOf="@+id/tv_etcsum" />
 
-    <TextView
-        android:id="@+id/tv_foodsum2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="식비 : 0원"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_etcsum"
-        app:layout_constraintStart_toStartOf="@+id/tv_etcsum" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

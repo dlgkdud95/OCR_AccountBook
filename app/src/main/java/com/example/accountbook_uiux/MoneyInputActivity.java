@@ -154,11 +154,11 @@ public class MoneyInputActivity extends AppCompatActivity {
 
                     if(in_sp_catalog.getSelectedItemPosition() == 0) // 카테고리 입력 안할 시
                     {
-                        dbHelper.InsertDB("수입", cost, "기타", mainActivity.getDate(), payment, detail);
+                        dbHelper.InsertDB("수입", cost, "기타", mainActivity.getDate(), payment, detail,"null",0,0, "FALSE");
                     }
                     else
                     {
-                        dbHelper.InsertDB("수입", cost, category, mainActivity.getDate(), payment, detail);
+                        dbHelper.InsertDB("수입", cost, category, mainActivity.getDate(), payment, detail,"null",0,0, "FALSE");
                     }
 
                     TYPE_SELECTED = 0;
@@ -189,12 +189,12 @@ public class MoneyInputActivity extends AppCompatActivity {
 
                     if(out_sp_catalog.getSelectedItemPosition() == 0)
                     {
-                        dbHelper.InsertDB("지출", cost, "기타", mainActivity.getDate(), payment, detail);
+                        dbHelper.InsertDB("지출", cost, "기타", mainActivity.getDate(), payment, detail,"null",0,0, "FALSE");
                     }
 
                     else
                     {
-                        dbHelper.InsertDB("지출", cost, category,mainActivity.getDate(), payment, detail);
+                        dbHelper.InsertDB("지출", cost, category,mainActivity.getDate(), payment, detail,"null",0,0, "FALSE");
                     }
 
                     CURRENT_OUTLAY = dbHelper.getSum("지출");

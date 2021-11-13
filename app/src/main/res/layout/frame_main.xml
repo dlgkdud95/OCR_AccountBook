@@ -163,8 +163,8 @@
 
     <Button
         android:id="@+id/btn_delDB"
-        android:layout_width="1dp"
-        android:layout_height="1dp"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:background="#7986CB"
         android:icon="@android:drawable/checkbox_on_background"

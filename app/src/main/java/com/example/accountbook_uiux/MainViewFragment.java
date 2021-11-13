@@ -141,9 +141,9 @@ public class MainViewFragment extends Fragment  {
                         String category = spinner_income.getSelectedItem().toString();
                         if(spinner_income.getSelectedItemPosition() == 0)
                         {
-                            dbHelper.InsertDB("수입", moneyValue, "기타", selectedDate, "기타", "");
+                            dbHelper.InsertDB("수입", moneyValue, "기타", selectedDate, "기타", "","null",0,0, "FALSE");
                         }
-                        else dbHelper.InsertDB("수입", moneyValue, category, selectedDate, "기타", "");
+                        else dbHelper.InsertDB("수입", moneyValue, category, selectedDate, "기타", "","null",0,0, "FALSE");
                         income.setText(Integer.toString(dbHelper.getSum("수입"))+ " 원");
                         outlay.setText(Integer.toString(dbHelper.getSum("지출"))+ " 원");
                         total.setText(Integer.toString(dbHelper.getSum("수입") - dbHelper.getSum("지출"))+ " 원");
@@ -161,9 +161,9 @@ public class MainViewFragment extends Fragment  {
                         String category = spinner_outlay.getSelectedItem().toString();
                         if(spinner_outlay.getSelectedItemPosition() == 0)
                         {
-                            dbHelper.InsertDB("지출", moneyValue, "기타", selectedDate, "기타", "");
+                            dbHelper.InsertDB("지출", moneyValue, "기타", selectedDate, "기타", "","null",0,0, "FALSE");
                         }
-                        else dbHelper.InsertDB("지출", moneyValue, category, selectedDate, "기타", "");
+                        else dbHelper.InsertDB("지출", moneyValue, category, selectedDate, "기타", "","null",0,0, "FALSE");
                         income.setText(Integer.toString(dbHelper.getSum("수입"))+ " 원");
                         outlay.setText(Integer.toString(dbHelper.getSum("지출"))+ " 원");
                         total.setText(Integer.toString(dbHelper.getSum("수입") - dbHelper.getSum("지출"))+ " 원");

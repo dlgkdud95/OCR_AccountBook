@@ -51,7 +51,7 @@
                 android:id="@+id/tv_ocrResult"
                 android:layout_width="match_parent"
                 android:layout_height="277dp"
-                android:text="영수증 인식 결과"
+                android:text="영수증 인식 결과(5초 지나도 안나올 시 인식실패한 것)"
                 android:textColor="#000000"
                 android:textSize="16sp"
                 android:textStyle="bold" />
