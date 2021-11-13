@@ -23,7 +23,7 @@
                 android:layout_width="100dp"
                 android:layout_height="70dp"
                 android:gravity="center"
-                android:text="지출일"
+                android:text="날짜"
                 android:textColor="#000000"
                 android:textSize="18sp" />
 
