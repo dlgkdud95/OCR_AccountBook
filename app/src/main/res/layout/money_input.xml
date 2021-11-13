@@ -30,21 +30,26 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
-            android:layout_height="390dp"
+            android:layout_height="400dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" >
 
-            <Button
-                android:id="@+id/bt_register"
-                android:layout_width="100dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="150dp"
-                android:layout_marginEnd="150dp"
-                android:background="@drawable/inout_buttonui"
-                android:text="저장" />
         </androidx.viewpager2.widget.ViewPager2>
+
+        <Button
+            android:id="@+id/bt_register"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="150dp"
+            android:layout_marginEnd="150dp"
+            android:background="@drawable/inout_buttonui"
+            android:text="저장"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewPager" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
