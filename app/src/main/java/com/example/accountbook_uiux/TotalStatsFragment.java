@@ -17,7 +17,7 @@ import com.google.android.material.tabs.TabLayout;
 public class TotalStatsFragment extends Fragment {
 
     private View view_totalStats;
-    public static Fragment TYPE_SELECTED = null;
+    public Fragment TYPE_SELECTED = null;
 
     TabLayout tab_stats;
     FrameLayout frameLayout_stats;
@@ -37,11 +37,7 @@ public class TotalStatsFragment extends Fragment {
         historyViewFragment = new HistoryViewFragment();
         itemViewFragment = new ItemViewFragment();
 
-        FragmentManager fm = getActivity().getSupportFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-
-        ft.replace(R.id.frameLayout_stats, statsViewFragment);
-        ft.commit();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_stats, statsViewFragment).commit();
 
         tab_stats.addTab(tab_stats.newTab().setText("지출"));
         tab_stats.addTab(tab_stats.newTab().setText("일간"));
@@ -61,8 +57,8 @@ public class TotalStatsFragment extends Fragment {
                 else if (tab.getPosition() == 2) {
                     TYPE_SELECTED = itemViewFragment;
                 }
-                ft.replace(R.id.frameLayout_stats, TYPE_SELECTED);
-                ft.commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_stats, TYPE_SELECTED
+                ).commit();
             }
 
             @Override
