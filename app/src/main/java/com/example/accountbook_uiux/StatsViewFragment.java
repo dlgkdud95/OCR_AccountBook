@@ -37,7 +37,7 @@ public class StatsViewFragment extends Fragment
 
     private View view_stats;
     MainActivity mainActivity = new MainActivity();
-    TextView tv_etcsum, tv_foodsum;
+    TextView tv_foodsum,tv_traffic,tv_leisure,tv_mart,tv_things,tv_fashion,tv_learn,tv_commu,tv_health,tv_fee,tv_etcsum;
     Button btn_toBar, btn_toPie;
 
     PieChart pieChart;
@@ -53,17 +53,38 @@ public class StatsViewFragment extends Fragment
     Calendar cal5 = Calendar.getInstance();
     Calendar cal6 = Calendar.getInstance();
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view_stats = inflater.inflate(R.layout.frame_stats, container, false);
 
+// 식비, 교통비,  생필품,의류/미용,교육,통신비, 저축,의료/건강, 급여/용돈, 기타
 
-        tv_etcsum = (TextView) view_stats.findViewById(R.id.tv_etcsum);
         tv_foodsum = (TextView) view_stats.findViewById(R.id.tv_foodsum);
-        tv_etcsum.setText("기타 : "+dbHelper.getCategory("기타","지출")+"원");
+        tv_traffic = (TextView) view_stats.findViewById(R.id.tv_traffic);
+        tv_leisure = (TextView) view_stats.findViewById(R.id.tv_leisure);
+        tv_mart = (TextView) view_stats.findViewById(R.id.tv_mart);
+        tv_things = (TextView) view_stats.findViewById(R.id.tv_things);
+        tv_fashion = (TextView) view_stats.findViewById(R.id.tv_fashion);
+        tv_learn = (TextView) view_stats.findViewById(R.id.tv_learn);
+        tv_commu = (TextView) view_stats.findViewById(R.id.tv_commu);
+        tv_health = (TextView) view_stats.findViewById(R.id.tv_health);
+        tv_fee = (TextView) view_stats.findViewById(R.id.tv_fee);
+        tv_etcsum = (TextView) view_stats.findViewById(R.id.tv_etcsum);
+
+
         tv_foodsum.setText("식비 : "+dbHelper.getCategory("식비","지출")+"원");
+        tv_traffic.setText("교통/차량 : "+dbHelper.getCategory("교통/차량","지출")+"원");
+        tv_leisure.setText("문화생활 : "+dbHelper.getCategory("문화생활","지출")+"원");
+        tv_mart.setText("마트/편의점 : "+dbHelper.getCategory("마트/편의점","지출")+"원");
+        tv_things.setText("생필품 : "+dbHelper.getCategory("생필품","지출")+"원");
+        tv_fashion.setText("패션/미용 : "+dbHelper.getCategory("패션/미용","지출")+"원");
+        tv_learn.setText("교육 : "+dbHelper.getCategory("교육","지출")+"원");
+        tv_commu.setText("주거/통신 : "+dbHelper.getCategory("주거/통신","지출")+"원");
+        tv_health.setText("건강/의료 : "+dbHelper.getCategory("의료/건강","지출")+"원");
+        tv_fee.setText("경조사/회비 : "+dbHelper.getCategory("경조사/회비","지출")+"원");
+        tv_etcsum.setText("기타 : "+dbHelper.getCategory("기타","지출")+"원");
+
         cal1.setTime(new Date());
         cal2.setTime(new Date());
         cal3.setTime(new Date());
@@ -129,41 +150,45 @@ public class StatsViewFragment extends Fragment
         {
             yValues.add(new PieEntry(dbHelper.getCategory("식비", "지출"),"식비"));
         }
-        if(dbHelper.getCategory("교통비", "지출") > 0)
+        if(dbHelper.getCategory("교통/차량", "지출") > 0)
         {
-            yValues.add(new PieEntry(dbHelper.getCategory("교통비", "지출"),"교통비"));
+            yValues.add(new PieEntry(dbHelper.getCategory("교통/차량", "지출"),"교통/차량"));
+        }
+
+        if(dbHelper.getCategory("문화생활", "지출") > 0)
+        {
+            yValues.add(new PieEntry(dbHelper.getCategory("문화생활", "지출"),"문화생활"));
+        }
+
+        if(dbHelper.getCategory("마트/편의점", "지출") > 0)
+        {
+            yValues.add(new PieEntry(dbHelper.getCategory("마트/편의점", "지출"),"마트/편의점"));
+        }
+
+        if(dbHelper.getCategory("생필품", "지출") > 0)
+        {
+            yValues.add(new PieEntry(dbHelper.getCategory("생필품", "지출"),"생필품"));
         }
         if(dbHelper.getCategory("패션/미용", "지출") > 0)
         {
             yValues.add(new PieEntry(dbHelper.getCategory("패션/미용", "지출"),"패션/미용"));
         }
-        if(dbHelper.getCategory("생필품", "지출") > 0)
-        {
-            yValues.add(new PieEntry(dbHelper.getCategory("생필품", "지출"),"생필품"));
-        }
-        if(dbHelper.getCategory("의류/미용", "지출") > 0)
-        {
-            yValues.add(new PieEntry(dbHelper.getCategory("의류/미용", "지출"),"의류/미용"));
-        }
         if(dbHelper.getCategory("교육", "지출") > 0)
         {
             yValues.add(new PieEntry(dbHelper.getCategory("교육", "지출"),"교육"));
         }
-        if(dbHelper.getCategory("통신비", "지출") > 0)
+        if(dbHelper.getCategory("주거/통신", "지출") > 0)
         {
-            yValues.add(new PieEntry(dbHelper.getCategory("통신비", "지출"),"통신비"));
+            yValues.add(new PieEntry(dbHelper.getCategory("주거/통신", "지출"),"주거/통신"));
         }
-        if(dbHelper.getCategory("저축", "지출") > 0)
+
+        if(dbHelper.getCategory("건강/의료", "지출") > 0)
         {
-            yValues.add(new PieEntry(dbHelper.getCategory("저축", "지출"),"저축"));
+            yValues.add(new PieEntry(dbHelper.getCategory("건강/의료", "지출"),"건강/의료"));
         }
-        if(dbHelper.getCategory("의료/건강", "지출") > 0)
+        if(dbHelper.getCategory("경조사/회비", "지출") > 0)
         {
-            yValues.add(new PieEntry(dbHelper.getCategory("의료/건강", "지출"),"의료/건강"));
-        }
-        if(dbHelper.getCategory("급여/용돈", "지출") > 0)
-        {
-            yValues.add(new PieEntry(dbHelper.getCategory("급여/용돈", "지출"),"급여/용돈"));
+            yValues.add(new PieEntry(dbHelper.getCategory("경조사/회비", "지출"),"경조사/회비"));
         }
         if(dbHelper.getCategory("기타", "지출") > 0)
         {

@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements OnTabItemSelected
     private TotalStatsFragment totalStatsFragment;
     private HomeViewFragment homeViewFragment;
 
-    @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
