@@ -44,8 +44,10 @@ public class TotalStatsFragment extends Fragment {
         tab_stats.addTab(tab_stats.newTab().setText("품목별"));
 
 
+
         tab_stats.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
+
             public void onTabSelected(TabLayout.Tab tab) {
 
                 if (tab.getPosition() == 0) {

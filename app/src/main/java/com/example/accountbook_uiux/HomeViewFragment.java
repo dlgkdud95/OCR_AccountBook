@@ -11,13 +11,17 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class HomeViewFragment extends Fragment {
@@ -27,6 +31,12 @@ public class HomeViewFragment extends Fragment {
     FloatingActionButton fab_main, fab_receipt, fab_writing;
     TextView txt_nickname, txt_receipt, txt_month, txt_homeIncome, txt_homeSpend, txt_incomeNum, txt_spendNum;
     Button bt_setting, bt_receiptScan, bt_monthly, bt_receiptStats;
+    long now = System.currentTimeMillis();
+    Date date = new Date(now);
+    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM");
+    String getTime = df.format(date);
+    Calendar cal1 = Calendar.getInstance();
+    Calendar cal2 = Calendar.getInstance();
 
     //fab_main 버튼의 상태, 기본값 -> 선택하지 않은 상태태
     private boolean isFabOpen = false;
@@ -71,9 +81,15 @@ public class HomeViewFragment extends Fragment {
 
         //제일 처음 앱 실행할 때 사용자가 지정한 이름 저장, txt_nickname.setText이용해서 이름 화면에 나타나게 해야됨
 
+        cal1.setTime(new Date());
+        cal2.setTime(new Date());
+
+        cal2.add(Calendar.MONTH, 1);
+
+
         txt_month.setText((Calendar.getInstance().get(Calendar.MONTH)+1) + "월 내역");
-        txt_incomeNum.setText(Integer.toString(dbHelper.getSum("수입"))+ " 원");
-        txt_spendNum.setText(Integer.toString(dbHelper.getSum("지출"))+ " 원");
+        txt_incomeNum.setText(Integer.toString(dbHelper.monthSearchTest(df.format(cal1.getTime())+"-01", df.format(cal2.getTime())+"-01", "수입"))+ " 원"); // 현재 달 수입
+        txt_spendNum.setText(Integer.toString(dbHelper.monthSearchTest(df.format(cal1.getTime())+"-01", df.format(cal2.getTime())+"-01", "지출"))+ " 원");  // 현재 달 지출
 
         bt_setting.setOnClickListener(new View.OnClickListener() { //설정 화면으로 넘어감
             @Override
