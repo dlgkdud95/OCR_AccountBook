@@ -6,12 +6,22 @@
     android:layout_height="match_parent">
 
 
-    <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/barchart"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="198dp" />
+    <LinearLayout
+        android:layout_width="419dp"
+        android:layout_height="614dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="-2dp"
+        tools:layout_editor_absoluteY="287dp">
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barchart"
+            android:layout_width="match_parent"
+            android:layout_height="370dp"
+            android:layout_marginTop="110dp"
+            android:foregroundGravity="center">
+
+        </com.github.mikephil.charting.charts.BarChart>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="408dp"
@@ -29,11 +39,44 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp" />
+
+                <Button
+                    android:id="@+id/btn_toBar"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/inout_buttonui"
+                    android:text="📊"
+                    android:textColor="#CB000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="4sp" />
+
+                <Button
+                    android:id="@+id/btn_toPie"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/inout_buttonui"
+                    android:text=" ©  "
+                    android:textColor="#000000"
+                    android:textSize="32sp"
+                    android:textStyle="bold" />
+
                 <com.github.mikephil.charting.charts.PieChart
                     android:id="@+id/chart"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
-                    android:layout_marginTop="25dp">
+                    android:layout_marginTop="5dp">
 
                 </com.github.mikephil.charting.charts.PieChart>
 
@@ -42,193 +85,116 @@
                     android:layout_width="match_parent"
                     android:layout_height="30dp" />
 
-                <Button
-                    android:id="@+id/btn_toPie"
-                    android:layout_width="56dp"
-                    android:layout_height="37dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="8dp"
-                    android:background="@drawable/statebuttonui"
-                    android:text="카테고리"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/btn_toBar"
-                    android:layout_width="56dp"
-                    android:layout_height="36dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/statebuttonui"
-                    android:text="월별 "
-                    android:textColor="#CB000000"
-                    android:textStyle="bold" />
-
-                <View
-                    android:id="@+id/divider11"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="?android:attr/listDivider" />
-
                 <TextView
                     android:id="@+id/tv_foodsum"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+
                     android:drawableLeft="@drawable/ic_iconmonstr_eat_7__1_"
+                    android:gravity="center|left"
                     android:text="    식비 :  0원"
-
-                    android:textColor="#A6000000"
-                    android:textSize="25sp" />
-
-                <View
-                    android:id="@+id/divider"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="?android:attr/listDivider" />
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/tv_traffic"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:drawableLeft="@drawable/ic_iconmonstr_bus_3"
+                    android:gravity="center|left"
                     android:text="    교통/차량 :  0원"
-                    android:textColor="#A6000000"
-                    android:textSize="25sp" />
-
-                <View
-                    android:id="@+id/divider2"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="?android:attr/listDivider" />
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/tv_leisure"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:drawableLeft="@drawable/ic_iconmonstr_video_8"
+                    android:gravity="center|left"
                     android:text="    문화생활 : 0원"
-                    android:textColor="#A6000000"
-                    android:textSize="25sp" />
-
-                <View
-                    android:id="@+id/divider3"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="?android:attr/listDivider" />
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/tv_mart"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:drawableLeft="@drawable/ic_iconmonstr_shopping_cart_1"
+                    android:gravity="center|left"
                     android:text="    마트/편의점 : 0원"
-                    android:textColor="#A6000000"
-                    android:textSize="25sp" />
-
-                <View
-                    android:id="@+id/divider4"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="?android:attr/listDivider" />
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/tv_things"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:drawableLeft="@drawable/ic_iconmonstr_product_9"
+                    android:gravity="center|left"
                     android:text="    생필품 : 0원"
-                    android:textColor="#A6000000"
-                    android:textSize="25sp" />
-
-                <View
-                    android:id="@+id/divider5"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="?android:attr/listDivider" />
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/tv_fashion"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:drawableLeft="@drawable/ic_iconmonstr_clothing_3"
+                    android:gravity="center|left"
                     android:text="    패션/미용 : 0원"
-                    android:textColor="#A6000000"
-                    android:textSize="25sp" />
-
-                <View
-                    android:id="@+id/divider6"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="?android:attr/listDivider" />
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/tv_learn"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:drawableLeft="@drawable/ic_iconmonstr_book_13"
+                    android:gravity="center|left"
                     android:text="    교육비 : 0원"
-                    android:textColor="#A6000000"
-                    android:textSize="25sp" />
-
-                <View
-                    android:id="@+id/divider7"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="?android:attr/listDivider" />
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/tv_commu"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:drawableLeft="@drawable/ic_iconmonstr_smartphone_3"
+                    android:gravity="center|left"
                     android:text="    주거/통신비 : 0원"
-                    android:textColor="#A6000000"
-                    android:textSize="25sp" />
-
-                <View
-                    android:id="@+id/divider8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="?android:attr/listDivider" />
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/tv_health"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:drawableLeft="@drawable/ic_iconmonstr_plus_4"
+                    android:gravity="center|left"
                     android:text="    건강/의료비 : 0원"
-                    android:textColor="#A6000000"
-                    android:textSize="25sp" />
-
-                <View
-                    android:id="@+id/divider9"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="?android:attr/listDivider" />
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/tv_fee"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:drawableLeft="@drawable/ic_iconmonstr_script_3"
+                    android:gravity="center|left"
                     android:text="    경조사/회비 : 0원"
-                    android:textColor="#A6000000"
-                    android:textSize="25sp" />
-
-                <View
-                    android:id="@+id/divider10"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="?android:attr/listDivider" />
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/tv_etcsum"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:drawableLeft="@drawable/ic_iconmonstr_minus_4"
+                    android:gravity="center|left"
                     android:text="    기타 : 0원"
-                    android:textColor="#A6000000"
-                    android:textSize="25sp" />
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
 
             </LinearLayout>
         </ScrollView>

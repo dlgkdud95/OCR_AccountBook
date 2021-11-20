@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -109,6 +110,19 @@ public class StatsViewFragment extends Fragment
             public void onClick(View view)
             {
                 pieChart.setVisibility(View.INVISIBLE);
+                tv_traffic.setVisibility(View.INVISIBLE);
+                tv_things.setVisibility(View.INVISIBLE);
+                tv_mart.setVisibility(View.INVISIBLE);
+                tv_foodsum.setVisibility(View.INVISIBLE);
+                tv_leisure.setVisibility(View.INVISIBLE);
+                tv_learn.setVisibility(View.INVISIBLE);
+                tv_health.setVisibility(View.INVISIBLE);
+                tv_fee.setVisibility(View.INVISIBLE);
+                tv_fashion.setVisibility(View.INVISIBLE);
+                tv_etcsum.setVisibility(View.INVISIBLE);
+                tv_commu.setVisibility(View.INVISIBLE);
+                btn_toBar.setVisibility(View.VISIBLE);
+                btn_toPie.setVisibility(View.VISIBLE);
                 barChart.setVisibility(View.VISIBLE);
             }
         });
@@ -119,7 +133,22 @@ public class StatsViewFragment extends Fragment
             public void onClick(View view)
             {
                 barChart.setVisibility(View.INVISIBLE);
+                tv_traffic.setVisibility(View.VISIBLE);
+                tv_things.setVisibility(View.VISIBLE);
+                tv_mart.setVisibility(View.VISIBLE);
+                tv_foodsum.setVisibility(View.VISIBLE);
+                tv_leisure.setVisibility(View.VISIBLE);
+                tv_learn.setVisibility(View.VISIBLE);
+                tv_health.setVisibility(View.VISIBLE);
+                tv_fee.setVisibility(View.VISIBLE);
+                tv_fashion.setVisibility(View.VISIBLE);
+                tv_etcsum.setVisibility(View.VISIBLE);
+                tv_commu.setVisibility(View.VISIBLE);
+                btn_toBar.setVisibility(View.VISIBLE);
+                btn_toPie.setVisibility(View.VISIBLE);
+
                 pieChart.setVisibility(View.VISIBLE);
+
             }
         });
 
@@ -213,7 +242,7 @@ public class StatsViewFragment extends Fragment
         PieDataSet dataSet = new PieDataSet(yValues,"카테고리");
         dataSet.setSliceSpace(3f);
         dataSet.setSelectionShift(5f);
-        dataSet.setColors(ColorTemplate.JOYFUL_COLORS);
+        dataSet.setColors(ColorTemplate.VORDIPLOM_COLORS);
 
         PieData data = new PieData((dataSet));
         data.setValueTextSize(20f);
@@ -246,6 +275,7 @@ public class StatsViewFragment extends Fragment
         barChart.setVisibility(View.INVISIBLE);
         barChart.setScaleEnabled(false);
         barChart.setPinchZoom(false);
+        barDataSet.setColor(Color.parseColor("#7CD685"));
 
 
         return view_stats;

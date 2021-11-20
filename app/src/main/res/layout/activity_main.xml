@@ -5,6 +5,8 @@
     android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#FFFFFF"
+    android:foregroundTint="#FFFFFF"
     tools:context=".MainActivity">
 
 
@@ -16,6 +18,8 @@
             android:id="@+id/bottomNavi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
             android:foregroundTint="#FFFFFF"
             app:backgroundTint="#FFFFFF"
             app:itemIconTint="@drawable/menu_selector_color"
@@ -39,7 +43,6 @@
         </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

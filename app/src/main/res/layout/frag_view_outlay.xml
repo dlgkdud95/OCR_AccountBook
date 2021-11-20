@@ -75,7 +75,8 @@
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:ems="10"
-                android:inputType="date" />
+                android:inputType="date"
+                android:textColorLink="#7CD685" />
 
             <EditText
                 android:id="@+id/out_editTextMoney"

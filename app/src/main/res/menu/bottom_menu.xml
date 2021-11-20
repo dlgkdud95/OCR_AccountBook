@@ -20,7 +20,7 @@
     <item
         android:id="@+id/action_addservice"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_home_24"
-        android:title="서비스" />
+        android:icon="@drawable/gui_review_icon_158393"
+        android:title="리뷰" />
 
 </menu>
