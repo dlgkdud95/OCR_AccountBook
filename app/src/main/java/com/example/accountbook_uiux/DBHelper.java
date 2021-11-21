@@ -44,22 +44,27 @@ public class DBHelper extends SQLiteOpenHelper
 
     public String getItemName(String _isItem)
     {
-        // _type변수에 table에 있는 type(수입 or 지출)을 넣어주면 type에 맞는 합계를 구해줌
+
         String item = "";
         SQLiteDatabase db = getWritableDatabase();
         Cursor cursor;
         cursor = db.rawQuery("SELECT * FROM AccountBook WHERE isItem = '"+ _isItem +"' ",null);
 
+
         while(cursor.moveToNext())
         {
-            item += cursor.getString(7);
+            item += cursor.getString(4); // 날짜
+            item += " : ";
+            item += cursor.getString(7); // 이름
+            item += ", ";
+            item += Integer.toString(cursor.getInt(8)); //가격
+            item += "원";
             item += "\n";
         }
         cursor.close();
         return item;
     }
 
-    // itemPrice 는 String 형식으로 바꿔서?
 
 
 
@@ -81,7 +86,7 @@ public class DBHelper extends SQLiteOpenHelper
 
     public int getCategory(String _category, String _type)
     {
-        // _type변수에 table에 있는 type(수입 or 지출)을 넣어주면 type에 맞는 합계를 구해줌
+
         int number = 0;
         SQLiteDatabase db = getWritableDatabase();
         Cursor cursor;

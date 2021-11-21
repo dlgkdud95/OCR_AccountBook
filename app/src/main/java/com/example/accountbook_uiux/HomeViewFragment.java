@@ -5,6 +5,7 @@ import static com.example.accountbook_uiux.MainActivity.dbHelper;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -27,6 +28,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class HomeViewFragment extends Fragment {
 
     private View view_home;
+
+    private SharedPreferences preferences;
+    private SharedPreferences.Editor editor;
 
     FloatingActionButton fab_main, fab_receipt, fab_writing;
     TextView txt_nickname, txt_receipt, txt_month, txt_homeIncome, txt_homeSpend, txt_incomeNum, txt_spendNum;
@@ -79,7 +83,10 @@ public class HomeViewFragment extends Fragment {
         bt_receiptStats = view_home.findViewById(R.id.bt_receiptStats);
         bt_monthly = view_home.findViewById(R.id.bt_monthly);
 
-        //제일 처음 앱 실행할 때 사용자가 지정한 이름 저장, txt_nickname.setText이용해서 이름 화면에 나타나게 해야됨
+
+
+        String nickname = MainActivity.preferences.getString("name","ㅇㅇㅇ");
+        txt_nickname.setText(nickname+"님의\n가계부");
 
         cal1.setTime(new Date());
         cal2.setTime(new Date());
@@ -117,10 +124,11 @@ public class HomeViewFragment extends Fragment {
             }
         });
 
-        bt_receiptScan.setOnClickListener(new View.OnClickListener() { //플로팅액션버튼 실행행
+        bt_receiptScan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleFab();
+                Intent intent = new Intent(getActivity().getApplicationContext(), CameraActivity.class); //영수증인식창으로 바로 넘어가게
+                startActivity(intent);
             }
         });
 

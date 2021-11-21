@@ -7,7 +7,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -21,6 +23,8 @@ public class MainActivity extends AppCompatActivity implements OnTabItemSelected
 
     public static DBHelper dbHelper;
     public static Context mContext;
+    public static SharedPreferences preferences; // 간단한 DB같은 개념
+    public static SharedPreferences.Editor editor;
 
     long mNow;
     Date mDate;
@@ -45,9 +49,8 @@ public class MainActivity extends AppCompatActivity implements OnTabItemSelected
 
         dbHelper = new DBHelper(this);
 
-        String testString = dbHelper.getItemName("TRUE");
-
-        Log.d("아이템", testString);
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = preferences.edit();
 
 
         //하단 네비게이션 눌렀을 때 화면 변경 됨, onNavi~() 메소드 통해 setFrag() 메소드가 해당하는 Fragment로 교체함

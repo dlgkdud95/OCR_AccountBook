@@ -7,10 +7,54 @@
     tools:context=".SettingActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_outLimit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="설정창"
-        tools:layout_editor_absoluteX="186dp"
-        tools:layout_editor_absoluteY="222dp" />
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:text="지출제한"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_outLimit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_outLimit"
+        app:layout_constraintStart_toEndOf="@+id/tv_outLimit" />
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="저장"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="이름"
+        app:layout_constraintStart_toStartOf="@+id/tv_outLimit"
+        app:layout_constraintTop_toBottomOf="@+id/tv_outLimit" />
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_name"
+        app:layout_constraintStart_toStartOf="@+id/et_outLimit"
+        app:layout_constraintTop_toBottomOf="@+id/et_outLimit"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

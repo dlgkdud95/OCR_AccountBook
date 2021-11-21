@@ -221,7 +221,7 @@ public class StatsViewFragment extends Fragment
         }
         if(dbHelper.getCategory("기타", "지출") > 0)
         {
-            yValues.add(new PieEntry(dbHelper.getCategory("기타", "지출"),"기타"));
+            yValues.add(new PieEntry(dbHelper.getCategory("기타", "지출"), "기타"));
         }
 
 
@@ -264,6 +264,8 @@ public class StatsViewFragment extends Fragment
         leftAxis.setDrawGridLines(false);
         leftAxis.setGranularity(1000f);
 
+        barDataSet.setColor(Color.GREEN);
+
 
         YAxis rightAxis = barChart.getAxisRight();
         rightAxis.setDrawGridLines(false);
@@ -276,6 +278,7 @@ public class StatsViewFragment extends Fragment
         barChart.setScaleEnabled(false);
         barChart.setPinchZoom(false);
         barDataSet.setColor(Color.parseColor("#7CD685"));
+
 
 
         return view_stats;

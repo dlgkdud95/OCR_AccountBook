@@ -408,7 +408,7 @@ public class CameraActivity extends AppCompatActivity {
 
                                 int unitPriceInt = Integer.parseInt(formattedPriceText); // formatted로 변경필요
                                 //int itemCountInt = Integer.parseInt(itemCountText);
-                                dbHelper.InsertDB("품목", 0, "", "0000-00-00", "", "", nameText,unitPriceInt, 0, "TRUE"); //아직까진 자동 입력
+                                dbHelper.InsertDB("품목", 0, "", date_value, "", "", nameText,unitPriceInt, 0, "TRUE"); //아직까진 자동 입력
 
                             }
                             /*
