@@ -78,6 +78,8 @@ public class CameraActivity extends AppCompatActivity {
 
     public static int RECEIPT_COST = 0; // 영수증에서 받아온 COST 값
     public static String RECEIPT_DATE = ""; // 영수증에서 받아온 DATE 값
+    public static String CARD_NUMBER = "";
+    public static String CARD_COMPANY = "";
 
     private TextView receiptText;
     private ImageView receiptImage;
@@ -145,13 +147,27 @@ public class CameraActivity extends AppCompatActivity {
                 {
                     if(spinner_category.getSelectedItemPosition() == 0) // 아무것도 선택안할시
                     {
-                        dbHelper.InsertDB("지출", RECEIPT_COST, "기타", RECEIPT_DATE, payment, "기타", "null",0,0, "FALSE");
+                        if(CARD_NUMBER == "") // 카드번호 인식실패 시
+                        {
+                            dbHelper.InsertDB("지출", RECEIPT_COST, "기타", RECEIPT_DATE, payment, "", "null",0,0, "FALSE", CARD_COMPANY, CARD_NUMBER, "FALSE");
+                        }
+                        else dbHelper.InsertDB("지출", RECEIPT_COST, "기타", RECEIPT_DATE, payment, "", "null",0,0, "FALSE", CARD_COMPANY, CARD_NUMBER, "TRUE"); // 성공
                     }
-                    else dbHelper.InsertDB("지출", RECEIPT_COST, cateogory, RECEIPT_DATE, payment, "기타","null",0,0, "FALSE");
+                    else {
+                        if(CARD_NUMBER == "")
+                        {
+                            dbHelper.InsertDB("지출", RECEIPT_COST, cateogory, RECEIPT_DATE, payment, "","null",0,0, "FALSE", CARD_COMPANY, CARD_NUMBER, "FALSE");
+                        }
+                        else dbHelper.InsertDB("지출", RECEIPT_COST, cateogory, RECEIPT_DATE, payment, "","null",0,0, "FALSE", CARD_COMPANY, CARD_NUMBER, "TRUE");
+                    }
                 }
                 // 전역변수로 데이터 전달 후 다시 초기화
                 RECEIPT_COST = 0;
                 RECEIPT_DATE = "";
+                CARD_NUMBER = "";
+                CARD_COMPANY = "";
+
+
 
                 // 영수증에서 입력하면 지출경고 안뜸. 뜨게 수정
 
@@ -327,6 +343,8 @@ public class CameraActivity extends AppCompatActivity {
                             String paymentInfo = subJsonObject3.getString("paymentInfo");
                             JSONObject subJsonObject4_3 = new JSONObject(paymentInfo);
 
+
+
                             String date = subJsonObject4_3.getString("date");
                             JSONObject subJsonObject5_3 = new JSONObject(date);
 
@@ -373,6 +391,25 @@ public class CameraActivity extends AppCompatActivity {
 
                             tv_ocrResult.setText("날짜 : "+date_value+"\n\n가게 이름 : "+text_storeName+"\n\n가게 주소 : "+text_storeAddress+"\n\n가격 : "+text_price); // OCR_RESULT VIEW
 
+                            String cardInfo = subJsonObject4_3.getString("cardInfo");
+                            JSONObject cardInfoObject = new JSONObject(cardInfo);
+
+                            String company = cardInfoObject.getString("company");
+                            JSONObject companyObject = new JSONObject(company);
+
+                            String companyText = companyObject.getString("text"); // 카드사 이름
+
+                            String cardNumber = cardInfoObject.getString("number");
+                            JSONObject cardNumberObject = new JSONObject(cardNumber);
+
+                            String cardNumberText = cardNumberObject.getString("text"); // 카드 번호
+
+                            CARD_NUMBER = cardNumberText;
+                            CARD_COMPANY = companyText;
+
+                            Log.d("test", "카드 번호 : "+CARD_NUMBER);
+                            Log.d("test", "카드 회사 : "+CARD_COMPANY);
+
                             // 품목 파싱 부분
                             // 스캔 시 문제점 많음.
                             String subResults = subJsonObject3.getString("subResults");
@@ -408,7 +445,7 @@ public class CameraActivity extends AppCompatActivity {
 
                                 int unitPriceInt = Integer.parseInt(formattedPriceText); // formatted로 변경필요
                                 //int itemCountInt = Integer.parseInt(itemCountText);
-                                dbHelper.InsertDB("품목", 0, "", date_value, "", "", nameText,unitPriceInt, 0, "TRUE"); //아직까진 자동 입력
+                                dbHelper.InsertDB("품목", 0, "", date_value, "", "", nameText,unitPriceInt, 0, "TRUE", "", "", "FALSE"); //아직까진 자동 입력
 
                             }
                             /*

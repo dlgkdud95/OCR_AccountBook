@@ -6,6 +6,7 @@ import android.animation.ObjectAnimator;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -125,9 +126,9 @@ public class CalenderViewFragment extends Fragment  {
                         String category = spinner_income.getSelectedItem().toString();
                         if(spinner_income.getSelectedItemPosition() == 0)
                         {
-                            dbHelper.InsertDB("수입", moneyValue, "기타", selectedDate, "기타", "","null",0,0, "FALSE");
+                            dbHelper.InsertDB("수입", moneyValue, "기타", selectedDate, "기타", "","null",0,0, "FALSE", "", "", "FALSE");
                         }
-                        else dbHelper.InsertDB("수입", moneyValue, category, selectedDate, "기타", "","null",0,0, "FALSE");
+                        else dbHelper.InsertDB("수입", moneyValue, category, selectedDate, "기타", "","null",0,0, "FALSE", "", "", "FALSE");
                         income.setText(Integer.toString(dbHelper.getSum("수입"))+ " 원");
                         outlay.setText(Integer.toString(dbHelper.getSum("지출"))+ " 원");
                         total.setText(Integer.toString(dbHelper.getSum("수입") - dbHelper.getSum("지출"))+ " 원");
@@ -145,9 +146,9 @@ public class CalenderViewFragment extends Fragment  {
                         String category = spinner_outlay.getSelectedItem().toString();
                         if(spinner_outlay.getSelectedItemPosition() == 0)
                         {
-                            dbHelper.InsertDB("지출", moneyValue, "기타", selectedDate, "기타", "","null",0,0, "FALSE");
+                            dbHelper.InsertDB("지출", moneyValue, "기타", selectedDate, "기타", "","null",0,0, "FALSE", "", "", "FALSE");
                         }
-                        else dbHelper.InsertDB("지출", moneyValue, category, selectedDate, "기타", "","null",0,0, "FALSE");
+                        else dbHelper.InsertDB("지출", moneyValue, category, selectedDate, "기타", "","null",0,0, "FALSE", "", "", "FALSE");
                         income.setText(Integer.toString(dbHelper.getSum("수입"))+ " 원");
                         outlay.setText(Integer.toString(dbHelper.getSum("지출"))+ " 원");
                         total.setText(Integer.toString(dbHelper.getSum("수입") - dbHelper.getSum("지출"))+ " 원");
@@ -176,10 +177,42 @@ public class CalenderViewFragment extends Fragment  {
             @Override
             public void onClick(View view)
             {
-                dbHelper.DeleteDB();
-                income.setText(Integer.toString(dbHelper.getSum("수입"))+ " 원");
-                outlay.setText(Integer.toString(dbHelper.getSum("지출"))+ " 원");
-                total.setText(Integer.toString(dbHelper.getSum("수입") - dbHelper.getSum("지출"))+ " 원");
+
+                String cardNumber = dbHelper.getCardNumber("TRUE");
+                String [] array = cardNumber.split("\n");
+
+                String cardCompany = dbHelper.getCardCompany("TRUE");
+                String [] array2 = cardCompany.split("\n");
+
+                StringBuilder cardNumberBuilder = new StringBuilder();
+                StringBuilder cardCostBuilder = new StringBuilder();
+                StringBuilder cardCompanyBuilder = new StringBuilder();
+                StringBuilder stringBuilder = new StringBuilder();
+
+                for(int i = 0; i <array.length; i++)
+                {
+                    cardNumberBuilder.append(array[i].toString()+"\n");
+                }
+                for(int i = 0; i < array.length; i++)
+                {
+                    int testINT = dbHelper.getCardCost(array[i]);
+                    cardCostBuilder.append(Integer.toString(testINT)+"\n");
+                }
+                for(int i = 0; i < array2.length; i++)
+                {
+                    cardCompanyBuilder.append(array2[i].toString()+"\n");
+                }
+                for(int i = 0; i < array2.length; i++)
+                {
+                    String card = dbHelper.getCardNumberByCompany(array2[i]);
+                    stringBuilder.append(card);
+                }
+
+                Log.d("카드번호", cardNumberBuilder.toString());
+                Log.d("카드금액", cardCostBuilder.toString());
+                Log.d("카드회사", cardCompanyBuilder.toString());
+                Log.d("카드사별 카드번호",stringBuilder.toString());
+                // 카드번호 : 카드 금액도 가능하지만 일단 이렇게
             }
         });
     }

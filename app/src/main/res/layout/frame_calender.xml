@@ -173,7 +173,7 @@
         android:layout_marginTop="10dp"
         android:background="#7986CB"
         android:icon="@android:drawable/checkbox_on_background"
-        android:text="DB삭제"
+        android:text="db테스트"
         app:layout_constraintStart_toStartOf="@+id/tv_limit"
         app:layout_constraintTop_toBottomOf="@+id/tv_limit" />
 

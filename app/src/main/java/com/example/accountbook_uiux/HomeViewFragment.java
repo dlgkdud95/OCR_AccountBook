@@ -95,8 +95,8 @@ public class HomeViewFragment extends Fragment {
 
 
         txt_month.setText((Calendar.getInstance().get(Calendar.MONTH)+1) + "월 내역");
-        txt_incomeNum.setText(Integer.toString(dbHelper.monthSearchTest(df.format(cal1.getTime())+"-01", df.format(cal2.getTime())+"-01", "수입"))+ " 원"); // 현재 달 수입
-        txt_spendNum.setText(Integer.toString(dbHelper.monthSearchTest(df.format(cal1.getTime())+"-01", df.format(cal2.getTime())+"-01", "지출"))+ " 원");  // 현재 달 지출
+        txt_incomeNum.setText(Integer.toString(dbHelper.periodInquiry(df.format(cal1.getTime())+"-01", df.format(cal2.getTime())+"-01", "수입"))+ " 원"); // 현재 달 수입
+        txt_spendNum.setText(Integer.toString(dbHelper.periodInquiry(df.format(cal1.getTime())+"-01", df.format(cal2.getTime())+"-01", "지출"))+ " 원");  // 현재 달 지출
 
         bt_setting.setOnClickListener(new View.OnClickListener() { //설정 화면으로 넘어감
             @Override
