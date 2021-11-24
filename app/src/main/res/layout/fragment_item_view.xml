@@ -10,12 +10,13 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:backgroundTint="#8BC34A">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView6"
@@ -27,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="💰나의 재고관리💰"
+                android:text="📗나의 재고일기장📗"
                 android:textColor="#DD000000"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -35,24 +36,26 @@
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
-                android:layout_height="27dp" />
+                android:layout_height="33dp" />
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="375dp"
+                android:layout_width="413dp"
                 android:layout_height="31dp"
                 android:layout_gravity="center"
-                android:text="날짜                  품목" />
+                android:background="#D9DFD2"
+                android:text=" 날짜                 품목,가격" />
 
             <TextView
                 android:id="@+id/tv_itemTest"
-                android:layout_width="371dp"
+                android:layout_width="413dp"
                 android:layout_height="567dp"
                 android:layout_gravity="center"
+                android:background="#2A8BC34A"
                 android:lineSpacingExtra="10dp"
-                android:text="✵품목별 통계"
-                android:textColor="#000000"
 
+                android:text="  ✵품목별 통계"
+                android:textColor="#000000"
                 android:textSize="15sp" />
         </LinearLayout>
     </ScrollView>
