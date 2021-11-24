@@ -59,11 +59,13 @@
             app:layout_constraintTop_toTopOf="@+id/tv_cost"
             app:layout_constraintVertical_bias="1.0" />
 
+        app:tabIndicatorColor="#7CD685"
+
         <Button
             android:id="@+id/btn_income"
             android:layout_width="80dp"
             android:layout_height="45dp"
-            android:layout_marginStart="80dp"
+            android:layout_marginStart="88dp"
             android:layout_marginBottom="100dp"
             android:background="@drawable/inout_buttonui"
             android:text="수입"
@@ -74,7 +76,7 @@
             android:id="@+id/btn_outlay"
             android:layout_width="80dp"
             android:layout_height="45dp"
-            android:layout_marginEnd="80dp"
+            android:layout_marginEnd="76dp"
             android:background="@drawable/inout_buttonui"
             android:text="지출"
             app:layout_constraintBottom_toBottomOf="@+id/btn_income"
@@ -86,20 +88,19 @@
             android:id="@+id/et_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
+            android:layout_marginBottom="24dp"
             android:ems="10"
             android:inputType="numberSigned"
             android:textColor="#B7000000"
             android:textColorLink="#7CD685"
             app:layout_constraintBottom_toTopOf="@+id/btn_outlay"
             app:layout_constraintEnd_toEndOf="@+id/btn_outlay"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.3"
             app:layout_constraintStart_toStartOf="@+id/btn_income" />
-            app:tabIndicatorColor="#7CD685"
 
         <Spinner
             android:id="@+id/spinner_inCategory"
-            android:layout_width="230dp"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
             android:entries="@array/income_catalog"
@@ -108,7 +109,7 @@
 
         <Spinner
             android:id="@+id/spinner_outCategory"
-            android:layout_width="230dp"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="104dp"
             android:entries="@array/outlay_catalog"
