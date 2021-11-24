@@ -1,5 +1,9 @@
 package com.example.accountbook_uiux;
 
+import static com.example.accountbook_uiux.EconomyViewFragment.CHANGE_RATE;
+import static com.example.accountbook_uiux.EconomyViewFragment.TODAY_KOSPI;
+import static com.example.accountbook_uiux.EconomyViewFragment.YSTDAY_KOSPI;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -49,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements OnTabItemSelected
     private CalenderViewFragment calenderViewFragment;
     private TotalStatsFragment totalStatsFragment;
     private HomeViewFragment homeViewFragment;
+    private EconomyViewFragment economyViewFragment;
 
 
 
@@ -81,8 +86,8 @@ public class MainActivity extends AppCompatActivity implements OnTabItemSelected
                 cal2.add(Calendar.DATE, -2);
                 String yesterday = df.format(cal1.getTime());
                 String twodaysago = df.format(cal2.getTime());
-                String startDate = getDate();
-                String EndDate = getDate();
+                String startDate = getDate2();
+                String EndDate = getDate2();
                 try
                 {
                     URL url = new URL("http://ecos.bok.or.kr/api/StatisticSearch/UZMM2M6HM74AL9ZG77US/json/kr/1/10/064Y001/DD/"+ yesterday +"/"+ EndDate + "/0001000/?/?/");
@@ -116,12 +121,14 @@ public class MainActivity extends AppCompatActivity implements OnTabItemSelected
                         String DATA_VALUE = object.getString("DATA_VALUE");
                         double todayValue = Double.parseDouble(DATA_VALUE); // 오늘값엔 마지막으로 저장된 값인 어제값이 들어감
                         double ystdayValue = todayValue; //오늘 값과 같은 값
-
                         String changeRate = "0"; // 변화율은 0
 
-                        Log.d("어제", Double.toString(ystdayValue));
-                        Log.d("오늘", Double.toString(todayValue));
-                        Log.d("변화율", changeRate);
+
+                        TODAY_KOSPI = "업데이트중";
+                        YSTDAY_KOSPI = Double.toString(ystdayValue);
+                        CHANGE_RATE = changeRate;
+
+
                     }
                     else if(jsonArray.length() == 2) //오늘 데이터가 올라왔을때(저녁쯤)
                     {
@@ -135,9 +142,11 @@ public class MainActivity extends AppCompatActivity implements OnTabItemSelected
                         double change = ((todayValue - ystdayValue) / ystdayValue) * 100 ; //변화율 계산
 
                         String changeRate = String.format("%.2f", change); //소수점 자르기
-                        Log.d("어제", Double.toString(ystdayValue));
-                        Log.d("오늘", Double.toString(todayValue));
-                        Log.d("변화율", changeRate);
+
+                        TODAY_KOSPI = Double.toString(todayValue);
+                        YSTDAY_KOSPI = Double.toString(ystdayValue);
+                        CHANGE_RATE = changeRate;
+
                     }
 
 
@@ -166,6 +175,9 @@ public class MainActivity extends AppCompatActivity implements OnTabItemSelected
                     case R.id.action_stats:
                         setFrag(2);
                         break;
+                    case R.id.action_economy:
+                        setFrag(3);
+                        break;
                 }
                 return true;
             }
@@ -174,6 +186,7 @@ public class MainActivity extends AppCompatActivity implements OnTabItemSelected
         calenderViewFragment = new CalenderViewFragment();
         totalStatsFragment = new TotalStatsFragment();
         homeViewFragment = new HomeViewFragment();
+        economyViewFragment = new EconomyViewFragment();
         setFrag(0);  // 메인 화면 선택
     }
 
@@ -195,6 +208,10 @@ public class MainActivity extends AppCompatActivity implements OnTabItemSelected
                 ft.replace(R.id.frame, totalStatsFragment);
                 ft.commit();
                 break;
+            case 3:
+                ft.replace(R.id.frame, economyViewFragment);
+                ft.commit();
+                break;
         }
     }
 
@@ -204,9 +221,17 @@ public class MainActivity extends AppCompatActivity implements OnTabItemSelected
         if (position == 0) bottomNavigationView.setSelectedItemId(R.id.action_home);
         else if (position == 1) bottomNavigationView.setSelectedItemId(R.id.action_calender);
         else if (position == 2) bottomNavigationView.setSelectedItemId(R.id.action_stats);
+        else if (position == 3) bottomNavigationView.setSelectedItemId(R.id.action_economy);
     }
 
     public String getDate()
+    {
+        mNow = System.currentTimeMillis();
+        mDate = new Date(mNow);
+        return mFormat.format(mDate);
+    }
+
+    public String getDate2()
     {
         mNow = System.currentTimeMillis();
         mDate = new Date(mNow);
