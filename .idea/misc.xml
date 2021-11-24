@@ -84,11 +84,12 @@
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable/menu_selector_color.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable/shape_itembackground.xml" value="0.1" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable/spinner_background.xml" value="0.2864583333333333" />
+        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/activity_api.xml" value="0.2598958333333333" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/activity_setting.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/dialog_cal.xml" value="0.33" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/fab_receiptview.xml" value="0.28940217391304346" />
-        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/frag_view_income.xml" value="0.203125" />
+        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/frag_view_income.xml" value="0.33" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/frag_view_outlay.xml" value="0.25" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/fragment_item_view.xml" value="0.33229166666666665" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/frame_calender.xml" value="0.36614583333333334" />
@@ -106,7 +107,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_13" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

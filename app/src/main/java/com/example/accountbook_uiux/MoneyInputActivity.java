@@ -128,12 +128,12 @@ public class MoneyInputActivity extends AppCompatActivity {
                 {
 
                     in_editTextMoney = (EditText) container.findViewById(R.id.in_editTextMoney);
-                    in_txt_date = (TextView) container.findViewById(R.id.in_txt_date);
+                    //in_txt_date = (TextView) container.findViewById(R.id.in_txt_date);
                     in_txt_price = (TextView) container.findViewById(R.id.in_txt_price);
                     in_txt_method = (TextView) container.findViewById(R.id.in_txt_method);
                     in_txt_catalog = (TextView) container.findViewById(R.id.in_txt_catalog);
                     in_txt_details = (TextView) container.findViewById(R.id.in_txt_details);
-                    in_editTextDate = (EditText) container.findViewById(R.id.in_editTextDate);
+                    //in_editTextDate = (EditText) container.findViewById(R.id.in_editTextDate);
                     in_editTextDetails = (EditText) container.findViewById(R.id.in_editTextDetails);
                     in_sp_method = (Spinner) container.findViewById(R.id.in_sp_method);
                     in_sp_catalog = (Spinner) container.findViewById(R.id.in_sp_catalog);
@@ -145,11 +145,11 @@ public class MoneyInputActivity extends AppCompatActivity {
 
                     if(in_sp_catalog.getSelectedItemPosition() == 0) // 카테고리 입력 안할 시
                     {
-                        dbHelper.InsertDB("수입", cost, "기타", mainActivity.getDate(), payment, detail,"null",0,0, "FALSE");
+                        dbHelper.InsertDB("수입", cost, "기타", mainActivity.getDate(), payment, detail,"null",0,0, "FALSE", "", "", "FALSE");
                     }
                     else
                     {
-                        dbHelper.InsertDB("수입", cost, category, mainActivity.getDate(), payment, detail,"null",0,0, "FALSE");
+                        dbHelper.InsertDB("수입", cost, category, mainActivity.getDate(), payment, detail,"null",0,0, "FALSE", "", "", "FALSE");
                     }
 
                     TYPE_SELECTED = 0;
@@ -159,12 +159,12 @@ public class MoneyInputActivity extends AppCompatActivity {
                 {
 
 
-                    out_txt_date = (TextView) container.findViewById(R.id.out_txt_date);
+                    //out_txt_date = (TextView) container.findViewById(R.id.out_txt_date);
                     out_txt_price = (TextView) container.findViewById(R.id.out_txt_price);
                     out_txt_method = (TextView) container.findViewById(R.id.out_txt_method);
                     out_txt_catalog = (TextView) container.findViewById(R.id.out_txt_catalog);
                     out_txt_details = (TextView) container.findViewById(R.id.out_txt_details);
-                    out_editTextDate = (EditText) container.findViewById(R.id.out_editTextDate);
+                    //out_editTextDate = (EditText) container.findViewById(R.id.out_editTextDate);
                     out_editTextMoney = (EditText) container.findViewById(R.id.out_editTextMoney);
                     out_editTextDetails = (EditText)container.findViewById(R.id.out_editTextDetails);
                     out_sp_method = (Spinner) container.findViewById(R.id.out_sp_method);
@@ -180,12 +180,12 @@ public class MoneyInputActivity extends AppCompatActivity {
 
                     if(out_sp_catalog.getSelectedItemPosition() == 0)
                     {
-                        dbHelper.InsertDB("지출", cost, "기타", mainActivity.getDate(), payment, detail,"null",0,0, "FALSE");
+                        dbHelper.InsertDB("지출", cost, "기타", mainActivity.getDate(), payment, detail,"null",0,0, "FALSE", "", "", "FALSE");
                     }
 
                     else
                     {
-                        dbHelper.InsertDB("지출", cost, category,mainActivity.getDate(), payment, detail,"null",0,0, "FALSE");
+                        dbHelper.InsertDB("지출", cost, category,mainActivity.getDate(), payment, detail,"null",0,0, "FALSE", "", "", "FALSE");
                     }
 
                     CURRENT_OUTLAY = dbHelper.getSum("지출");

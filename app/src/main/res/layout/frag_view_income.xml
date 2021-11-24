@@ -21,15 +21,6 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/in_txt_date"
-                android:layout_width="100dp"
-                android:layout_height="70dp"
-                android:gravity="center"
-                android:text="날짜"
-                android:textColor="#000000"
-                android:textSize="18sp" />
-
-            <TextView
                 android:id="@+id/in_txt_price"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
@@ -72,16 +63,6 @@
             android:layout_height="380dp"
             android:layout_marginRight="16dp"
             android:orientation="vertical">
-
-            <EditText
-                android:id="@+id/in_editTextDate"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_gravity="center"
-                android:ems="10"
-                android:inputType="date"
-
-                />
 
 
             <EditText

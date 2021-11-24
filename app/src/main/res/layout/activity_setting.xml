@@ -57,4 +57,23 @@
         app:layout_constraintStart_toStartOf="@+id/et_outLimit"
         app:layout_constraintTop_toBottomOf="@+id/et_outLimit"
         app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/tv_del"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="데이터삭제"
+        app:layout_constraintStart_toStartOf="@+id/tv_outLimit"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+    <Button
+        android:id="@+id/btn_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:text="전체삭제"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_del"
+        app:layout_constraintStart_toEndOf="@+id/tv_del"
+        app:layout_constraintTop_toTopOf="@+id/tv_del" />
 </androidx.constraintlayout.widget.ConstraintLayout>
