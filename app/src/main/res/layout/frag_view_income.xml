@@ -70,10 +70,11 @@
 
             <EditText
                 android:id="@+id/in_editTextMoney"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:inputType="numberSigned"
-                android:fontFamily="@font/applesdgothicneom" />
+                android:layout_width="233dp"
+                android:layout_height="71dp"
+                android:backgroundTint="#7CD685"
+                android:fontFamily="@font/applesdgothicneom"
+                android:inputType="numberSigned" />
 
             <Spinner
                 android:id="@+id/in_sp_method"
@@ -89,8 +90,9 @@
 
             <EditText
                 android:id="@+id/in_editTextDetails"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_width="272dp"
+                android:layout_height="69dp"
+                android:backgroundTint="#7CD685"
                 android:fontFamily="@font/applesdgothicneom" />
 
         </LinearLayout>
