@@ -16,11 +16,14 @@
         <entry key="..\:/UI00/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26979166666666665" />
         <entry key="..\:/UI00/app/src/main/res/drawable/shape_itembackground.xml" value="0.26979166666666665" />
         <entry key="..\:/UI00/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/UI00/app/src/main/res/layout/activity_setting.xml" value="0.22447916666666667" />
         <entry key="..\:/UI00/app/src/main/res/layout/dialog_cal.xml" value="0.25903614457831325" />
         <entry key="..\:/UI00/app/src/main/res/layout/fab_receiptview.xml" value="0.264" />
         <entry key="..\:/UI00/app/src/main/res/layout/frag_view_income.xml" value="0.264" />
         <entry key="..\:/UI00/app/src/main/res/layout/frag_view_outlay.xml" value="0.264" />
+        <entry key="..\:/UI00/app/src/main/res/layout/frame_economy.xml" value="0.23802083333333332" />
         <entry key="..\:/UI00/app/src/main/res/layout/frame_history.xml" value="0.4" />
+        <entry key="..\:/UI00/app/src/main/res/layout/frame_home.xml" value="0.22447916666666667" />
         <entry key="..\:/UI00/app/src/main/res/layout/frame_main.xml" value="0.25364583333333335" />
         <entry key="..\:/UI00/app/src/main/res/layout/frame_stats.xml" value="0.4" />
         <entry key="..\:/UI00/app/src/main/res/layout/frame_travel.xml" value="0.1" />
