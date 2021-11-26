@@ -21,7 +21,7 @@ public class EconomyViewFragment extends Fragment
     public static String YSTDAY_KOSPI;
     public static String CHANGE_RATE;
 
-    TextView tv_cardCom, tv_cardCost, tv_cardNum, tv_cardNumbyCom, tv_kospi;
+    TextView tv_cardCom, tv_cardCost, tv_cardNum, tv_cardNumbyCom,txt_nickname,tv_kospi;
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
@@ -31,7 +31,11 @@ public class EconomyViewFragment extends Fragment
         tv_cardCost = (TextView) view_economy.findViewById(R.id.tv_cardCost);
         tv_cardNum = (TextView) view_economy.findViewById(R.id.tv_cardNum);
         tv_cardNumbyCom = (TextView) view_economy.findViewById(R.id.tv_cardNumbyCom);
-        tv_kospi = (TextView) view_economy.findViewById(R.id.tv_kospi);
+        //tv_kospi = (TextView) view_economy.findViewById(R.id.tv_kospi);
+        txt_nickname = view_economy.findViewById(R.id.txt_nickname);
+
+        String nickname = MainActivity.preferences.getString("name","ㅇㅇㅇ");
+        txt_nickname.setText(nickname+"님의\n카드내역");
 
         String cardNumber = dbHelper.getCardNumber("TRUE");
         String [] array = cardNumber.split("\n");
@@ -64,21 +68,21 @@ public class EconomyViewFragment extends Fragment
         }
 
         Log.d("카드번호", cardNumberBuilder.toString());
-        Log.d("카드금액", cardCostBuilder.toString());
-        Log.d("카드회사", cardCompanyBuilder.toString());
-        Log.d("카드사별 카드번호",stringBuilder.toString());
+        Log.d("지출금액", cardCostBuilder.toString());
+        Log.d("카드사", cardCompanyBuilder.toString());
+        Log.d("카드사           카드번호",stringBuilder.toString());
 
         tv_cardNum.setText("카드번호\n"+cardNumberBuilder.toString());
         tv_cardCom.setText("카드사\n"+cardCompanyBuilder.toString());
-        tv_cardCost.setText("카드지출\n"+cardCostBuilder.toString());
-        tv_cardNumbyCom.setText("카드사별 카드번호\n"+stringBuilder.toString());
+        tv_cardCost.setText("지출금액\n"+cardCostBuilder.toString());
+        tv_cardNumbyCom.setText("카드사           카드번호\n"+stringBuilder.toString());
 
-        if(TODAY_KOSPI == null)
+       /* if(TODAY_KOSPI == null)
         {
             tv_kospi.setText("코스피지수 불러오는중.. 새로고침해주세요");
         }
         else tv_kospi.setText("어제 : "+YSTDAY_KOSPI+", 오늘 : "+TODAY_KOSPI+", 변화율 : "+CHANGE_RATE+"%");
-
+*/
         return view_economy;
     }
 }

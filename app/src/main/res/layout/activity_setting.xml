@@ -19,23 +19,24 @@
 
     <EditText
         android:id="@+id/et_outLimit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_width="234dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="8dp"
         android:ems="10"
+        android:fontFamily="@font/applesdgothicneom"
         android:inputType="numberSigned"
         android:text="0"
-        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintBottom_toBottomOf="@+id/tv_outLimit"
         app:layout_constraintStart_toEndOf="@+id/tv_outLimit" />
 
     <Button
         android:id="@+id/btn_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="79dp"
+        android:layout_height="44dp"
         android:layout_marginBottom="50dp"
-        android:text="저장"
+        android:background="@drawable/inout_buttonui"
         android:fontFamily="@font/applesdgothicneom"
+        android:text="저장"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -45,8 +46,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="이름"
         android:fontFamily="@font/applesdgothicneom"
+        android:text="닉네임"
         app:layout_constraintStart_toStartOf="@+id/tv_outLimit"
         app:layout_constraintTop_toBottomOf="@+id/tv_outLimit" />
 
@@ -75,11 +76,12 @@
 
     <Button
         android:id="@+id/btn_delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="41dp"
         android:layout_marginStart="50dp"
-        android:text="전체삭제"
+        android:background="@drawable/inout_buttonui"
         android:fontFamily="@font/applesdgothicneom"
+        android:text="전체삭제"
         app:layout_constraintBottom_toBottomOf="@+id/tv_del"
         app:layout_constraintStart_toEndOf="@+id/tv_del"
         app:layout_constraintTop_toTopOf="@+id/tv_del" />

@@ -20,7 +20,7 @@
     <item
         android:id="@+id/action_economy"
         android:enabled="true"
-        android:icon="@drawable/gui_review_icon_158393"
-        android:title="경제?" />
+        android:icon="@drawable/ic_bank_1300155"
+        android:title="카드관리" />
 
 </menu>

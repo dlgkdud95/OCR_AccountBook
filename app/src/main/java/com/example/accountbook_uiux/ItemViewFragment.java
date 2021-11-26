@@ -20,6 +20,7 @@ public class ItemViewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
+
         view_item = inflater.inflate(R.layout.fragment_item_view, container, false);
         tv_itemTest = view_item.findViewById(R.id.tv_itemTest);
         tv_itemview = view_item.findViewById(R.id.tv_itemview);
