@@ -18,9 +18,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -94,8 +96,6 @@ public class HomeViewFragment extends Fragment {
         bt_receiptStats = view_home.findViewById(R.id.bt_receiptStats);
         bt_monthly = view_home.findViewById(R.id.bt_monthly);
 
-
-
         String nickname = MainActivity.preferences.getString("name","ㅇㅇㅇ");
         txt_nickname.setText(nickname+"님의\n가계부");
 
@@ -111,6 +111,15 @@ public class HomeViewFragment extends Fragment {
         txt_spendNum.setText(Integer.toString(dbHelper.periodInquiry(df.format(cal1.getTime())+"-01", df.format(cal2.getTime())+"-01", "지출"))+ " 원");  // 현재 달 지출
 
         txt_date.setText((c.get(Calendar.MONTH)+1) + "월 " + (c.get(Calendar.DAY_OF_MONTH)) + "일 " + (c.get(Calendar.HOUR)) + "시 " + (c.get(Calendar.MINUTE)) + "분 기준");
+
+        /*ArrayList<DBTable> list = new ArrayList<DBTable>();
+        ArrayList<DBTable> RL = new ArrayList<>();
+
+        int top1;
+
+        top1 = list.getCost();
+        TextView out_Top1 = view_home.findViewById(R.id.out_Top1);
+        out_Top1.setText(top1);*/
 
         if(TODAY_KOSPI == null)
         {
@@ -205,5 +214,19 @@ public class HomeViewFragment extends Fragment {
 
         isFabOpen = !isFabOpen;
     }
+
+    /*public void ranking() {
+        ArrayList<DBTable> list = new ArrayList<DBTable>();
+        ArrayList<DBTable> RL = new ArrayList<>();
+
+        RL.add(list.get(0));
+        int top1;
+
+        top1 = list.get(0).getCost();
+        for(int i = 0; i<list.size(); i++ ) {
+            RL.add(list.get(0));
+        }
+
+    }*/
 
 }
