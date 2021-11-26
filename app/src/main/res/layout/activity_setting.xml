@@ -13,6 +13,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="50dp"
         android:text="지출제한"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,6 +25,7 @@
         android:ems="10"
         android:inputType="numberSigned"
         android:text="0"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintBottom_toBottomOf="@+id/tv_outLimit"
         app:layout_constraintStart_toEndOf="@+id/tv_outLimit" />
 
@@ -33,6 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
         android:text="저장"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -43,6 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="이름"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintStart_toStartOf="@+id/tv_outLimit"
         app:layout_constraintTop_toBottomOf="@+id/tv_outLimit" />
 
@@ -53,6 +57,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintBottom_toBottomOf="@+id/tv_name"
         app:layout_constraintStart_toStartOf="@+id/et_outLimit"
         app:layout_constraintTop_toBottomOf="@+id/et_outLimit"
@@ -64,6 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="데이터삭제"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintStart_toStartOf="@+id/tv_outLimit"
         app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
@@ -73,6 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:text="전체삭제"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintBottom_toBottomOf="@+id/tv_del"
         app:layout_constraintStart_toEndOf="@+id/tv_del"
         app:layout_constraintTop_toTopOf="@+id/tv_del" />

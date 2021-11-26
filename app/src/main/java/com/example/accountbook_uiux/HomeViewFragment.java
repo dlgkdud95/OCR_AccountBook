@@ -6,6 +6,7 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -32,8 +33,12 @@ public class HomeViewFragment extends Fragment {
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
 
+    public static String TODAY_KOSPI; // 메인엑티비티에서 앱을 실행시키자마자 API호출 및 파싱 후 전역변수로 가져와서 setText
+    public static String YSTDAY_KOSPI;
+    public static String CHANGE_RATE;
+
     FloatingActionButton fab_main, fab_receipt, fab_writing;
-    TextView txt_nickname, txt_receipt, txt_month, txt_homeIncome, txt_homeSpend, txt_incomeNum, txt_spendNum;
+    TextView txt_nickname, txt_receipt, txt_month, txt_homeIncome, txt_homeSpend, txt_incomeNum, txt_spendNum, today_kospi, txt_rate, yesterday_kospi, txt_date, kospiBox;
     Button bt_setting, bt_receiptScan, bt_monthly, bt_receiptStats;
     long now = System.currentTimeMillis();
     Date date = new Date(now);
@@ -78,6 +83,12 @@ public class HomeViewFragment extends Fragment {
         txt_incomeNum = view_home.findViewById(R.id.txt_incomeNum);
         txt_spendNum = view_home.findViewById(R.id.txt_spendNum);
 
+        kospiBox = view_home.findViewById(R.id.kospiBox);
+        txt_date = view_home.findViewById(R.id.txt_date);
+        today_kospi = view_home.findViewById(R.id.today_kospi);
+        txt_rate = view_home.findViewById(R.id.txt_rate);
+        yesterday_kospi = view_home.findViewById(R.id.yesterday_kospi);
+
         bt_receiptScan = view_home.findViewById(R.id.bt_receiptScan);
         bt_setting = view_home.findViewById(R.id.bt_setting);
         bt_receiptStats = view_home.findViewById(R.id.bt_receiptStats);
@@ -93,10 +104,25 @@ public class HomeViewFragment extends Fragment {
 
         cal2.add(Calendar.MONTH, 1);
 
+        Calendar c = Calendar.getInstance();
 
-        txt_month.setText((Calendar.getInstance().get(Calendar.MONTH)+1) + "월 내역");
+        txt_month.setText((c.get(Calendar.MONTH)+1) + "월 내역");
         txt_incomeNum.setText(Integer.toString(dbHelper.periodInquiry(df.format(cal1.getTime())+"-01", df.format(cal2.getTime())+"-01", "수입"))+ " 원"); // 현재 달 수입
         txt_spendNum.setText(Integer.toString(dbHelper.periodInquiry(df.format(cal1.getTime())+"-01", df.format(cal2.getTime())+"-01", "지출"))+ " 원");  // 현재 달 지출
+
+        txt_date.setText((c.get(Calendar.MONTH)+1) + "월 " + (c.get(Calendar.DAY_OF_MONTH)) + "일 " + (c.get(Calendar.HOUR)) + "시 " + (c.get(Calendar.MINUTE)) + "분 기준");
+
+        if(TODAY_KOSPI == null)
+        {
+            today_kospi.setText("코스피지수 불러오는중.. 새로고침해주세요");
+        }
+        else {
+            today_kospi.setText(TODAY_KOSPI);
+            yesterday_kospi.setText(YSTDAY_KOSPI);
+            txt_rate.setText(CHANGE_RATE + "%");
+            if (Integer.parseInt(TODAY_KOSPI) > Integer.parseInt(YSTDAY_KOSPI)) txt_rate.setTextColor(Color.parseColor("#E64033"));
+            else txt_rate.setTextColor(Color.parseColor("#4657B5"));
+        }
 
         bt_setting.setOnClickListener(new View.OnClickListener() { //설정 화면으로 넘어감
             @Override

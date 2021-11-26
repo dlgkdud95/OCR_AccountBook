@@ -20,7 +20,7 @@
             android:text="0000년 00월 00일"
             android:textColor="#000000"
             android:textSize="24sp"
-            android:textStyle="bold"
+            android:fontFamily="@font/applesdgothicneob"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.567"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,6 +33,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="15dp"
             android:textColor="#009688"
+            android:fontFamily="@font/applesdgothicneob"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_date" />
 
@@ -42,6 +43,7 @@
             android:layout_height="wrap_content"
             android:text="          없습니다"
             android:textColor="#050505"
+            android:fontFamily="@font/applesdgothicneob"
             app:layout_constraintBottom_toBottomOf="@+id/tv_type"
             app:layout_constraintEnd_toStartOf="@+id/tv_category"
             app:layout_constraintHorizontal_bias="0.429"
@@ -54,21 +56,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
+            android:fontFamily="@font/applesdgothicneob"
             app:layout_constraintBottom_toBottomOf="@+id/tv_cost"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tv_cost"
             app:layout_constraintVertical_bias="1.0" />
 
-        app:tabIndicatorColor="#7CD685"
-
         <Button
             android:id="@+id/btn_income"
             android:layout_width="80dp"
             android:layout_height="45dp"
-            android:layout_marginStart="88dp"
+            android:layout_marginStart="80dp"
             android:layout_marginBottom="100dp"
             android:background="@drawable/inout_buttonui"
             android:text="수입"
+            android:fontFamily="@font/applesdgothicneob"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -76,9 +78,10 @@
             android:id="@+id/btn_outlay"
             android:layout_width="80dp"
             android:layout_height="45dp"
-            android:layout_marginEnd="76dp"
+            android:layout_marginEnd="80dp"
             android:background="@drawable/inout_buttonui"
             android:text="지출"
+            android:fontFamily="@font/applesdgothicneob"
             app:layout_constraintBottom_toBottomOf="@+id/btn_income"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/btn_income"
@@ -92,7 +95,8 @@
             android:ems="10"
             android:inputType="numberSigned"
             android:textColor="#B7000000"
-            android:textColorLink="#7CD685"
+            android:textColorLink="@color/button"
+            android:fontFamily="@font/applesdgothicneob"
             app:layout_constraintBottom_toTopOf="@+id/btn_outlay"
             app:layout_constraintEnd_toEndOf="@+id/btn_outlay"
             app:layout_constraintHorizontal_bias="0.3"
