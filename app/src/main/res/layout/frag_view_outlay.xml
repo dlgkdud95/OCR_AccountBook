@@ -25,7 +25,8 @@
                 android:gravity="center"
                 android:text="금액"
                 android:textColor="#000000"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:fontFamily="@font/applesdgothicneom" />
 
             <TextView
                 android:id="@+id/out_txt_method"
@@ -34,7 +35,8 @@
                 android:gravity="center"
                 android:text="결제수단"
                 android:textColor="#000000"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:fontFamily="@font/applesdgothicneom" />
 
             <TextView
                 android:id="@+id/out_txt_catalog"
@@ -42,7 +44,9 @@
                 android:layout_height="70dp"
                 android:gravity="center"
                 android:text="분류"
-                android:textSize="18sp" />
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:fontFamily="@font/applesdgothicneom" />
 
             <TextView
                 android:id="@+id/out_txt_details"
@@ -50,7 +54,9 @@
                 android:layout_height="70dp"
                 android:gravity="center"
                 android:text="지출내용"
-                android:textSize="18sp" />
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:fontFamily="@font/applesdgothicneom" />
 
         </LinearLayout>
 
@@ -64,7 +70,8 @@
                 android:id="@+id/out_editTextMoney"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:inputType="numberSigned" />
+                android:inputType="numberSigned"
+                android:fontFamily="@font/applesdgothicneom" />
 
             <Spinner
                 android:id="@+id/out_sp_method"
@@ -81,7 +88,8 @@
             <EditText
                 android:id="@+id/out_editTextDetails"
                 android:layout_width="match_parent"
-                android:layout_height="70dp" />
+                android:layout_height="70dp"
+                android:fontFamily="@font/applesdgothicneom" />
 
         </LinearLayout>
 

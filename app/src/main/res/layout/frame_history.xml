@@ -28,6 +28,7 @@
         android:background="@drawable/statebuttonui"
         android:text="조회"
         android:textColor="#FFFFFF"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintBottom_toTopOf="@+id/lv_list"
         app:layout_constraintEnd_toEndOf="@+id/lv_list"
         app:layout_constraintTop_toTopOf="parent" />
@@ -40,6 +41,7 @@
         android:background="@drawable/statebuttonui"
         android:text="전체보기"
         android:textColor="#FFFFFF"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintBottom_toBottomOf="@+id/btn_searchdate"
         app:layout_constraintEnd_toEndOf="@+id/lv_list" />
 
@@ -53,6 +55,7 @@
         android:inputType="textPersonName"
         android:text="Start"
         android:textSize="14sp"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintStart_toStartOf="@+id/et_enddate"
         tools:layout_editor_absoluteY="1dp" />
 
@@ -67,6 +70,7 @@
         android:inputType="textPersonName"
         android:text="End"
         android:textSize="14sp"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintBottom_toTopOf="@+id/lv_list"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_startdate"

@@ -28,6 +28,7 @@
         android:text="지출"
         android:textColor="#03887C"
         android:textSize="18sp"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,6 +41,7 @@
         android:text="디테일 적는 곳"
         android:textColor="#B3000000"
         android:textSize="12sp"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -55,6 +57,7 @@
         android:text="2021-10-13"
         android:textColor="#000000"
         android:textSize="14sp"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintBottom_toBottomOf="@+id/item_tv_detail"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -67,7 +70,7 @@
         android:text="10000"
         android:textColor="#000000"
         android:textSize="20sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/applesdgothicneob"
         app:layout_constraintBottom_toBottomOf="@+id/item_tv_type"
         app:layout_constraintEnd_toStartOf="@+id/item_tv_payment"
         app:layout_constraintStart_toEndOf="@+id/item_tv_type"
@@ -82,6 +85,7 @@
         android:text="식비"
         android:textColor="#B3000000"
         android:textSize="15sp"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintBottom_toTopOf="@+id/item_tv_date"
         app:layout_constraintStart_toStartOf="@+id/item_tv_date" />
 
@@ -92,6 +96,7 @@
         android:layout_marginStart="52dp"
         android:text="체크카드"
         android:textColor="#80000000"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintBottom_toBottomOf="@+id/item_tv_cost"
         app:layout_constraintStart_toEndOf="@+id/item_tv_cost" />
 </androidx.constraintlayout.widget.ConstraintLayout>

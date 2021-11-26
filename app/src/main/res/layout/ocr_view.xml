@@ -14,49 +14,73 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="103dp">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout7"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/receiptText"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="우측 하단 버튼을 눌러서 카메라/갤러리를 선택하세요" />
+                android:fontFamily="@font/applesdgothicneom"
+                android:text="우측 하단 버튼을 눌러서 카메라/갤러리를 선택하세요"
+                app:layout_constraintBottom_toTopOf="@+id/receiptImage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/receiptImage"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/receiptImage"
-                android:layout_width="match_parent"
+                android:layout_width="379dp"
                 android:layout_height="250dp"
-                android:scaleType="fitCenter" />
+                android:scaleType="fitCenter"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/receiptText" />
 
             <Spinner
                 android:id="@+id/spinner_category"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="38dp"
-                android:layout_gravity=""
-                android:entries="@array/outlay_catalog" />
+                android:entries="@array/outlay_catalog"
+                app:layout_constraintBottom_toTopOf="@+id/spinner_payment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/receiptImage" />
 
             <Spinner
                 android:id="@+id/spinner_payment"
-                android:layout_width="match_parent"
+                android:layout_width="379dp"
                 android:layout_height="39dp"
-                android:entries="@array/method" />
+                android:entries="@array/method"
+                app:layout_constraintBottom_toTopOf="@+id/tv_ocrResult"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_category" />
 
             <TextView
                 android:id="@+id/tv_ocrResult"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="277dp"
-                android:text="  영수증 인식 결과를 확인해보세요!"
+                android:fontFamily="@font/applesdgothicneom"
+                android:gravity="center"
+                android:text="영수증 인식 가이드\n1. 하단 버튼을 눌러 영수증을 등록하새요\n2. 촬영 시 영수증을 수평으로 찍어주세요\n3. 글자가 잘 보이도록 찍어주세요           \n 4. 한 사진 당 하나의 영수증만 찍어주세요"
                 android:textColor="#000000"
                 android:textSize="15sp"
-                android:textStyle="bold" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_payment" />
 
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,71 +10,77 @@
         android:id="@+id/tv_outLimit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="100dp"
-        android:text="지출제한금액"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:text="지출제한"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/et_outLimit"
-        android:layout_width="153dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:ems="10"
         android:inputType="numberSigned"
         android:text="0"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintBottom_toBottomOf="@+id/tv_outLimit"
-        app:layout_constraintStart_toEndOf="@+id/tv_outLimit"
-        app:layout_constraintTop_toTopOf="@+id/tv_outLimit"
-        app:layout_constraintVertical_bias="0.576" />
+        app:layout_constraintStart_toEndOf="@+id/tv_outLimit" />
 
     <Button
         android:id="@+id/btn_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
         android:text="저장"
-        android:background="@drawable/inout_buttonui"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.634"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.256" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:text="👤닉네임 "
+        android:layout_marginTop="50dp"
+        android:text="이름"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintStart_toStartOf="@+id/tv_outLimit"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_outLimit" />
 
     <EditText
         android:id="@+id/et_name"
-        android:layout_width="150dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        app:layout_constraintBottom_toTopOf="@+id/et_outLimit"
-        app:layout_constraintEnd_toEndOf="@+id/et_outLimit"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/tv_name" />
+        android:fontFamily="@font/applesdgothicneom"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_name"
+        app:layout_constraintStart_toStartOf="@+id/et_outLimit"
+        app:layout_constraintTop_toBottomOf="@+id/et_outLimit"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/tv_del"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="데이터삭제"
+        android:fontFamily="@font/applesdgothicneom"
+        app:layout_constraintStart_toStartOf="@+id/tv_outLimit"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
     <Button
         android:id="@+id/btn_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
-        android:background="@drawable/inout_buttonui"
-        android:backgroundTint="#808BC34A"
-        android:text="DATA RESET"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_save"
-        app:layout_constraintEnd_toStartOf="@+id/btn_save"
-        app:layout_constraintTop_toTopOf="@+id/btn_save" />
+        android:layout_marginStart="50dp"
+        android:text="전체삭제"
+        android:fontFamily="@font/applesdgothicneom"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_del"
+        app:layout_constraintStart_toEndOf="@+id/tv_del"
+        app:layout_constraintTop_toTopOf="@+id/tv_del" />
 </androidx.constraintlayout.widget.ConstraintLayout>

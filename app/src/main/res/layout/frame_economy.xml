@@ -12,7 +12,8 @@
         android:layout_marginStart="50dp"
         android:text="카드회사"
         app:layout_constraintBottom_toBottomOf="@+id/tv_cardNum"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/applesdgothicneom" />
 
     <TextView
         android:id="@+id/tv_cardNum"
@@ -20,6 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="카드번호"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintEnd_toStartOf="@+id/tv_cardCost"
         app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toEndOf="@+id/tv_cardCom"
@@ -31,6 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
         android:text="카드금액"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintBottom_toBottomOf="@+id/tv_cardNum"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -40,6 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
         android:text="카드사별카드번호"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintStart_toStartOf="@+id/tv_cardCom"
         app:layout_constraintTop_toBottomOf="@+id/tv_cardCom" />
 
@@ -49,6 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:text="코스피"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintStart_toStartOf="@+id/tv_cardNumbyCom"
         app:layout_constraintTop_toBottomOf="@+id/tv_cardNumbyCom" />
 </androidx.constraintlayout.widget.ConstraintLayout>

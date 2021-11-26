@@ -42,7 +42,8 @@
                 <TextView
                     android:id="@+id/textView3"
                     android:layout_width="match_parent"
-                    android:layout_height="52dp" />
+                    android:layout_height="52dp"
+                    android:fontFamily="@font/applesdgothicneom"/>
 
                 <Button
                     android:id="@+id/btn_toBar"
@@ -53,13 +54,14 @@
                     android:text="📊"
                     android:textColor="#CB000000"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/applesdgothicneob" />
 
                 <TextView
                     android:id="@+id/textView4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="4sp" />
+                    android:textSize="4sp"
+                    android:fontFamily="@font/applesdgothicneom"/>
 
                 <Button
                     android:id="@+id/btn_toPie"
@@ -70,7 +72,7 @@
                     android:text=" ©  "
                     android:textColor="#000000"
                     android:textSize="32sp"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/applesdgothicneob" />
 
                 <com.github.mikephil.charting.charts.PieChart
                     android:id="@+id/chart"
@@ -83,13 +85,14 @@
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp" />
+                    android:layout_height="30dp"
+                    android:fontFamily="@font/applesdgothicneom" />
 
                 <TextView
                     android:id="@+id/tv_foodsum"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-
+                    android:fontFamily="@font/applesdgothicneom"
                     android:drawableLeft="@drawable/ic_iconmonstr_eat_7__1_"
                     android:gravity="center|left"
                     android:text="    식비 :  0원"
@@ -104,7 +107,8 @@
                     android:gravity="center|left"
                     android:text="    교통/차량 :  0원"
                     android:textColor="#000000"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:fontFamily="@font/applesdgothicneom" />
 
                 <TextView
                     android:id="@+id/tv_leisure"
@@ -114,7 +118,8 @@
                     android:gravity="center|left"
                     android:text="    문화생활 : 0원"
                     android:textColor="#000000"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:fontFamily="@font/applesdgothicneom" />
 
                 <TextView
                     android:id="@+id/tv_mart"
@@ -124,7 +129,8 @@
                     android:gravity="center|left"
                     android:text="    마트/편의점 : 0원"
                     android:textColor="#000000"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:fontFamily="@font/applesdgothicneom" />
 
                 <TextView
                     android:id="@+id/tv_things"
@@ -134,7 +140,8 @@
                     android:gravity="center|left"
                     android:text="    생필품 : 0원"
                     android:textColor="#000000"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:fontFamily="@font/applesdgothicneom" />
 
                 <TextView
                     android:id="@+id/tv_fashion"
@@ -144,7 +151,8 @@
                     android:gravity="center|left"
                     android:text="    패션/미용 : 0원"
                     android:textColor="#000000"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:fontFamily="@font/applesdgothicneom" />
 
                 <TextView
                     android:id="@+id/tv_learn"
@@ -154,7 +162,8 @@
                     android:gravity="center|left"
                     android:text="    교육비 : 0원"
                     android:textColor="#000000"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:fontFamily="@font/applesdgothicneom" />
 
                 <TextView
                     android:id="@+id/tv_commu"
@@ -164,7 +173,8 @@
                     android:gravity="center|left"
                     android:text="    주거/통신비 : 0원"
                     android:textColor="#000000"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:fontFamily="@font/applesdgothicneom" />
 
                 <TextView
                     android:id="@+id/tv_health"
@@ -174,7 +184,8 @@
                     android:gravity="center|left"
                     android:text="    건강/의료비 : 0원"
                     android:textColor="#000000"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:fontFamily="@font/applesdgothicneom" />
 
                 <TextView
                     android:id="@+id/tv_fee"
@@ -184,7 +195,8 @@
                     android:gravity="center|left"
                     android:text="    경조사/회비 : 0원"
                     android:textColor="#000000"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:fontFamily="@font/applesdgothicneom" />
 
                 <TextView
                     android:id="@+id/tv_etcsum"
@@ -194,7 +206,8 @@
                     android:gravity="center|left"
                     android:text="    기타 : 0원"
                     android:textColor="#000000"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:fontFamily="@font/applesdgothicneom" />
 
             </LinearLayout>
         </ScrollView>
