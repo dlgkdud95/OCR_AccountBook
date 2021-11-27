@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="📗나의 재고일기장📗"
+                android:text="나의 창고🛠"
                 android:textColor="#DD000000"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -40,23 +40,25 @@
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="413dp"
-                android:layout_height="31dp"
+                android:layout_width="372dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="#D9DFD2"
-                android:text=" 날짜                 품목,가격" />
+                android:background="#FFFFFF"
+                android:text=" 날짜          품목,가격" />
 
             <TextView
                 android:id="@+id/tv_itemTest"
-                android:layout_width="413dp"
-                android:layout_height="567dp"
+                android:layout_width="374dp"
+                android:layout_height="551dp"
                 android:layout_gravity="center"
-                android:background="#2A8BC34A"
-                android:lineSpacingExtra="10dp"
+                android:background="@drawable/home_buttonui"
+                android:backgroundTint="#F0CCE1B3"
 
-                android:text="  ✵품목별 통계"
+                android:lineSpacingExtra="10dp"
+                android:text="     품목별 통계"
                 android:textColor="#000000"
-                android:textSize="15sp" />
+                android:textSize="14sp" />
+
         </LinearLayout>
     </ScrollView>
 

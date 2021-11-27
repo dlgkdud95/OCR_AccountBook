@@ -1,8 +1,6 @@
 package com.example.accountbook_uiux;
 
-import static com.example.accountbook_uiux.MainActivity.dbHelper;
 import static com.example.accountbook_uiux.MainActivity.editor;
-import static com.example.accountbook_uiux.MainActivity.mContext;
 import static com.example.accountbook_uiux.MainActivity.preferences;
 import static com.example.accountbook_uiux.MoneyInputActivity.LIMIT_OUTLAY;
 
@@ -15,7 +13,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,9 +21,9 @@ import androidx.appcompat.app.AppCompatActivity;
 public class SettingActivity extends AppCompatActivity {
 
     public static String NICKNAME = "";
-    private TextView tv_outLimit, tv_name , tv_del;
+    private TextView tv_outLimit, tv_name;
     private EditText et_outLimit, et_name;
-    private Button btn_save, btn_delete;
+    private Button btn_save;
 
 
 
@@ -43,8 +40,6 @@ public class SettingActivity extends AppCompatActivity {
         btn_save    = (Button)   findViewById(R.id.btn_save);
         tv_name = (TextView) findViewById(R.id.tv_name);
         et_name = (EditText) findViewById(R.id.et_name);
-        tv_del = (TextView) findViewById(R.id.tv_del);
-        btn_delete = (Button) findViewById(R.id.btn_delete);
 
         int conv_outlay = LIMIT_OUTLAY;
         String limit_outlay = Integer.toString(LIMIT_OUTLAY);
@@ -103,16 +98,6 @@ public class SettingActivity extends AppCompatActivity {
                 editor.apply();
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
-            }
-        });
-
-        btn_delete.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                dbHelper.DeleteDB();
-                Toast.makeText(getApplicationContext(), "전체데이터 삭제 완료", Toast.LENGTH_SHORT).show();
             }
         });
 
