@@ -31,7 +31,7 @@ public class CalenderViewFragment extends Fragment  {
     //frame_main (메인화면) 변수
     CalendarView calendarView;
     FloatingActionButton fab_main, fab_camera, fab_writing;
-    TextView txt_outlay, outlay, txt_income, income, txt_total, total, tv_limit;
+    TextView txt_outlay, outlay, txt_income, income, txt_total, total;
 
     ArrayList<DBTable> list = new ArrayList<DBTable>();
 
@@ -55,12 +55,11 @@ public class CalenderViewFragment extends Fragment  {
         income = (TextView) view_calender.findViewById(R.id.income);
         outlay = (TextView) view_calender.findViewById(R.id.outlay);
         total = (TextView) view_calender.findViewById(R.id.total);
-        tv_limit = (TextView) view_calender.findViewById(R.id.tv_limit);
 
         income.setText(Integer.toString(dbHelper.getSum("수입"))+ " 원");
         outlay.setText(Integer.toString(dbHelper.getSum("지출"))+ " 원");
         total.setText(Integer.toString(dbHelper.getSum("수입") - dbHelper.getSum("지출"))+ " 원");
-        tv_limit.setText("지출제한 : "+Integer.toString(moneyInputActivity.LIMIT_OUTLAY)+"원");
+
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener()
         {
@@ -162,60 +161,12 @@ public class CalenderViewFragment extends Fragment  {
         });
 
         floatingActionButton(view_calender); //fab버튼 작동 할 수 있게 해주는 메소드
-        DB_Delete_Button(view_calender);
         return view_calender;
     }
 
 
 
-    private  void DB_Delete_Button (View view_main)
-    {
-        Button btn_delDB = (Button) view_main.findViewById(R.id.btn_delDB);
 
-        btn_delDB.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-
-                String cardNumber = dbHelper.getCardNumber("TRUE");
-                String [] array = cardNumber.split("\n");
-
-                String cardCompany = dbHelper.getCardCompany("TRUE");
-                String [] array2 = cardCompany.split("\n");
-
-                StringBuilder cardNumberBuilder = new StringBuilder();
-                StringBuilder cardCostBuilder = new StringBuilder();
-                StringBuilder cardCompanyBuilder = new StringBuilder();
-                StringBuilder stringBuilder = new StringBuilder();
-
-                for(int i = 0; i <array.length; i++)
-                {
-                    cardNumberBuilder.append(array[i].toString()+"\n");
-                }
-                for(int i = 0; i < array.length; i++)
-                {
-                    int testINT = dbHelper.getCardCost(array[i]);
-                    cardCostBuilder.append(Integer.toString(testINT)+"\n");
-                }
-                for(int i = 0; i < array2.length; i++)
-                {
-                    cardCompanyBuilder.append(array2[i].toString()+"\n");
-                }
-                for(int i = 0; i < array2.length; i++)
-                {
-                    String card = dbHelper.getCardNumberByCompany(array2[i]);
-                    stringBuilder.append(card);
-                }
-
-                Log.d("카드번호", cardNumberBuilder.toString());
-                Log.d("카드금액", cardCostBuilder.toString());
-                Log.d("카드회사", cardCompanyBuilder.toString());
-                Log.d("카드사별 카드번호",stringBuilder.toString());
-                // 카드번호 : 카드 금액도 가능하지만 일단 이렇게
-            }
-        });
-    }
 
     private void floatingActionButton (View view_calender) {
 

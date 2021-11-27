@@ -193,6 +193,23 @@ public class DBHelper extends SQLiteOpenHelper
         return number;
     }
 
+    public int periodInquiryAndCategory(String thisMonth, String nextMonth, String _type, String _category)
+    {
+        // 기간조회
+        int number = 0;
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor cursor;
+
+        cursor = db.rawQuery("SELECT * FROM AccountBook WHERE date >= '"+ thisMonth +"' AND date < '"+ nextMonth +"' AND type = '"+ _type +"' AND category = '"+ _category +"' ",null);
+
+        while(cursor.moveToNext())
+        {
+            number += cursor.getInt(2);
+        }
+        cursor.close();
+        return number;
+    }
+
     public ArrayList<DBTable> getDataByDate(String _date)
     {
         ArrayList<DBTable> list = new ArrayList<DBTable>();

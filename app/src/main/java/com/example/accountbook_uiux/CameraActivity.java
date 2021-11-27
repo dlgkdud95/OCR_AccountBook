@@ -107,7 +107,6 @@ public class CameraActivity extends AppCompatActivity {
         et_storeName = (EditText) findViewById(R.id.et_storeName);
         et_storeAdr = (EditText) findViewById(R.id.et_storeAdr);
         et_totalPrice = (EditText) findViewById(R.id.et_totalPrice);
-
          */
         spinner_category = (Spinner) findViewById(R.id.spinner_category);
         spinner_payment = (Spinner) findViewById(R.id.spinner_payment);

@@ -9,7 +9,7 @@
         android:id="@+id/calendarView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="340dp"
+        android:layout_marginBottom="200dp"
         android:background="#FFFFFF"
         android:focusedMonthDateColor="#FFFFFF"
         android:selectedWeekBackgroundColor="#FFFFFF"
@@ -18,7 +18,7 @@
         android:weekSeparatorLineColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -63,20 +63,21 @@
 
     <LinearLayout
         android:id="@+id/linearLayout4"
-        android:layout_width="136dp"
-        android:layout_height="52dp"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/calendarView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/linearLayout5"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@+id/linearLayout5">
 
         <TextView
             android:id="@+id/txt_total"
             android:layout_width="match_parent"
             android:layout_height="25dp"
             android:gravity="center_horizontal"
-            android:text="자산"
+            android:text="자산
+"
             android:textColor="#000000" />
 
         <TextView
@@ -90,14 +91,13 @@
 
     <LinearLayout
         android:id="@+id/linearLayout5"
-        android:layout_width="136dp"
-        android:layout_height="52dp"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
         android:layout_marginEnd="2dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/calendarView"
         app:layout_constraintEnd_toStartOf="@+id/linearLayout4"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toEndOf="@+id/linearLayout">
 
         <TextView
             android:id="@+id/txt_outlay"
@@ -108,8 +108,7 @@
             android:text="지출"
             android:textAllCaps="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="#000000"
-            android:fontFamily="@font/applesdgothicneom"/>
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/outlay"
@@ -121,7 +120,7 @@
             android:textColor="#E64033"
             android:textColorHighlight="#E64033"
             android:textColorLink="#E64033"
-            android:fontFamily="@font/applesdgothicneob" />
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -133,7 +132,7 @@
         app:layout_constraintBottom_toTopOf="@+id/calendarView"
         app:layout_constraintEnd_toStartOf="@+id/linearLayout5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout5"
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
@@ -142,8 +141,7 @@
             android:layout_height="25dp"
             android:gravity="center_horizontal"
             android:text="수입"
-            android:textColor="#000000"
-            android:fontFamily="@font/applesdgothicneom"/>
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/income"
@@ -154,31 +152,7 @@
             android:textColor="#3F51B5"
             android:textColorHighlight="#3F51B5"
             android:textColorHint="#4657B5"
-            android:fontFamily="@font/applesdgothicneob" />
+            android:textStyle="bold" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/tv_limit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:text="지출제한 : ??원"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:fontFamily="@font/applesdgothicneom"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
-
-    <Button
-        android:id="@+id/btn_delDB"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:background="#7986CB"
-        android:icon="@android:drawable/checkbox_on_background"
-        android:text="db테스트"
-        app:layout_constraintStart_toStartOf="@+id/tv_limit"
-        app:layout_constraintTop_toBottomOf="@+id/tv_limit" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
