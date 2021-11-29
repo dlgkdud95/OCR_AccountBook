@@ -14,6 +14,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -389,6 +390,7 @@ public class CameraActivity extends AppCompatActivity {
 
 
                             tv_ocrResult.setText("날짜 : "+date_value+"\n\n가게 이름 : "+text_storeName+"\n\n가게 주소 : "+text_storeAddress+"\n\n가격 : "+text_price); // OCR_RESULT VIEW
+                            tv_ocrResult.setGravity(Gravity.FILL); //왼쪽 가운데 정렬
 
                             String cardInfo = subJsonObject4_3.getString("cardInfo");
                             JSONObject cardInfoObject = new JSONObject(cardInfo);

@@ -21,7 +21,8 @@
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
-                android:layout_height="33dp" />
+                android:layout_height="33dp"
+                android:fontFamily="@font/applesdgothicneom"/>
 
             <TextView
                 android:id="@+id/tv_itemview"
@@ -31,12 +32,13 @@
                 android:text="나의 창고🛠"
                 android:textColor="#DD000000"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/applesdgothicneob" />
 
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
-                android:layout_height="33dp" />
+                android:layout_height="33dp"
+                android:fontFamily="@font/applesdgothicneom"/>
 
             <TextView
                 android:id="@+id/textView"
@@ -44,6 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="#FFFFFF"
+                android:fontFamily="@font/applesdgothicneom"
                 android:text=" 날짜          품목,가격" />
 
             <TextView
@@ -53,6 +56,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/home_buttonui"
                 android:backgroundTint="#F0CCE1B3"
+                android:fontFamily="@font/applesdgothicneom"
 
                 android:lineSpacingExtra="10dp"
                 android:text="     품목별 통계"
