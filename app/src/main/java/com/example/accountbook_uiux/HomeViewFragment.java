@@ -1,5 +1,7 @@
 package com.example.accountbook_uiux;
 
+import static com.example.accountbook_uiux.EconomyViewFragment.TODAY_KOSPI;
+import static com.example.accountbook_uiux.EconomyViewFragment.YSTDAY_KOSPI;
 import static com.example.accountbook_uiux.MainActivity.dbHelper;
 
 import android.animation.ObjectAnimator;
@@ -33,13 +35,11 @@ public class HomeViewFragment extends Fragment {
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
 
-    public static String TODAY_KOSPI; // 메인엑티비티에서 앱을 실행시키자마자 API호출 및 파싱 후 전역변수로 가져와서 setText
-    public static String YSTDAY_KOSPI;
-    public static String CHANGE_RATE;
 
     FloatingActionButton fab_main, fab_receipt, fab_writing;
     TextView txt_nickname, txt_receipt, txt_month, txt_homeIncome, txt_homeSpend, txt_incomeNum, txt_spendNum, today_kospi, txt_rate, yesterday_kospi, txt_date, kospiBox;
     Button bt_setting, bt_receiptScan, bt_monthly, bt_receiptStats;
+    TextView out_Top1, out_Top2, out_Top3, home_outlay;
     long now = System.currentTimeMillis();
     Date date = new Date(now);
     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM");
@@ -94,6 +94,11 @@ public class HomeViewFragment extends Fragment {
         bt_receiptStats = view_home.findViewById(R.id.bt_receiptStats);
         bt_monthly = view_home.findViewById(R.id.bt_monthly);
 
+        out_Top1 = view_home.findViewById(R.id.out_Top1);
+        out_Top2 = view_home.findViewById(R.id.out_Top2);
+        out_Top3 = view_home.findViewById(R.id.out_Top3);
+        home_outlay = view_home.findViewById(R.id.home_outlay);
+
 
 
         String nickname = MainActivity.preferences.getString("name","ㅇㅇㅇ");
@@ -105,22 +110,24 @@ public class HomeViewFragment extends Fragment {
         cal2.add(Calendar.MONTH, 1);
 
         Calendar c = Calendar.getInstance();
+        home_outlay.setText((c.get(Calendar.MONTH)+1) + "월 지출내역");
 
         txt_month.setText((c.get(Calendar.MONTH)+1) + "월 내역");
         txt_incomeNum.setText(Integer.toString(dbHelper.periodInquiry(df.format(cal1.getTime())+"-01", df.format(cal2.getTime())+"-01", "수입"))+ " 원"); // 현재 달 수입
         txt_spendNum.setText(Integer.toString(dbHelper.periodInquiry(df.format(cal1.getTime())+"-01", df.format(cal2.getTime())+"-01", "지출"))+ " 원");  // 현재 달 지출
 
         txt_date.setText((c.get(Calendar.MONTH)+1) + "월 " + (c.get(Calendar.DAY_OF_MONTH)) + "일 " + (c.get(Calendar.HOUR)) + "시 " + (c.get(Calendar.MINUTE)) + "분 기준");
+        out_Top1.setText(Integer.toString(dbHelper.periodInquiryAndCategory(df.format(cal1.getTime())+"-01", df.format(cal2.getTime())+"-01", "지출", "식비"))+ " 원"); // 현재 달 TOP3
+        out_Top2.setText(Integer.toString(dbHelper.periodInquiryAndCategory(df.format(cal1.getTime())+"-01", df.format(cal2.getTime())+"-01", "지출", "교통비"))+ " 원");
+        out_Top3.setText(Integer.toString(dbHelper.periodInquiryAndCategory(df.format(cal1.getTime())+"-01", df.format(cal2.getTime())+"-01", "지출", "기타"))+ " 원");
 
-        if(TODAY_KOSPI == null)
+        if(TODAY_KOSPI.equals("업데이트중"))
         {
-            today_kospi.setText("코스피지수 불러오는중.. 새로고침해주세요");
+            txt_rate.setTextColor(Color.parseColor("#E64033"));
         }
-        else {
-            today_kospi.setText(TODAY_KOSPI);
-            yesterday_kospi.setText(YSTDAY_KOSPI);
-            txt_rate.setText(CHANGE_RATE + "%");
-            if (Integer.parseInt(TODAY_KOSPI) > Integer.parseInt(YSTDAY_KOSPI)) txt_rate.setTextColor(Color.parseColor("#E64033"));
+        else
+        {
+            if (Double.parseDouble(TODAY_KOSPI) > Double.parseDouble(YSTDAY_KOSPI)) txt_rate.setTextColor(Color.parseColor("#E64033"));
             else txt_rate.setTextColor(Color.parseColor("#4657B5"));
         }
 
