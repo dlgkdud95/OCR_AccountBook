@@ -1,5 +1,6 @@
 package com.example.accountbook_uiux;
 
+import static com.example.accountbook_uiux.EconomyViewFragment.CHANGE_RATE;
 import static com.example.accountbook_uiux.EconomyViewFragment.TODAY_KOSPI;
 import static com.example.accountbook_uiux.EconomyViewFragment.YSTDAY_KOSPI;
 import static com.example.accountbook_uiux.MainActivity.dbHelper;
@@ -116,6 +117,8 @@ public class HomeViewFragment extends Fragment {
         txt_incomeNum.setText(Integer.toString(dbHelper.periodInquiry(df.format(cal1.getTime())+"-01", df.format(cal2.getTime())+"-01", "수입"))+ " 원"); // 현재 달 수입
         txt_spendNum.setText(Integer.toString(dbHelper.periodInquiry(df.format(cal1.getTime())+"-01", df.format(cal2.getTime())+"-01", "지출"))+ " 원");  // 현재 달 지출
 
+
+
         txt_date.setText((c.get(Calendar.MONTH)+1) + "월 " + (c.get(Calendar.DAY_OF_MONTH)) + "일 " + (c.get(Calendar.HOUR)) + "시 " + (c.get(Calendar.MINUTE)) + "분 기준");
         out_Top1.setText(Integer.toString(dbHelper.periodInquiryAndCategory(df.format(cal1.getTime())+"-01", df.format(cal2.getTime())+"-01", "지출", "식비"))+ " 원"); // 현재 달 TOP3
         out_Top2.setText(Integer.toString(dbHelper.periodInquiryAndCategory(df.format(cal1.getTime())+"-01", df.format(cal2.getTime())+"-01", "지출", "교통비"))+ " 원");
@@ -127,6 +130,9 @@ public class HomeViewFragment extends Fragment {
         }
         else
         {
+            today_kospi.setText(TODAY_KOSPI);
+            yesterday_kospi.setText(YSTDAY_KOSPI);
+            txt_rate.setText(CHANGE_RATE + "%");
             if (Double.parseDouble(TODAY_KOSPI) > Double.parseDouble(YSTDAY_KOSPI)) txt_rate.setTextColor(Color.parseColor("#E64033"));
             else txt_rate.setTextColor(Color.parseColor("#4657B5"));
         }
