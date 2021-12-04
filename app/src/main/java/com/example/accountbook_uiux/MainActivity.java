@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements OnTabItemSelected
                 String EndDate = getDate2();
                 try
                 {
-                    URL url = new URL("http://ecos.bok.or.kr/api/StatisticSearch/UZMM2M6HM74AL9ZG77US/json/kr/1/10/064Y001/DD/"+ yesterday +"/"+ EndDate + "/0001000/?/?/");
+                    URL url = new URL("http://ecos.bok.or.kr/api/StatisticSearch/UZMM2M6HM74AL9ZG77US/json/kr/1/10/064Y001/DD/"+ "20211201" +"/"+ "20211202" + "/0001000/?/?/");
 
                     BufferedReader bf;
 
@@ -108,40 +108,53 @@ public class MainActivity extends AppCompatActivity implements OnTabItemSelected
 
                     String row = firstObject.getString("row");
                     JSONArray jsonArray = new JSONArray(row);
+                    Exception e = null;
+                    int a = 1;
 
-                    if(jsonArray.length() == 1) // jsonArray의 길이가 1일때, 즉 아직 오늘 데이터가 올라오지 않았을때 혹은 전날에 시장이 열리지 않았을때
+                    if(a == 5)
                     {
-                        JSONObject object = jsonArray.getJSONObject(0); //index 0만 파싱
-                        String DATA_VALUE = object.getString("DATA_VALUE");
-                        double todayValue = Double.parseDouble(DATA_VALUE); // 오늘값엔 마지막으로 저장된 값인 어제값이 들어감
-                        double ystdayValue = todayValue; //오늘 값과 같은 값
-                        String changeRate = "0"; // 변화율은 0
-
-
-                        TODAY_KOSPI = "업데이트중";
-                        YSTDAY_KOSPI = Double.toString(ystdayValue);
-                        CHANGE_RATE = changeRate;
-
-
+                        TODAY_KOSPI = "주말입니다";
+                        YSTDAY_KOSPI = "0";
+                        CHANGE_RATE = "0";
                     }
-                    else if(jsonArray.length() == 2) //오늘 데이터가 올라왔을때(저녁쯤)
+
+                    else
                     {
-                        JSONObject object = jsonArray.getJSONObject(0);
-                        String DATA_VALUE = object.getString("DATA_VALUE");
-                        JSONObject object2 = jsonArray.getJSONObject(1); //1까지 파싱싱
-                       String DATA_VALUE2 = object2.getString("DATA_VALUE");
 
-                        double ystdayValue = Double.parseDouble(DATA_VALUE); // 어제값엔 어제값
-                        double todayValue = Double.parseDouble(DATA_VALUE2); // 오늘값엔 오늘값
-                        double change = ((todayValue - ystdayValue) / ystdayValue) * 100 ; //변화율 계산
+                        if (jsonArray.length() == 1) // jsonArray의 길이가 1일때, 즉 아직 오늘 데이터가 올라오지 않았을때 혹은 전날에 시장이 열리지 않았을때
+                        {
+                            JSONObject object = jsonArray.getJSONObject(0); //index 0만 파싱
+                            String DATA_VALUE = object.getString("DATA_VALUE");
+                            double todayValue = Double.parseDouble(DATA_VALUE); // 오늘값엔 마지막으로 저장된 값인 어제값이 들어감
+                            double ystdayValue = todayValue; //오늘 값과 같은 값
+                            String changeRate = "0"; // 변화율은 0
 
-                        String changeRate = String.format("%.2f", change); //소수점 자르기
 
-                        TODAY_KOSPI = Double.toString(todayValue);
-                        YSTDAY_KOSPI = Double.toString(ystdayValue);
-                        CHANGE_RATE = changeRate;
+                            TODAY_KOSPI = "업데이트중";
+                            YSTDAY_KOSPI = Double.toString(ystdayValue);
+                            CHANGE_RATE = changeRate;
 
+
+                        } else if (jsonArray.length() == 2) //오늘 데이터가 올라왔을때(저녁쯤)
+                        {
+                            JSONObject object = jsonArray.getJSONObject(0);
+                            String DATA_VALUE = object.getString("DATA_VALUE");
+                            JSONObject object2 = jsonArray.getJSONObject(1); //1까지 파싱싱
+                            String DATA_VALUE2 = object2.getString("DATA_VALUE");
+
+                            double ystdayValue = Double.parseDouble(DATA_VALUE); // 어제값엔 어제값
+                            double todayValue = Double.parseDouble(DATA_VALUE2); // 오늘값엔 오늘값
+                            double change = ((todayValue - ystdayValue) / ystdayValue) * 100; //변화율 계산
+
+                            String changeRate = String.format("%.2f", change); //소수점 자르기
+
+                            TODAY_KOSPI = Double.toString(todayValue);
+                            YSTDAY_KOSPI = Double.toString(ystdayValue);
+                            CHANGE_RATE = changeRate;
+
+                        }
                     }
+
 
 
 

@@ -4,6 +4,7 @@ import static com.example.accountbook_uiux.MainActivity.dbHelper;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -279,7 +280,7 @@ public class StatsViewFragment extends Fragment
         barChart.setPinchZoom(false);
         barDataSet.setColor(Color.parseColor("#7CD685"));
 
-
+        Log.d("test","2021-"+df.format(cal6.getTime())+"-01");
 
         return view_stats;
     }
@@ -291,7 +292,7 @@ public class StatsViewFragment extends Fragment
         data_val.add(new BarEntry(Integer.parseInt(df.format(cal2.getTime())), dbHelper.periodInquiry("2021-"+df.format(cal2.getTime())+"-01","2021-"+df.format(cal3.getTime())+"-01","지출")));
         data_val.add(new BarEntry(Integer.parseInt(df.format(cal3.getTime())), dbHelper.periodInquiry("2021-"+df.format(cal3.getTime())+"-01","2021-"+df.format(cal4.getTime())+"-01","지출")));
         data_val.add(new BarEntry(Integer.parseInt(df.format(cal4.getTime())), dbHelper.periodInquiry("2021-"+df.format(cal4.getTime())+"-01","2021-"+df.format(cal5.getTime())+"-01","지출")));
-        data_val.add(new BarEntry(Integer.parseInt(df.format(cal5.getTime())), dbHelper.periodInquiry("2021-"+df.format(cal5.getTime())+"-01","2021-"+df.format(cal6.getTime())+"-01","지출")));
+        data_val.add(new BarEntry(Integer.parseInt(df.format(cal5.getTime())), dbHelper.periodInquiry("2021-"+df.format(cal5.getTime())+"-01","2022-"+df.format(cal6.getTime())+"-01","지출")));
 
 
         return data_val;

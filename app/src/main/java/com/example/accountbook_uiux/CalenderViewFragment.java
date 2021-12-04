@@ -37,7 +37,7 @@ public class CalenderViewFragment extends Fragment implements CalendarAdapter.On
     private LocalDate LocalDate;
 
     //frame_main (메인화면) 변수
-    CalendarView calendarView;
+
     FloatingActionButton fab_main, fab_camera, fab_writing;
     TextView outlay, income, total;
     Button bt_afterMonth, bt_beforeMonth;
@@ -91,6 +91,7 @@ public class CalenderViewFragment extends Fragment implements CalendarAdapter.On
         calendarRecyclerView = view_calender.findViewById(R.id.calendarRecyclerView);
         txt_yearMonth = view_calender.findViewById(R.id.txt_yearMonth);
     }
+
 
     private void setMonthView() {
         txt_yearMonth.setText(LocalDate.getYear() + "년 " + LocalDate.getMonthValue() + "월");
@@ -181,12 +182,12 @@ public class CalenderViewFragment extends Fragment implements CalendarAdapter.On
         if(!dayText.equals(""))
         {
             String convMonth; // Converted Month
-            if(LocalDate.getMonthValue() < 9) convMonth = "0" + Integer.toString(LocalDate.getMonthValue()+1); // 2021-09-30 이렇게 데이터를 저장하기 위해 month가 9 미만이면 0을 붙여줌 (10이 아니라 9인 이유는 return 되는 month값이 +1을 해줘야 실제 month랑 같아짐)
-            else convMonth = Integer.toString(LocalDate.getMonthValue()+1);
+            if(Integer.valueOf(LocalDate.getMonthValue()) < 10) convMonth = "0" + Integer.toString(LocalDate.getMonthValue()); // 2021-09-30 이렇게 데이터를 저장하기 위해 month가 9 미만이면 0을 붙여줌 (10이 아니라 9인 이유는 return 되는 month값이 +1을 해줘야 실제 month랑 같아짐)
+            else convMonth = Integer.toString(LocalDate.getMonthValue());
 
             String convDay; // Converted Day
-            if(LocalDate.getDayOfMonth() < 10) convDay = "0" + Integer.toString(LocalDate.getDayOfMonth()); // day도 마찬가지
-            else convDay = Integer.toString(LocalDate.getDayOfMonth());
+            if(Integer.valueOf(dayText) < 10) convDay = "0" + dayText; // day도 마찬가지
+            else convDay = dayText;
 
             String selectedDate = Integer.toString(LocalDate.getYear())+ "-" + convMonth+ "-" + convDay; // 선택된 날짜 구하기 ex)2021-09-05
 
