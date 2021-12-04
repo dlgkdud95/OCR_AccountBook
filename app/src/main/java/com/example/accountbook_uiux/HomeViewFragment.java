@@ -124,54 +124,19 @@ public class HomeViewFragment extends Fragment {
         out_Top2.setText(Integer.toString(dbHelper.periodInquiryAndCategory(df.format(cal1.getTime())+"-01", df.format(cal2.getTime())+"-01", "지출", "교통비"))+ " 원");
         out_Top3.setText(Integer.toString(dbHelper.periodInquiryAndCategory(df.format(cal1.getTime())+"-01", df.format(cal2.getTime())+"-01", "지출", "기타"))+ " 원");
 
-
-        if(TODAY_KOSPI.equals("주말입니다"))
-        {
-            today_kospi.setText("주말입니다");
-            yesterday_kospi.setText("0");
-            txt_rate.setText("0%");
-        }
-        else
-        {
-
-            if (TODAY_KOSPI.equals("업데이트중"))
-            {
-                txt_rate.setTextColor(Color.parseColor("#E64033"));
-            } else
-            {
-                today_kospi.setText(TODAY_KOSPI);
-                yesterday_kospi.setText(YSTDAY_KOSPI);
-                txt_rate.setText(CHANGE_RATE + "%");
-                if (Double.parseDouble(TODAY_KOSPI) > Double.parseDouble(YSTDAY_KOSPI))
-                {
-                    txt_rate.setTextColor(Color.parseColor("#E64033"));
-                } else txt_rate.setTextColor(Color.parseColor("#4657B5"));
-            }
-
-
-        }
-
-
-
-        /*
-        if (TODAY_KOSPI.equals("업데이트중"))
+/*        if(TODAY_KOSPI.equals("업데이트중"))
         {
             txt_rate.setTextColor(Color.parseColor("#E64033"));
-        } else
+        }
+        else
         {
             today_kospi.setText(TODAY_KOSPI);
             yesterday_kospi.setText(YSTDAY_KOSPI);
             txt_rate.setText(CHANGE_RATE + "%");
-            if (Double.parseDouble(TODAY_KOSPI) > Double.parseDouble(YSTDAY_KOSPI))
-            {
-                txt_rate.setTextColor(Color.parseColor("#E64033"));
-            } else txt_rate.setTextColor(Color.parseColor("#4657B5"));
+            if (Double.parseDouble(TODAY_KOSPI) > Double.parseDouble(YSTDAY_KOSPI)) txt_rate.setTextColor(Color.parseColor("#E64033"));
+            else txt_rate.setTextColor(Color.parseColor("#4657B5"));
         }
-
-         */
-
-
-
+*/
         bt_setting.setOnClickListener(new View.OnClickListener() { //설정 화면으로 넘어감
             @Override
             public void onClick(View view) {
@@ -185,7 +150,7 @@ public class HomeViewFragment extends Fragment {
             public void onClick(View view) {
                 if (listener != null) {
                     listener.onTabSelected(2); //네비게이션 번호 받아서 해당 창으로 이동동
-               }
+                }
             }
         });
 

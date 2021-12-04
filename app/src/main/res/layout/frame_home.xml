@@ -6,10 +6,6 @@
     android:layout_height="match_parent"
     android:backgroundTint="#BD2828">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="731dp">
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/linearLayout6"
             android:layout_width="match_parent"
@@ -31,13 +27,14 @@
                 android:id="@+id/txt_nickname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
                 android:fontFamily="@font/applesdgothicneoeb"
                 android:text="ㅇㅇㅇ님의\n가계부"
                 android:textColor="#EB4C4C4C"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/txt_receipt"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.116"
+                app:layout_constraintHorizontal_bias="0.119"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
@@ -46,14 +43,15 @@
                 android:id="@+id/txt_receipt"
                 android:layout_width="337dp"
                 android:layout_height="170dp"
-                android:layout_marginTop="100dp"
-                android:background="#FFFFFF"
+                android:layout_marginTop="116dp"
                 android:fontFamily="@font/applesdgothicneom"
                 android:gravity="center"
                 android:text="영수증을 등록해보세요"
                 android:textColor="#878787"
                 android:textSize="17sp"
+                android:background="@drawable/box"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.486"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -80,7 +78,7 @@
                 android:gravity="center"
                 app:layout_constraintBottom_toTopOf="@+id/bt_receiptStats"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.151"
+                app:layout_constraintHorizontal_bias="0.143"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_receipt"
                 app:layout_constraintVertical_bias="0.0" />
@@ -156,19 +154,17 @@
                 android:id="@+id/bt_receiptStats"
                 android:layout_width="337dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="164dp"
                 android:background="@drawable/home_buttonui"
                 android:fontFamily="@font/applesdgothicneom"
                 android:gravity="center|start"
                 android:text="\t\t\t영수증 내역 보기"
                 android:textColor="#000000"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@id/kospiBox"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.513"
+                app:layout_constraintHorizontal_bias="0.486"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_receipt" />
 
             <ImageView
                 android:id="@+id/imageView"
@@ -293,12 +289,13 @@
                 android:id="@+id/kospiBox"
                 android:layout_width="337dp"
                 android:layout_height="100dp"
-                android:layout_marginTop="10dp"
+                android:background="@drawable/box"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.513"
+                app:layout_constraintHorizontal_bias="0.486"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/bt_receiptStats" />
+                app:layout_constraintTop_toBottomOf="@id/bt_receiptStats"
+                app:layout_constraintVertical_bias="0.183" />
 
             <TextView
                 android:id="@+id/txt_kospiEng"
@@ -331,27 +328,27 @@
                 android:id="@+id/txt_yesterday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginTop="48dp"
                 android:fontFamily="@font/applesdgothicneol"
                 android:text="어제"
                 android:textSize="11sp"
-                app:layout_constraintBottom_toTopOf="@+id/yesterday_kospi"
                 app:layout_constraintEnd_toEndOf="@+id/kospiBox"
-                app:layout_constraintHorizontal_bias="0.745"
+                app:layout_constraintHorizontal_bias="0.694"
                 app:layout_constraintStart_toStartOf="@+id/kospiBox"
-                app:layout_constraintTop_toTopOf="@+id/kospiBox"
-                app:layout_constraintVertical_bias="0.979" />
+                app:layout_constraintTop_toTopOf="@+id/kospiBox" />
 
             <TextView
                 android:id="@+id/yesterday_kospi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="44dp"
-                android:layout_marginBottom="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="60dp"
                 android:fontFamily="@font/applesdgothicneom"
                 android:text="0000.00"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/kospiBox" />
+                app:layout_constraintBottom_toBottomOf="@+id/kospiBox"
+                app:layout_constraintEnd_toEndOf="@+id/kospiBox"
+                app:layout_constraintTop_toBottomOf="@id/txt_yesterday"
+                app:layout_constraintVertical_bias="0.076" />
 
             <TextView
                 android:id="@+id/today_kospi"
@@ -392,7 +389,6 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_receipt"

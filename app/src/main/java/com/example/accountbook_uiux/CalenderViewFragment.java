@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,13 +32,15 @@ import java.util.ArrayList;
 public class CalenderViewFragment extends Fragment implements CalendarAdapter.OnItemListener  {
 
     private View view_calender;
+    private View today_view;
 
     private TextView txt_yearMonth;
+    private TextView today_cell;
     private RecyclerView calendarRecyclerView;
     private LocalDate LocalDate;
 
     //frame_main (메인화면) 변수
-
+    CalendarView calendarView;
     FloatingActionButton fab_main, fab_camera, fab_writing;
     TextView outlay, income, total;
     Button bt_afterMonth, bt_beforeMonth;
@@ -92,7 +95,6 @@ public class CalenderViewFragment extends Fragment implements CalendarAdapter.On
         txt_yearMonth = view_calender.findViewById(R.id.txt_yearMonth);
     }
 
-
     private void setMonthView() {
         txt_yearMonth.setText(LocalDate.getYear() + "년 " + LocalDate.getMonthValue() + "월");
         ArrayList<String> daysInMonth = daysInMonthArray(LocalDate);
@@ -125,11 +127,6 @@ public class CalenderViewFragment extends Fragment implements CalendarAdapter.On
             }
         }
         return  daysInMonthArray;
-    }
-
-    private String monthYearFromDate(LocalDate date) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy MMMM");
-        return date.format(formatter);
     }
 
     private void floatingActionButton (View view_calender) {
@@ -182,7 +179,7 @@ public class CalenderViewFragment extends Fragment implements CalendarAdapter.On
         if(!dayText.equals(""))
         {
             String convMonth; // Converted Month
-            if(Integer.valueOf(LocalDate.getMonthValue()) < 10) convMonth = "0" + Integer.toString(LocalDate.getMonthValue()); // 2021-09-30 이렇게 데이터를 저장하기 위해 month가 9 미만이면 0을 붙여줌 (10이 아니라 9인 이유는 return 되는 month값이 +1을 해줘야 실제 month랑 같아짐)
+            if(Integer.valueOf(LocalDate.getMonthValue()) < 9) convMonth = "0" + Integer.toString(LocalDate.getMonthValue()); // 2021-09-30 이렇게 데이터를 저장하기 위해 month가 9 미만이면 0을 붙여줌 (10이 아니라 9인 이유는 return 되는 month값이 +1을 해줘야 실제 month랑 같아짐)
             else convMonth = Integer.toString(LocalDate.getMonthValue());
 
             String convDay; // Converted Day
@@ -226,7 +223,6 @@ public class CalenderViewFragment extends Fragment implements CalendarAdapter.On
                 categoryBuilder.append(list.get(i).getCategory()+"\n\n");
             }
             tv_category.setText(categoryBuilder);
-
 
 
 

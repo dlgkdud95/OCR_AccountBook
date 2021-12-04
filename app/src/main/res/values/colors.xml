@@ -11,4 +11,6 @@
     <color name="red">#E64033</color>
     <color name="blue">#4657B5</color>
     <color name="gray">#888</color>
+    <color name="homecolor">#2CD5E3D8</color>
+    <color name="color">#4CA5E3D8</color>
 </resources>
