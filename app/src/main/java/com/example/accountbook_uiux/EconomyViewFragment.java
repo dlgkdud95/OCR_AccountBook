@@ -27,7 +27,7 @@ public class EconomyViewFragment extends Fragment
     {
         view_economy = inflater.inflate(R.layout.frame_economy, container, false);
 
-        tv_cardCom = (TextView) view_economy.findViewById(R.id.tv_cardCom);
+        //tv_cardCom = (TextView) view_economy.findViewById(R.id.tv_cardCom);
         tv_cardCost = (TextView) view_economy.findViewById(R.id.tv_cardCost);
         tv_cardNum = (TextView) view_economy.findViewById(R.id.tv_cardNum);
         tv_cardNumbyCom = (TextView) view_economy.findViewById(R.id.tv_cardNumbyCom);
@@ -69,11 +69,11 @@ public class EconomyViewFragment extends Fragment
 
         Log.d("카드번호", cardNumberBuilder.toString());
         Log.d("지출금액", cardCostBuilder.toString());
-        Log.d("카드사", cardCompanyBuilder.toString());
+        //Log.d("카드사", cardCompanyBuilder.toString());
         Log.d("카드사           카드번호",stringBuilder.toString());
 
         tv_cardNum.setText("카드번호\n"+cardNumberBuilder.toString());
-        tv_cardCom.setText("카드사\n"+cardCompanyBuilder.toString());
+        //tv_cardCom.setText("카드사\n"+cardCompanyBuilder.toString());
         tv_cardCost.setText("지출금액\n"+cardCostBuilder.toString());
         tv_cardNumbyCom.setText("카드사           카드번호\n"+stringBuilder.toString());
 

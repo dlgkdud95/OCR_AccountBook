@@ -6,218 +6,231 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" >
 
-        <Button
-            android:id="@+id/bt_beforeMonth"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@null"
-            android:fontFamily="@font/applesdgothicneob"
-            android:gravity="center|start"
-            android:text="\t\t\t\t〈"
-            android:textSize="20sp" />
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/txt_yearMonth"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:fontFamily="@font/applesdgothicneom"
-            android:gravity="center"
-            android:text="0000년 00월"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            <Button
+                android:id="@+id/bt_beforeMonth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:fontFamily="@font/applesdgothicneob"
+                android:gravity="center|start"
+                android:text="\t\t\t\t〈"
+                android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/bt_afterMonth"
-            android:layout_width="0dp"
+            <TextView
+                android:id="@+id/txt_yearMonth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:fontFamily="@font/applesdgothicneom"
+                android:gravity="center"
+                android:text="0000년 00월"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/bt_afterMonth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:fontFamily="@font/applesdgothicneob"
+                android:gravity="end|center"
+                android:text="〉\t\t\t\t"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@null"
-            android:fontFamily="@font/applesdgothicneob"
-            android:gravity="end|center"
-            android:text="〉\t\t\t\t"
-            android:textSize="20sp" />
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="수입"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/applesdgothicneom"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="지출"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/applesdgothicneom"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="자산"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/applesdgothicneom"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout2" >
+
+            <TextView
+                android:id="@+id/income"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="0원"
+                android:gravity="center"
+                android:textColor="@color/blue"
+                android:fontFamily="@font/applesdgothicneom"
+                android:textSize="15sp" />
+            <TextView
+                android:id="@+id/outlay"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="0원"
+                android:gravity="center"
+                android:textColor="@color/red"
+                android:fontFamily="@font/applesdgothicneom"
+                android:textSize="15sp" />
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="0원"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/applesdgothicneom"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout3">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="일"
+                android:textColor="@color/red"
+                android:textSize="13sp"
+                android:fontFamily="@font/applesdgothicneom"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="월"
+                android:textColor="@color/gray"
+                android:textSize="13sp"
+                android:fontFamily="@font/applesdgothicneom"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="화"
+                android:textColor="@color/gray"
+                android:textSize="13sp"
+                android:fontFamily="@font/applesdgothicneom"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="수"
+                android:textColor="@color/gray"
+                android:textSize="13sp"
+                android:fontFamily="@font/applesdgothicneom"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="목"
+                android:textColor="@color/gray"
+                android:textSize="13sp"
+                android:fontFamily="@font/applesdgothicneom"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="금"
+                android:textColor="@color/gray"
+                android:textSize="13sp"
+                android:fontFamily="@font/applesdgothicneom"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="토"
+                android:textColor="@color/blue"
+                android:textSize="13sp"
+                android:fontFamily="@font/applesdgothicneom"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/calendarRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout4" />
+
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout1">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="수입"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:fontFamily="@font/applesdgothicneom"
-            android:textSize="15sp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="지출"
-           android:gravity="center"
-            android:textColor="@color/black"
-            android:fontFamily="@font/applesdgothicneom"
-            android:textSize="15sp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="자산"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:fontFamily="@font/applesdgothicneom"
-            android:textSize="15sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout2" >
-
-        <TextView
-            android:id="@+id/income"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="0원"
-            android:gravity="center"
-            android:textColor="@color/blue"
-            android:fontFamily="@font/applesdgothicneom"
-            android:textSize="15sp" />
-        <TextView
-            android:id="@+id/outlay"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="0원"
-            android:gravity="center"
-            android:textColor="@color/red"
-            android:fontFamily="@font/applesdgothicneom"
-            android:textSize="15sp" />
-        <TextView
-            android:id="@+id/total"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="0원"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:fontFamily="@font/applesdgothicneom"
-            android:textSize="15sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout3">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="일"
-            android:textColor="@color/red"
-            android:textSize="13sp"
-            android:fontFamily="@font/applesdgothicneom"
-            android:gravity="center" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="월"
-            android:textColor="@color/gray"
-            android:textSize="13sp"
-            android:fontFamily="@font/applesdgothicneom"
-            android:gravity="center" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="화"
-            android:textColor="@color/gray"
-            android:textSize="13sp"
-            android:fontFamily="@font/applesdgothicneom"
-            android:gravity="center" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="수"
-            android:textColor="@color/gray"
-            android:textSize="13sp"
-            android:fontFamily="@font/applesdgothicneom"
-            android:gravity="center" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="목"
-            android:textColor="@color/gray"
-            android:textSize="13sp"
-            android:fontFamily="@font/applesdgothicneom"
-            android:gravity="center" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="금"
-            android:textColor="@color/gray"
-            android:textSize="13sp"
-            android:fontFamily="@font/applesdgothicneom"
-            android:gravity="center" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="토"
-            android:textColor="@color/blue"
-            android:textSize="13sp"
-            android:fontFamily="@font/applesdgothicneom"
-            android:gravity="center" />
-
-    </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/calendarRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout4" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_receipt"

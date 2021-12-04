@@ -6,17 +6,6 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView17"
-        android:layout_width="328dp"
-        android:layout_height="33dp"
-        android:background="#12000000"
-        app:layout_constraintBottom_toBottomOf="@+id/textView15"
-        app:layout_constraintEnd_toEndOf="@+id/textView15"
-        app:layout_constraintStart_toStartOf="@+id/textView15"
-        app:layout_constraintTop_toTopOf="@+id/textView15"
-        app:layout_constraintVertical_bias="0.217" />
-
-    <TextView
         android:id="@+id/txt_nickname"
         android:layout_width="102dp"
         android:layout_height="60dp"
@@ -33,72 +22,30 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/tv_cardCom"
-        android:layout_width="48dp"
-        android:layout_height="16dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
-        android:fontFamily="@font/applesdgothicneom"
-        android:text="카드사"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="@+id/textView14"
-        app:layout_constraintStart_toStartOf="@+id/txt_nickname"
-        app:layout_constraintTop_toBottomOf="@+id/txt_nickname"
-        app:layout_constraintVertical_bias="0.01" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="333dp"
-        android:layout_height="216dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/home_buttonui"
-        android:backgroundTint="#D5B8CF9C"
-        app:layout_constraintStart_toStartOf="@+id/txt_nickname"
-        app:layout_constraintTop_toBottomOf="@+id/txt_nickname" />
-
-    <TextView
         android:id="@+id/tv_cardNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="164dp"
+        android:layout_marginStart="12dp"
         android:fontFamily="@font/applesdgothicneom"
         android:text="카드번호"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="@+id/textView14"
-        app:layout_constraintEnd_toStartOf="@+id/tv_cardCost"
-        app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toEndOf="@+id/tv_cardCom"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01" />
+        app:layout_constraintStart_toStartOf="@+id/tv_cardNumbyCom"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nickname"
+        app:layout_constraintVertical_bias="0.233" />
 
     <TextView
         android:id="@+id/tv_cardCost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="96dp"
+        android:layout_marginEnd="100dp"
         android:layout_marginBottom="184dp"
         android:fontFamily="@font/applesdgothicneom"
         android:text="지출 금액"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="@+id/textView14"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.965"
-        app:layout_constraintStart_toEndOf="@+id/tv_cardCom"
         app:layout_constraintTop_toTopOf="@+id/tv_cardNum"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/tv_cardNumbyCom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="224dp"
-        android:fontFamily="@font/applesdgothicneom"
-        android:text="카드사 - 카드번호"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="@+id/textView15"
-        app:layout_constraintStart_toStartOf="@+id/tv_cardCom"
-        app:layout_constraintTop_toBottomOf="@+id/tv_cardCom"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -120,19 +67,56 @@
         android:background="@drawable/home_buttonui"
         android:backgroundTint="#8BCF9C"
         app:layout_constraintEnd_toEndOf="@+id/textView14"
-        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="328dp"
+        android:layout_height="33dp"
+        android:background="#12000000"
+        app:layout_constraintBottom_toBottomOf="@+id/textView15"
+        app:layout_constraintEnd_toEndOf="@+id/textView15"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView15"
+        app:layout_constraintTop_toTopOf="@+id/textView15"
+        app:layout_constraintVertical_bias="0.217" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="333dp"
+        android:layout_height="216dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/home_buttonui"
+        android:backgroundTint="#D5B8CF9C"
+        app:layout_constraintStart_toStartOf="@+id/txt_nickname"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nickname" />
+
+    <TextView
+        android:id="@+id/tv_cardNumbyCom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/applesdgothicneom"
+        android:text="카드사 - 카드번호"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/textView15"
+        app:layout_constraintStart_toStartOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cardNum"
+        app:layout_constraintVertical_bias="0.649" />
 
     <TextView
         android:id="@+id/textView16"
         android:layout_width="335dp"
         android:layout_height="33dp"
+        android:layout_marginStart="4dp"
         android:background="#1F000000"
         android:backgroundTint="#5E000000"
         app:layout_constraintBottom_toBottomOf="@+id/textView14"
         app:layout_constraintStart_toStartOf="@+id/txt_nickname"
         app:layout_constraintTop_toTopOf="@+id/textView14"
-        app:layout_constraintVertical_bias="0.147" />
+        app:layout_constraintVertical_bias="0.191" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
