@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,8 +32,10 @@ import java.util.ArrayList;
 public class CalenderViewFragment extends Fragment implements CalendarAdapter.OnItemListener  {
 
     private View view_calender;
+    private View today_view;
 
     private TextView txt_yearMonth;
+    private TextView today_cell;
     private RecyclerView calendarRecyclerView;
     private LocalDate LocalDate;
 
@@ -220,7 +223,6 @@ public class CalenderViewFragment extends Fragment implements CalendarAdapter.On
                 categoryBuilder.append(list.get(i).getCategory()+"\n\n");
             }
             tv_category.setText(categoryBuilder);
-
 
 
 

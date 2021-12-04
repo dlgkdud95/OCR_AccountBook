@@ -40,9 +40,17 @@
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable-v24/ic_baseline_camera_alt_24.xml" value="0.15925925925925927" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable-v24/ic_baseline_pen_24.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/background_border_bottom.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/background_border_left_top.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/background_border_right.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/background_border_top.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/background_border_topbottom.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/background_splash.xml" value="0.26564102564102565" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/box.xml" value="0.6" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/circle.xml" value="0.20989583333333334" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/home_buttonui.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/ic_anyconv_com__loadingdesign_20211124_012711245.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/ic_bank_1300155.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/ic_baseline_arrow_forward_ios_24.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/ic_baseline_crop_original_24.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/ic_baseline_history_24.xml" value="0.13489583333333333" />
@@ -56,9 +64,10 @@
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/shape_itembackground.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/spinner_background.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/statebuttonui.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/today_circle.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/activity_main.xml" value="0.6" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/activity_setting.xml" value="0.536" />
-        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/calendar_cell.xml" value="0.264" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/calendar_cell.xml" value="0.2668067226890756" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/design.xml" value="0.6" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/dialog_cal.xml" value="0.4" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/fab_receiptview.xml" value="0.264" />
@@ -67,10 +76,10 @@
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/fragment_blank.xml" value="0.72" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/fragment_item_view.xml" value="0.39574468085106385" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/fragment_total_stats.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/frame_calender.xml" value="0.3055555555555556" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/frame_calender.xml" value="0.3307291666666667" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/frame_economy.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/frame_history.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/frame_home.xml" value="0.42311033883579496" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/frame_home.xml" value="0.47327502429543244" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/frame_main.xml" value="0.24635416666666668" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/frame_stats.xml" value="0.26439232409381663" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/frame_total_stats.xml" value="0.176" />
