@@ -3,50 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/UI00/app/src/main/res/drawable-v24/ic_baseline_add_24.xml" value="0.14583333333333334" />
-        <entry key="..\:/UI00/app/src/main/res/drawable-v24/ic_baseline_add_circle_24.xml" value="0.1" />
-        <entry key="..\:/UI00/app/src/main/res/drawable-v24/ic_baseline_assessment_24.xml" value="0.1" />
-        <entry key="..\:/UI00/app/src/main/res/drawable-v24/ic_baseline_calendar_today_24.xml" value="0.14583333333333334" />
-        <entry key="..\:/UI00/app/src/main/res/drawable-v24/ic_baseline_camera_alt_24.xml" value="0.14583333333333334" />
-        <entry key="..\:/UI00/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14583333333333334" />
-        <entry key="..\:/UI00/app/src/main/res/drawable/circle.xml" value="0.1" />
-        <entry key="..\:/UI00/app/src/main/res/drawable/home_buttonui.xml" value="0.1" />
-        <entry key="..\:/UI00/app/src/main/res/drawable/ic_anyconv_com__loadingdesign_20211124_012711245.xml" value="0.1" />
-        <entry key="..\:/UI00/app/src/main/res/drawable/ic_baseline_crop_original_24.xml" value="0.14583333333333334" />
-        <entry key="..\:/UI00/app/src/main/res/drawable/ic_baseline_history_24.xml" value="0.14583333333333334" />
-        <entry key="..\:/UI00/app/src/main/res/drawable/ic_baseline_local_airport_24.xml" value="0.14583333333333334" />
-        <entry key="..\:/UI00/app/src/main/res/drawable/ic_baseline_receipt_24.xml" value="0.26979166666666665" />
-        <entry key="..\:/UI00/app/src/main/res/drawable/ic_iconmonstr_video_8.xml" value="0.1" />
-        <entry key="..\:/UI00/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26979166666666665" />
-        <entry key="..\:/UI00/app/src/main/res/drawable/inout_buttonui.xml" value="0.2078125" />
-        <entry key="..\:/UI00/app/src/main/res/drawable/menu_selector_color.xml" value="0.1" />
-        <entry key="..\:/UI00/app/src/main/res/drawable/shape_itembackground.xml" value="0.26979166666666665" />
-        <entry key="..\:/UI00/app/src/main/res/drawable/spinner_background.xml" value="0.1" />
-        <entry key="..\:/UI00/app/src/main/res/drawable/statebuttonui.xml" value="0.1" />
-        <entry key="..\:/UI00/app/src/main/res/layout/activity_main.xml" value="0.4" />
-        <entry key="..\:/UI00/app/src/main/res/layout/activity_setting.xml" value="0.264" />
-        <entry key="..\:/UI00/app/src/main/res/layout/calendar_cell.xml" value="0.23802083333333332" />
-        <entry key="..\:/UI00/app/src/main/res/layout/design.xml" value="0.14895833333333333" />
-        <entry key="..\:/UI00/app/src/main/res/layout/dialog_cal.xml" value="0.25903614457831325" />
-        <entry key="..\:/UI00/app/src/main/res/layout/fab_receiptview.xml" value="0.264" />
-        <entry key="..\:/UI00/app/src/main/res/layout/frag_view_income.xml" value="0.264" />
-        <entry key="..\:/UI00/app/src/main/res/layout/frag_view_outlay.xml" value="0.264" />
-        <entry key="..\:/UI00/app/src/main/res/layout/fragment_item_view.xml" value="0.23802083333333332" />
-        <entry key="..\:/UI00/app/src/main/res/layout/frame_calender.xml" value="0.23802083333333332" />
-        <entry key="..\:/UI00/app/src/main/res/layout/frame_economy.xml" value="0.4" />
-        <entry key="..\:/UI00/app/src/main/res/layout/frame_history.xml" value="0.4" />
-        <entry key="..\:/UI00/app/src/main/res/layout/frame_home.xml" value="0.264" />
-        <entry key="..\:/UI00/app/src/main/res/layout/frame_main.xml" value="0.25364583333333335" />
-        <entry key="..\:/UI00/app/src/main/res/layout/frame_stats.xml" value="0.4" />
-        <entry key="..\:/UI00/app/src/main/res/layout/frame_total_stats.xml" value="0.1157548125633232" />
-        <entry key="..\:/UI00/app/src/main/res/layout/frame_travel.xml" value="0.1" />
-        <entry key="..\:/UI00/app/src/main/res/layout/item_listview.xml" value="0.264" />
-        <entry key="..\:/UI00/app/src/main/res/layout/money_input.xml" value="0.25364583333333335" />
-        <entry key="..\:/UI00/app/src/main/res/layout/ocr_view.xml" value="0.25364583333333335" />
-        <entry key="..\:/UI00/app/src/main/res/layout/receiptscan_view.xml" value="0.25364583333333335" />
-        <entry key="..\:/UI00/app/src/main/res/menu/bottom_menu.xml" value="0.264" />
-        <entry key="..\:/UI00/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.26979166666666665" />
-        <entry key="..\:/UI00/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.14583333333333334" />
         <entry key="..\:/UI5/app/src/main/res/drawable-v24/ic_baseline_add_24.xml" value="0.26979166666666665" />
         <entry key="..\:/UI5/app/src/main/res/drawable-v24/ic_baseline_add_circle_24.xml" value="0.26979166666666665" />
         <entry key="..\:/UI5/app/src/main/res/drawable-v24/ic_baseline_assessment_24.xml" value="0.26979166666666665" />
@@ -78,48 +34,77 @@
         <entry key="..\:/UI5/app/src/main/res/mipmap-anydpi-v26/ic_walleticon.xml" value="0.14583333333333334" />
         <entry key="..\:/UI5/app/src/main/res/mipmap-anydpi-v26/ic_walleticon_round.xml" value="0.14583333333333334" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable-v24/ic_baseline_add_24.xml" value="0.15925925925925927" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable-v24/ic_baseline_add_circle_24.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable-v24/ic_baseline_assessment_24.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable-v24/ic_baseline_calendar_today_24.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable-v24/ic_baseline_camera_alt_24.xml" value="0.15925925925925927" />
-        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable-v24/ic_baseline_pen_24.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/background_splash.xml" value="0.26564102564102565" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/circle.xml" value="0.20989583333333334" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/home_buttonui.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/ic_baseline_arrow_forward_ios_24.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/ic_baseline_crop_original_24.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/ic_baseline_history_24.xml" value="0.13489583333333333" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.13489583333333333" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/ic_baseline_receipt_24.xml" value="0.13489583333333333" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/ic_iconmonstr_bus_3.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/ic_walleticon_background.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/inout_buttonui.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/menu_selector_color.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/shape_itembackground.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/spinner_background.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/drawable/statebuttonui.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/activity_main.xml" value="0.6" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/activity_setting.xml" value="0.536" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/calendar_cell.xml" value="0.264" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/design.xml" value="0.6" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/dialog_cal.xml" value="0.4" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/fab_receiptview.xml" value="0.264" />
-        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/frag_view_income.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/frag_view_outlay.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/frag_view_income.xml" value="0.4" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/frag_view_outlay.xml" value="0.4" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/fragment_blank.xml" value="0.72" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/fragment_item_view.xml" value="0.39574468085106385" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/fragment_total_stats.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/frame_calender.xml" value="0.3055555555555556" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/frame_economy.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/frame_history.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/frame_home.xml" value="0.42311033883579496" />
         <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/frame_main.xml" value="0.24635416666666668" />
-        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/frame_stats.xml" value="0.24635416666666668" />
-        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/money_input.xml" value="0.24635416666666668" />
-        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/menu/bottom_menu.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable-v24/ic_baseline_add_circle_24.xml" value="0.2947916666666667" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/frame_stats.xml" value="0.26439232409381663" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/frame_total_stats.xml" value="0.176" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/item_listview.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/money_input.xml" value="0.1" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/ocr_view.xml" value="0.4" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/receiptscan_view.xml" value="0.4" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/layout/totalstats_view.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/menu/bottom_menu.xml" value="0.536" />
+        <entry key="..\:/Users/lala9/AndroidStudioProjects/AccountBook_UIUX/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.13489583333333333" />
+        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable-v24/ic_baseline_add_24.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable-v24/ic_baseline_add_circle_24.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable-v24/ic_baseline_assessment_24.xml" value="0.21875" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable-v24/ic_baseline_calendar_today_24.xml" value="0.21875" />
+        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable-v24/ic_baseline_pen_24.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.38229166666666664" />
-        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable/ic_baseline_crop_original_24.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable/ic_baseline_history_24.xml" value="0.21875" />
-        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable/ic_baseline_local_airport_24.xml" value="0.23229166666666667" />
-        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable/ic_iconmonstr_shopping_cart_1.xml" value="0.3484375" />
-        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable/ic_iconmonstr_video_8.xml" value="0.3484375" />
+        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable/ic_baseline_local_airport_24.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable/ic_baseline_receipt_24.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable/ic_launcher_background.xml" value="0.38229166666666664" />
-        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable/inout_buttonui.xml" value="0.23229166666666667" />
-        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable/menu_selector_color.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable/shape_itembackground.xml" value="0.1" />
-        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/drawable/spinner_background.xml" value="0.2864583333333333" />
-        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/activity_api.xml" value="0.2598958333333333" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/activity_setting.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/dialog_cal.xml" value="0.33" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/fab_receiptview.xml" value="0.28940217391304346" />
-        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/frag_view_income.xml" value="0.33" />
+        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/frag_view_income.xml" value="0.203125" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/frag_view_outlay.xml" value="0.25" />
-        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/fragment_item_view.xml" value="0.33229166666666665" />
-        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/frame_calender.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/frame_economy.xml" value="0.25" />
+        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/frame_barchart.xml" value="0.34148550724637683" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/frame_history.xml" value="0.33" />
-        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/frame_home.xml" value="0.33229166666666665" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/frame_main.xml" value="0.33" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/frame_stats.xml" value="0.33" />
-        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/frame_total_stats.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/frame_travel.xml" value="0.33" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/item_listview.xml" value="0.67" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/money_input.xml" value="0.25" />
-        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/ocr_view.xml" value="0.33" />
+        <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/ocr_view.xml" value="0.25" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/layout/receiptscan_view.xml" value="0.25" />
         <entry key="..\:/Users/njm12/AndroidStudioProjects/UI/app/src/main/res/menu/bottom_menu.xml" value="0.25" />
       </map>

@@ -144,6 +144,7 @@ public class DBHelper extends SQLiteOpenHelper
 
 
 
+
     public int getSum(String _type)
     {
         // _type변수에 table에 있는 type(수입 or 지출)을 넣어주면 type에 맞는 합계를 구해줌

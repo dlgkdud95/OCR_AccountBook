@@ -126,11 +126,6 @@ public class CalenderViewFragment extends Fragment implements CalendarAdapter.On
         return  daysInMonthArray;
     }
 
-    private String monthYearFromDate(LocalDate date) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy MMMM");
-        return date.format(formatter);
-    }
-
     private void floatingActionButton (View view_calender) {
 
         fab_main = (FloatingActionButton) view_calender.findViewById(R.id.fab_main);
@@ -181,12 +176,12 @@ public class CalenderViewFragment extends Fragment implements CalendarAdapter.On
         if(!dayText.equals(""))
         {
             String convMonth; // Converted Month
-            if(LocalDate.getMonthValue() < 10) convMonth = "0" + Integer.toString(LocalDate.getMonthValue()+1); // 2021-09-30 이렇게 데이터를 저장하기 위해 month가 9 미만이면 0을 붙여줌 (10이 아니라 9인 이유는 return 되는 month값이 +1을 해줘야 실제 month랑 같아짐)
-            else convMonth = Integer.toString(LocalDate.getMonthValue()+1);
+            if(Integer.valueOf(LocalDate.getMonthValue()) < 9) convMonth = "0" + Integer.toString(LocalDate.getMonthValue()); // 2021-09-30 이렇게 데이터를 저장하기 위해 month가 9 미만이면 0을 붙여줌 (10이 아니라 9인 이유는 return 되는 month값이 +1을 해줘야 실제 month랑 같아짐)
+            else convMonth = Integer.toString(LocalDate.getMonthValue());
 
             String convDay; // Converted Day
-            if(LocalDate.getDayOfMonth() < 10) convDay = "0" + Integer.toString(LocalDate.getDayOfMonth()); // day도 마찬가지
-            else convDay = Integer.toString(LocalDate.getDayOfMonth());
+            if(Integer.valueOf(dayText) < 10) convDay = "0" + dayText; // day도 마찬가지
+            else convDay = dayText;
 
             String selectedDate = Integer.toString(LocalDate.getYear())+ "-" + convMonth+ "-" + convDay; // 선택된 날짜 구하기 ex)2021-09-05
 
