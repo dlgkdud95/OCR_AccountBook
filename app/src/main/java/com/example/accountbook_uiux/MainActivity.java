@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements OnTabItemSelected
                         JSONObject object = jsonArray.getJSONObject(0);
                         String DATA_VALUE = object.getString("DATA_VALUE");
                         JSONObject object2 = jsonArray.getJSONObject(1); //1까지 파싱싱
-                       String DATA_VALUE2 = object2.getString("DATA_VALUE");
+                        String DATA_VALUE2 = object2.getString("DATA_VALUE");
 
                         double ystdayValue = Double.parseDouble(DATA_VALUE); // 어제값엔 어제값
                         double todayValue = Double.parseDouble(DATA_VALUE2); // 오늘값엔 오늘값
